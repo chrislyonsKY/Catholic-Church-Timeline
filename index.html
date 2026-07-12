@@ -42,7 +42,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -105,6 +106,63 @@ a {
 
 .site-header nav a:hover {
   color: var(--cardinal);
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid rgba(23, 22, 18, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.language-switch button {
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.language-switch button:hover {
+  color: var(--cardinal);
+}
+
+.language-switch button.active,
+.language-switch button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .hero {
@@ -1100,12 +1158,20 @@ footer {
     width: min(100% - 32px, 100%);
   }
 
+  .site-header {
+    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .site-header nav {
     gap: 16px;
   }
 
-  .site-header nav a:last-child {
-    display: none;
+  .header-tools {
+    width: 100%;
+    justify-content: space-between;
+    gap: 14px;
   }
 
   .hero {
@@ -1197,6 +1263,9 @@ footer {
 @media (max-width: 520px) {
   .site-header {
     min-height: 66px;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .wordmark {
@@ -1207,8 +1276,27 @@ footer {
     font-size: 10px;
   }
 
-  .site-header nav a:nth-child(2) {
-    display: none;
+  .header-tools {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .site-header nav {
+    width: 100%;
+    order: 2;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .language-switch {
+    order: 1;
+  }
+
+  .language-switch button {
+    min-height: 32px;
+    padding: 6px 9px;
+    font-size: 10px;
   }
 
   .hero h1 {
@@ -1301,18 +1389,26 @@ footer {
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#explore">Skip to the timeline</a>
   <main>
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Catholic Church timeline home">
         <span class="wordmark-cross" aria-hidden="true">✦</span>
         <span>Historia Ecclesiae</span>
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="#explore">Explore</a>
-        <a href="#apostles">Apostles</a>
-        <a href="#saints">Saints</a>
-        <a href="#sources">Sources</a>
-      </nav>
+      <div class="header-tools">
+        <nav aria-label="Primary navigation">
+          <a href="#explore">Explore</a>
+          <a href="#apostles">Apostles</a>
+          <a href="#saints">Saints</a>
+          <a href="#sources">Sources</a>
+        </nav>
+        <div class="language-switch" role="group" aria-label="Language / Idioma">
+          <button type="button" data-language="en" aria-pressed="true" lang="en">English</button>
+          <button type="button" data-language="es" aria-pressed="false" lang="es">Español</button>
+        </div>
+      </div>
+      <p class="standalone-note" id="languageStatus" aria-live="polite"></p>
     </header>
 
     <section class="hero" id="top">
@@ -1539,14 +1635,209 @@ footer {
 
     <footer><span>Historia Ecclesiae</span><span>Original timeline · Joe Bland · 2008</span><span>AD 30 — 2026</span></footer>
     <div id="detailRoot"></div>
-    <noscript><p class="standalone-note">JavaScript is required for the interactive timeline.</p></noscript>
+    <noscript><p class="standalone-note">JavaScript is required for the interactive timeline. / Se necesita JavaScript para utilizar la cronología interactiva.</p></noscript>
   </main>
 
   <script>
   (() => {
     "use strict";
     const DATA = {"EVENTS":[{"id":"pentecost","year":30,"yearLabel":"c. AD 30","title":"Pentecost and the Church’s public witness","category":"Turning points","era":"apostolic","summary":"The disciples receive the Holy Spirit and begin preaching in Jerusalem.","detail":"Acts presents Pentecost as the moment the apostolic community moves from waiting to public proclamation. Peter addresses the crowd, baptism follows, and a shared life of prayer, teaching, fellowship, and charity takes shape.","people":["Peter","The Twelve","Mary","The first disciples"],"source":"https://bible.usccb.org/bible/acts/2"},{"id":"paul-conversion","year":35,"yearLabel":"c. AD 33–36","title":"Conversion and mission of Paul","category":"Apostles","era":"apostolic","summary":"Saul’s encounter with the risen Christ begins a mission that carries the Gospel across the Roman world.","detail":"Paul’s journeys and letters help form communities across Asia Minor, Greece, and Rome. His letters become the earliest Christian writings preserved in the New Testament.","people":["Paul","Ananias","Barnabas"],"source":"https://bible.usccb.org/bible/acts/9"},{"id":"jerusalem-council","year":49,"yearLabel":"c. AD 49","title":"Council of Jerusalem","category":"Councils","era":"apostolic","summary":"The apostles discern how Gentile converts are to be received into the Church.","detail":"Acts 15 records a dispute, testimony from Peter, Paul, and Barnabas, and a judgment articulated by James. The gathering becomes the scriptural prototype for conciliar discernment.","people":["Peter","James","Paul","Barnabas"],"source":"https://bible.usccb.org/bible/acts/15"},{"id":"peter-paul-martyrdom","year":67,"yearLabel":"c. AD 64–67","title":"Martyrdom of Peter and Paul at Rome","category":"Apostles","era":"apostolic","summary":"Ancient tradition places the deaths of the two principal apostles during Nero’s persecution.","detail":"Their witness gives Rome a singular apostolic association. Catholic tradition regards Peter as the first Bishop of Rome and traces the Roman episcopal succession from him.","people":["Peter","Paul","Nero"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20060614.html"},{"id":"clement-letter","year":96,"yearLabel":"c. AD 96","title":"Clement of Rome writes to Corinth","category":"Popes","era":"apostolic","summary":"A Roman church leader intervenes in a dispute within the church at Corinth.","detail":"The letter known as First Clement is among the earliest Christian writings outside the New Testament and is important evidence for ministry, order, and Rome’s early pastoral concern for another local church.","people":["Clement I"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070307.html"},{"id":"ignatius-antioch","year":107,"yearLabel":"c. AD 107","title":"Ignatius of Antioch journeys to martyrdom","category":"Saints","era":"apostolic","summary":"Seven letters illuminate the faith, worship, and episcopal structure of the early Church.","detail":"On his way to execution in Rome, Ignatius writes about unity around the bishop, the Eucharist, Christ’s true humanity, and the worldwide communion of believers.","people":["Ignatius of Antioch"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070314.html"},{"id":"irenaeus","year":180,"yearLabel":"c. AD 180","title":"Irenaeus defends the apostolic faith","category":"Saints","era":"apostolic","summary":"Against Heresies appeals to Scripture, the rule of faith, and apostolic succession.","detail":"Irenaeus, Bishop of Lyon, connects the churches of East and West. His writing argues that the public teaching handed down through the bishops safeguards the unity of Christian faith.","people":["Irenaeus of Lyon"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070328.html"},{"id":"edict-milan","year":313,"yearLabel":"AD 313","title":"Edict of Milan","category":"Turning points","era":"imperial","summary":"Imperial policy grants Christians legal toleration after periods of persecution.","detail":"The agreement associated with Constantine and Licinius restores confiscated property and permits Christian worship. It changes the Church’s public position within the Roman Empire.","people":["Constantine","Licinius","Miltiades"]},{"id":"nicaea","year":325,"yearLabel":"AD 325","title":"First Council of Nicaea","category":"Councils","era":"imperial","summary":"The first ecumenical council confesses the Son as consubstantial with the Father.","detail":"Bishops gather at Nicaea to address the Arian controversy and other questions of discipline. The council’s creed becomes the foundation of the Nicene-Constantinopolitan Creed.","people":["Athanasius","Constantine","Hosius of Cordoba"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"constantinople","year":381,"yearLabel":"AD 381","title":"First Council of Constantinople","category":"Councils","era":"imperial","summary":"The council reaffirms Nicaea and clarifies the confession of the Holy Spirit.","detail":"The creed used in Catholic liturgy is conventionally called Nicene because it receives its mature conciliar form through Nicaea and Constantinople.","people":["Gregory of Nazianzus","Theodosius I"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"ephesus","year":431,"yearLabel":"AD 431","title":"Council of Ephesus","category":"Councils","era":"imperial","summary":"The council affirms Christ’s unity and Mary’s title Theotokos, Mother of God.","detail":"The title protects the confession that the one born of Mary is truly God incarnate. The council’s proceedings also expose deep theological and political tensions among major sees.","people":["Cyril of Alexandria","Nestorius"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"chalcedon","year":451,"yearLabel":"AD 451","title":"Council of Chalcedon","category":"Councils","era":"imperial","summary":"Christ is confessed as one person in two natures, without confusion or division.","detail":"Chalcedon receives Pope Leo I’s Tome and gives enduring language to the Church’s Christological confession, while also contributing to lasting divisions with Oriental Orthodox churches.","people":["Leo the Great","Pulcheria","Marcian"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"benedict-rule","year":529,"yearLabel":"c. AD 529","title":"Benedict establishes Monte Cassino","category":"Saints","era":"imperial","summary":"The Rule of Saint Benedict shapes Western monastic life around prayer, work, stability, and community.","detail":"Benedict’s balanced rule becomes a durable framework for monasteries that preserve learning, cultivate land, offer hospitality, and sustain worship across medieval Europe.","people":["Benedict of Nursia","Scholastica"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080409.html"},{"id":"gregory-great","year":590,"yearLabel":"AD 590","title":"Gregory the Great becomes pope","category":"Popes","era":"imperial","summary":"Gregory’s pastoral, liturgical, diplomatic, and missionary leadership marks the early medieval papacy.","detail":"A former prefect and monk, Gregory organizes relief in Rome, writes the Pastoral Rule, and sends Augustine’s mission to the English.","people":["Gregory I","Augustine of Canterbury"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080528.html"},{"id":"great-schism","year":1054,"yearLabel":"AD 1054","title":"East–West rupture deepens","category":"Turning points","era":"medieval","summary":"Mutual excommunications become a symbol of the widening breach between Rome and Constantinople.","detail":"The division between the Catholic and Eastern Orthodox churches developed over centuries; 1054 is a conventional marker, not a single clean moment of separation.","people":["Leo IX","Michael Cerularius","Humbert of Silva Candida"]},{"id":"francis","year":1209,"yearLabel":"c. AD 1209","title":"Franciscan movement receives papal approval","category":"Saints","era":"medieval","summary":"Francis of Assisi and his companions embrace a Gospel life of poverty, preaching, and service.","detail":"The mendicant movements bring a new form of religious life into rapidly growing towns and universities. Clare of Assisi develops the women’s branch of the Franciscan family.","people":["Francis of Assisi","Clare of Assisi","Innocent III"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100127.html"},{"id":"lateran-four","year":1215,"yearLabel":"AD 1215","title":"Fourth Lateran Council","category":"Councils","era":"medieval","summary":"A major medieval council addresses doctrine, reform, education, sacraments, and crusade.","detail":"Its decrees articulate Eucharistic teaching with the term transubstantiation and require annual confession and Easter Communion for the faithful who have reached the age of discretion.","people":["Innocent III"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"aquinas","year":1274,"yearLabel":"AD 1274","title":"Thomas Aquinas dies en route to Lyon","category":"Saints","era":"medieval","summary":"The Dominican theologian’s synthesis of faith and reason becomes foundational in Catholic thought.","detail":"The Summa theologiae integrates Scripture, patristic tradition, philosophy, and disputed questions in a structured account of God, creation, moral life, Christ, and the sacraments.","people":["Thomas Aquinas"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100602.html"},{"id":"western-schism","year":1378,"yearLabel":"AD 1378–1417","title":"Western Schism","category":"Turning points","era":"medieval","summary":"Competing papal claimants divide Western Christendom until the Council of Constance.","detail":"The crisis follows the Avignon Papacy and tests the Church’s structures of authority. The election of Martin V in 1417 restores a broadly recognized Roman succession.","people":["Gregory XI","Urban VI","Martin V"]},{"id":"reformation","year":1517,"yearLabel":"AD 1517","title":"The Protestant Reformation begins","category":"Turning points","era":"reformation","summary":"Martin Luther’s controversy over indulgences expands into disputes over authority, grace, sacraments, and reform.","detail":"Reform movements and political conflicts lead to enduring Western divisions and multiple Protestant traditions. Catholic reform was already underway in some settings and accelerates dramatically.","people":["Martin Luther","Leo X"]},{"id":"trent","year":1545,"yearLabel":"AD 1545–1563","title":"Council of Trent","category":"Councils","era":"reformation","summary":"The council defines Catholic teaching and launches a far-reaching program of institutional reform.","detail":"Across three periods, Trent addresses Scripture and tradition, justification, the sacraments, the Mass, episcopal residence, seminaries, and pastoral discipline.","people":["Paul III","Julius III","Pius IV","Charles Borromeo"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"jesuits","year":1540,"yearLabel":"AD 1540","title":"Society of Jesus approved","category":"Saints","era":"reformation","summary":"The Jesuits unite spiritual formation, education, mission, and direct service to the pope.","detail":"Ignatius of Loyola’s Spiritual Exercises and the Society’s global schools and missions become central to Catholic renewal in the early modern world.","people":["Ignatius of Loyola","Francis Xavier","Paul III"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20060422.html"},{"id":"rerum-novarum","year":1891,"yearLabel":"AD 1891","title":"Rerum novarum","category":"Documents","era":"modern","summary":"Leo XIII addresses labor, capital, private property, workers’ associations, and the duties of the state.","detail":"The encyclical becomes a landmark of modern Catholic social teaching and a reference point for later papal reflection on economic and social life.","people":["Leo XIII"],"source":"https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html"},{"id":"vatican-one","year":1869,"yearLabel":"AD 1869–1870","title":"First Vatican Council","category":"Councils","era":"modern","summary":"The council teaches on faith and reason and defines papal primacy and infallibility under specific conditions.","detail":"The council is suspended as Italian forces enter Rome. Its constitutions Dei Filius and Pastor aeternus shape subsequent Catholic ecclesiology.","people":["Pius IX"],"source":"https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"},{"id":"vatican-two","year":1962,"yearLabel":"AD 1962–1965","title":"Second Vatican Council","category":"Councils","era":"contemporary","summary":"The council renews Catholic engagement with Scripture, liturgy, ecclesiology, ecumenism, religious liberty, and the modern world.","detail":"More than 2,000 bishops participate across four sessions. The council produces four constitutions, nine decrees, and three declarations.","people":["John XXIII","Paul VI"],"source":"https://www.vatican.va/archive/hist_councils/ii_vatican_council/index.htm"},{"id":"catechism","year":1992,"yearLabel":"AD 1992","title":"Catechism of the Catholic Church promulgated","category":"Documents","era":"contemporary","summary":"A universal catechism organizes Catholic teaching around creed, sacraments, moral life, and prayer.","detail":"Requested by the 1985 Synod of Bishops, the Catechism serves as a reference text for local catechisms and instruction throughout the worldwide Church.","people":["John Paul II","Joseph Ratzinger"],"source":"https://www.vatican.va/archive/ENG0015/_INDEX.HTM"},{"id":"stephen-martyr","year":34,"yearLabel":"c. AD 34–36","title":"Stephen becomes the first Christian martyr","category":"Saints","era":"apostolic","summary":"A deacon of the Jerusalem community bears witness before the council and is killed outside the city.","detail":"Acts describes Stephen as filled with faith and the Holy Spirit. His final prayer echoes Christ’s forgiveness from the cross, and Saul appears among those consenting to his death.","people":["Stephen","Saul"],"source":"https://bible.usccb.org/bible/acts/6"},{"id":"perpetua-felicity","year":203,"yearLabel":"AD 203","title":"Perpetua and Felicity are martyred at Carthage","category":"Saints","era":"apostolic","summary":"The prison account of two young North African Christians becomes an enduring record of early martyrdom.","detail":"The Passion of Saints Perpetua and Felicity preserves Perpetua’s first-person prison narrative alongside an editor’s account of the group’s execution in the amphitheater.","people":["Perpetua","Felicity","Saturus"]},{"id":"diocletian-persecution","year":303,"yearLabel":"AD 303–311","title":"The Great Persecution","category":"Turning points","era":"apostolic","summary":"Imperial edicts target churches, Scriptures, clergy, and Christians who refuse sacrifice.","detail":"The persecution varies sharply across the empire but becomes the last and most systematic Roman attempt to suppress Christianity before toleration.","people":["Diocletian","Galerius"]},{"id":"augustine-hippo","year":395,"yearLabel":"AD 395","title":"Augustine becomes Bishop of Hippo","category":"Saints","era":"imperial","summary":"The North African pastor and theologian shapes Western reflection on grace, community, history, and the human heart.","detail":"Augustine’s Confessions, City of God, sermons, letters, and theological controversies leave one of the largest and most influential bodies of writing in the Latin Church.","people":["Augustine of Hippo","Monica","Ambrose"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080109.html"},{"id":"vulgate","year":405,"yearLabel":"c. AD 405","title":"Jerome completes major work on the Latin Bible","category":"Documents","era":"imperial","summary":"Jerome’s translations and revisions become the foundation of the Latin Vulgate tradition.","detail":"Working from Hebrew and Greek texts, Jerome produces and revises biblical books over several decades. The resulting Latin tradition profoundly shapes Western worship, theology, art, and language.","people":["Jerome","Paula of Rome","Damasus I"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20071107.html"},{"id":"patrick-ireland","year":432,"yearLabel":"c. AD 432","title":"Patrick’s mission in Ireland","category":"Saints","era":"imperial","summary":"A former captive returns as a bishop and missionary to serve the Irish people.","detail":"Patrick’s own Confession presents a life marked by enslavement, conversion, vocation, and mission. Later tradition expands his story, but his writings remain the essential historical witness.","people":["Patrick of Ireland"]},{"id":"nicaea-two","year":787,"yearLabel":"AD 787","title":"Second Council of Nicaea","category":"Councils","era":"imperial","summary":"The council distinguishes the veneration of sacred images from the worship owed to God alone.","detail":"Nicaea II ends the first phase of Byzantine iconoclasm and is recognized as the seventh ecumenical council by both Catholic and Eastern Orthodox churches.","people":["Irene of Athens","Adrian I","Tarasios of Constantinople"],"source":"https://www.vatican.va/content/john-paul-ii/en/apost_letters/1987/documents/hf_jp-ii_apl_19871204_duodecimum-saeculum.html"},{"id":"charlemagne-crowned","year":800,"yearLabel":"AD 800","title":"Charlemagne crowned emperor in Rome","category":"Turning points","era":"imperial","summary":"Leo III’s coronation of the Frankish king binds papal, imperial, and European politics in a new form.","detail":"The Christmas Day coronation becomes a major symbol in the development of the medieval West and the later Holy Roman Empire, while intensifying tensions with Byzantium.","people":["Charlemagne","Leo III"]},{"id":"cyril-methodius","year":863,"yearLabel":"AD 863","title":"Cyril and Methodius begin the Moravian mission","category":"Saints","era":"medieval","summary":"The brothers translate Scripture and worship for Slavic peoples and train local clergy.","detail":"Their mission models the translation of Christian faith into local language and culture. Their disciples develop the Cyrillic script after Cyril’s death.","people":["Cyril","Methodius","Adrian II"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2009/documents/hf_ben-xvi_aud_20090617.html"},{"id":"cluny","year":910,"yearLabel":"AD 910","title":"Abbey of Cluny founded","category":"Turning points","era":"medieval","summary":"A reformed Benedictine house becomes the center of a major movement of monastic and liturgical renewal.","detail":"Cluny’s unusual freedom from local lay control and its network of dependent houses give its customs and reforming influence exceptional reach across medieval Europe.","people":["William I of Aquitaine","Bern Odo"]},{"id":"first-crusade","year":1095,"yearLabel":"AD 1095","title":"Urban II calls the First Crusade","category":"Turning points","era":"medieval","summary":"A call for armed pilgrimage sets in motion campaigns that transform relations among Christians, Muslims, and Jews.","detail":"The crusading movement is religious, political, military, and social. Its history includes pilgrimage and reform ideals alongside conquest, massacre, rivalry, and enduring trauma.","people":["Urban II","Alexios I Komnenos"]},{"id":"dominicans-approved","year":1216,"yearLabel":"AD 1216","title":"Order of Preachers confirmed","category":"Saints","era":"medieval","summary":"Dominic’s community joins common life, study, poverty, and preaching in service of the Gospel.","detail":"The Dominican order becomes a major intellectual, missionary, and pastoral presence in the Church, producing theologians and mystics including Thomas Aquinas and Catherine of Siena.","people":["Dominic de Guzmán","Honorius III"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100203.html"},{"id":"avignon-papacy","year":1309,"yearLabel":"AD 1309–1377","title":"The papacy resides at Avignon","category":"Popes","era":"medieval","summary":"Seven successive popes govern from Avignon during a period of strong French influence.","detail":"The papal administration grows more centralized and sophisticated, but its absence from Rome damages prestige and contributes to conditions preceding the Western Schism.","people":["Clement V","Gregory XI","Catherine of Siena"]},{"id":"guadalupe","year":1531,"yearLabel":"AD 1531","title":"Our Lady of Guadalupe tradition begins","category":"Saints","era":"reformation","summary":"Catholic tradition holds that Mary appears to the Indigenous convert Juan Diego near Mexico City.","detail":"The Guadalupe devotion becomes inseparable from the history and identity of Mexican and wider American Catholicism. Juan Diego is canonized in 2002.","people":["Juan Diego","Bishop Juan de Zumárraga"],"source":"https://www.vatican.va/content/john-paul-ii/en/homilies/2002/documents/hf_jp-ii_hom_20020731_canonization-mexico.html"},{"id":"teresa-reform","year":1562,"yearLabel":"AD 1562","title":"Teresa of Ávila founds Saint Joseph’s","category":"Saints","era":"reformation","summary":"A Carmelite reform begins with a small community devoted to prayer, simplicity, and common life.","detail":"Teresa’s foundations and spiritual writings, joined by John of the Cross’s work, renew Carmelite life and become classics of Christian mysticism.","people":["Teresa of Ávila","John of the Cross"],"source":"https://www.vatican.va/content/benedict-xvi/en/audiences/2011/documents/hf_ben-xvi_aud_20110202.html"},{"id":"gregorian-calendar","year":1582,"yearLabel":"AD 1582","title":"Gregorian calendar promulgated","category":"Documents","era":"reformation","summary":"Gregory XIII reforms the calendar to realign the date of the spring equinox used in calculating Easter.","detail":"Catholic countries adopt the reform first; other states follow over succeeding centuries. The calendar eventually becomes the dominant civil calendar worldwide.","people":["Gregory XIII","Aloysius Lilius","Christopher Clavius"]},{"id":"vincent-charity","year":1617,"yearLabel":"AD 1617","title":"Vincent de Paul organizes missions and charity","category":"Saints","era":"reformation","summary":"Experiences at Folleville and Châtillon redirect Vincent’s ministry toward rural preaching and organized care for the poor.","detail":"The Confraternities of Charity, Congregation of the Mission, and Daughters of Charity give durable institutional form to service, formation, and practical mercy.","people":["Vincent de Paul","Louise de Marillac"]},{"id":"immaculate-conception","year":1854,"yearLabel":"AD 1854","title":"Immaculate Conception defined","category":"Documents","era":"modern","summary":"Pius IX solemnly defines that Mary was preserved from original sin from the first moment of her conception.","detail":"The definition in Ineffabilis Deus gives dogmatic form to a belief with a long and sometimes disputed history in Christian worship and theology.","people":["Pius IX"],"source":"https://www.vatican.va/content/pius-ix/en/documents/enciclica-ineffabilis-deus-8-dicembre-1854.html"},{"id":"lourdes","year":1858,"yearLabel":"AD 1858","title":"Apparitions at Lourdes","category":"Saints","era":"modern","summary":"Bernadette Soubirous reports a series of Marian apparitions at Massabielle in southern France.","detail":"After ecclesiastical investigation, Lourdes becomes a major place of pilgrimage, prayer, reconciliation, and ministry to the sick. Bernadette is canonized in 1933.","people":["Bernadette Soubirous"]},{"id":"fatima","year":1917,"yearLabel":"AD 1917","title":"Apparitions at Fátima","category":"Saints","era":"modern","summary":"Three shepherd children report Marian apparitions centered on prayer, conversion, and peace.","detail":"Fátima becomes one of the world’s major Marian shrines. Francisco and Jacinta Marto are canonized in 2017; Lúcia dos Santos later enters religious life.","people":["Lúcia dos Santos","Francisco Marto","Jacinta Marto"],"source":"https://www.vatican.va/content/francesco/en/homilies/2017/documents/papa-francesco_20170513_omelia-pellegrinaggio-fatima.html"},{"id":"lateran-treaty","year":1929,"yearLabel":"AD 1929","title":"Lateran Treaty establishes Vatican City State","category":"Turning points","era":"modern","summary":"An agreement between the Holy See and Italy resolves the Roman Question and establishes Vatican sovereignty.","detail":"The treaty creates the territorial state that guarantees the Holy See’s independence while a concordat regulates Church–state relations in Italy.","people":["Pius XI","Pietro Gasparri","Benito Mussolini"]},{"id":"assumption-defined","year":1950,"yearLabel":"AD 1950","title":"Assumption of Mary defined","category":"Documents","era":"modern","summary":"Pius XII defines that Mary was taken body and soul into heavenly glory at the end of her earthly life.","detail":"Munificentissimus Deus gives dogmatic definition to a conviction expressed for centuries in Eastern and Western liturgy and devotion.","people":["Pius XII"],"source":"https://www.vatican.va/content/pius-xii/en/apost_constitutions/documents/hf_p-xii_apc_19501101_munificentissimus-deus.html"},{"id":"john-paul-two","year":1978,"yearLabel":"AD 1978–2005","title":"Pontificate of John Paul II","category":"Popes","era":"contemporary","summary":"The first non-Italian pope in 455 years undertakes a global ministry through extensive travel, teaching, and public witness.","detail":"Karol Wojtyła’s long pontificate spans the fall of European communism, the new evangelization, the 1983 Code of Canon Law, the Catechism, interreligious encounters, and World Youth Day.","people":["John Paul II"],"source":"https://www.vatican.va/content/john-paul-ii/en.html"},{"id":"benedict-sixteen","year":2005,"yearLabel":"AD 2005–2013","title":"Pontificate of Benedict XVI","category":"Popes","era":"contemporary","summary":"The theologian-pope centers his teaching on Christ, faith and reason, Scripture, liturgy, hope, and charity.","detail":"Joseph Ratzinger succeeds John Paul II and resigns in 2013, becoming the first pope in nearly six centuries to renounce the papal office.","people":["Benedict XVI"],"source":"https://www.vatican.va/content/benedict-xvi/en.html"},{"id":"francis-pontificate","year":2013,"yearLabel":"AD 2013–2025","title":"Pontificate of Francis","category":"Popes","era":"contemporary","summary":"The first pope from the Americas emphasizes missionary discipleship, mercy, synodality, and care for creation.","detail":"Jorge Mario Bergoglio, the former Archbishop of Buenos Aires, becomes the first Jesuit pope. His major texts include Evangelii gaudium, Laudato si’, and Fratelli tutti.","people":["Francis"],"source":"https://www.vatican.va/content/francesco/en.html"},{"id":"leo-fourteen","year":2025,"yearLabel":"AD 2025–present","title":"Leo XIV becomes the 267th pope","category":"Popes","era":"contemporary","summary":"Robert Francis Prevost is elected Bishop of Rome on 8 May 2025.","detail":"The Holy See’s official pontiff list identifies Leo XIV as the 267th pope. Born in Chicago and long active in Peru, he is the first pope from the Order of Saint Augustine.","people":["Leo XIV"],"source":"https://www.vatican.va/content/leo-xiv/en.html"}],"SAINTS":[{"name":"Stephen","dates":"d. c. 34–36","period":"early","place":"Jerusalem","note":"Deacon and first Christian martyr"},{"name":"Ignatius of Antioch","dates":"d. c. 107","period":"early","place":"Antioch · Rome","note":"Bishop, martyr, and witness to early catholic unity"},{"name":"Perpetua & Felicity","dates":"d. 203","period":"early","place":"Carthage","note":"North African martyrs whose prison witness survives"},{"name":"Irenaeus of Lyon","dates":"c. 130–c. 202","period":"early","place":"Smyrna · Lyon","note":"Defender of apostolic tradition and the unity of Scripture"},{"name":"Athanasius","dates":"c. 296–373","period":"founders","place":"Alexandria","note":"Bishop and persistent defender of Nicene faith"},{"name":"Monica & Augustine","dates":"331–430","period":"founders","place":"North Africa","note":"Mother and son; witnesses to prayer, conversion, and grace"},{"name":"Jerome","dates":"c. 347–420","period":"founders","place":"Rome · Bethlehem","note":"Biblical scholar and architect of the Latin Vulgate"},{"name":"Patrick","dates":"5th century","period":"founders","place":"Britain · Ireland","note":"Former captive, bishop, and missionary"},{"name":"Benedict & Scholastica","dates":"c. 480–547","period":"founders","place":"Nursia · Monte Cassino","note":"Foundational figures of Western monastic life"},{"name":"Gregory the Great","dates":"c. 540–604","period":"founders","place":"Rome","note":"Monk, pope, pastor, diplomat, and missionary leader"},{"name":"Cyril & Methodius","dates":"9th century","period":"medieval","place":"Thessalonica · Moravia","note":"Missionaries and patrons of Europe’s Slavic peoples"},{"name":"Hildegard of Bingen","dates":"1098–1179","period":"medieval","place":"Rhineland","note":"Abbess, composer, visionary, naturalist, and Doctor of the Church"},{"name":"Francis & Clare","dates":"1181/94–1253","period":"medieval","place":"Assisi","note":"Gospel poverty, fraternity, contemplation, and care for creation"},{"name":"Dominic","dates":"c. 1170–1221","period":"medieval","place":"Castile · Italy","note":"Founder of the Order of Preachers"},{"name":"Thomas Aquinas","dates":"1225–1274","period":"medieval","place":"Italy · Paris","note":"Dominican theologian and Doctor of the Church"},{"name":"Catherine of Siena","dates":"1347–1380","period":"medieval","place":"Siena · Rome","note":"Mystic, peacemaker, papal counselor, and Doctor of the Church"},{"name":"Teresa of Ávila","dates":"1515–1582","period":"renewal","place":"Spain","note":"Carmelite reformer, mystic, writer, and Doctor of the Church"},{"name":"Ignatius & Francis Xavier","dates":"1491–1556","period":"renewal","place":"Europe · Asia","note":"Jesuit founders joining discernment, education, and mission"},{"name":"Vincent & Louise","dates":"1581–1660","period":"renewal","place":"France","note":"Organizers of formation and practical service to the poor"},{"name":"Kateri Tekakwitha","dates":"1656–1680","period":"renewal","place":"Haudenosaunee lands","note":"First canonized Indigenous woman of North America"},{"name":"Thérèse of Lisieux","dates":"1873–1897","period":"modern","place":"Normandy","note":"Carmelite whose ‘little way’ centers ordinary life in love"},{"name":"Maximilian Kolbe","dates":"1894–1941","period":"modern","place":"Poland · Auschwitz","note":"Franciscan priest who volunteered to die in another prisoner’s place"},{"name":"Edith Stein","dates":"1891–1942","period":"modern","place":"Germany · Auschwitz","note":"Philosopher, Carmelite, Jewish-Christian martyr, and patron of Europe"},{"name":"Óscar Romero","dates":"1917–1980","period":"modern","place":"El Salvador","note":"Archbishop and martyr who defended the poor amid political violence"},{"name":"Teresa of Calcutta","dates":"1910–1997","period":"modern","place":"Skopje · Kolkata","note":"Founder of the Missionaries of Charity"},{"name":"John Paul II","dates":"1920–2005","period":"modern","place":"Poland · Rome","note":"Pope, philosopher, global pastor, and witness under totalitarianism"}],"categoryClass":{"Apostles":"apostles","Saints":"saints","Popes":"popes","Councils":"councils","Turning points":"turning-points","Documents":"documents"}};
-    const state = { query: "", categories: new Set(), era: "all", saintPeriod: "all" };
+    const SPANISH = {
+      title: "Dos mil años de la Iglesia católica",
+      description: "Una cronología interactiva de los apóstoles, los santos, los papas, los concilios y los momentos decisivos de la historia de la Iglesia católica.",
+      categories: {
+        "Apostles": "Apóstoles",
+        "Saints": "Santos",
+        "Popes": "Papas",
+        "Councils": "Concilios",
+        "Turning points": "Momentos decisivos",
+        "Documents": "Documentos"
+      },
+      names: {
+        "Peter": "Pedro", "The Twelve": "Los Doce", "Mary": "María", "The first disciples": "Los primeros discípulos",
+        "Paul": "Pablo", "Ananias": "Ananías", "Barnabas": "Bernabé", "James": "Santiago", "Nero": "Nerón",
+        "Clement I": "Clemente I", "Ignatius of Antioch": "Ignacio de Antioquía", "Irenaeus of Lyon": "Ireneo de Lyon",
+        "Constantine": "Constantino", "Licinius": "Licinio", "Miltiades": "Melquíades", "Athanasius": "Atanasio",
+        "Hosius of Cordoba": "Osio de Córdoba", "Gregory of Nazianzus": "Gregorio Nacianceno", "Theodosius I": "Teodosio I",
+        "Cyril of Alexandria": "Cirilo de Alejandría", "Nestorius": "Nestorio", "Leo the Great": "León Magno",
+        "Marcian": "Marciano", "Benedict of Nursia": "Benito de Nursia", "Scholastica": "Escolástica",
+        "Gregory I": "Gregorio I", "Augustine of Canterbury": "Agustín de Canterbury", "Leo IX": "León IX",
+        "Michael Cerularius": "Miguel Cerulario", "Humbert of Silva Candida": "Humberto de Silva Candida",
+        "Francis of Assisi": "Francisco de Asís", "Clare of Assisi": "Clara de Asís", "Innocent III": "Inocencio III",
+        "Thomas Aquinas": "Tomás de Aquino", "Gregory XI": "Gregorio XI", "Urban VI": "Urbano VI", "Martin V": "Martín V",
+        "Martin Luther": "Martín Lutero", "Leo X": "León X", "Paul III": "Pablo III", "Julius III": "Julio III",
+        "Pius IV": "Pío IV", "Charles Borromeo": "Carlos Borromeo", "Ignatius of Loyola": "Ignacio de Loyola",
+        "Francis Xavier": "Francisco Javier", "Leo XIII": "León XIII", "Pius IX": "Pío IX", "John XXIII": "Juan XXIII",
+        "Paul VI": "Pablo VI", "John Paul II": "Juan Pablo II", "Stephen": "Esteban", "Saul": "Saulo",
+        "Felicity": "Felicidad", "Saturus": "Sáturo", "Diocletian": "Diocleciano", "Galerius": "Galerio",
+        "Augustine of Hippo": "Agustín de Hipona", "Monica": "Mónica", "Ambrose": "Ambrosio", "Jerome": "Jerónimo",
+        "Paula of Rome": "Paula de Roma", "Damasus I": "Dámaso I", "Patrick of Ireland": "Patricio de Irlanda",
+        "Irene of Athens": "Irene de Atenas", "Adrian I": "Adriano I", "Tarasios of Constantinople": "Tarasio de Constantinopla",
+        "Charlemagne": "Carlomagno", "Leo III": "León III", "Cyril": "Cirilo", "Methodius": "Metodio", "Adrian II": "Adriano II",
+        "William I of Aquitaine": "Guillermo I de Aquitania", "Bern Odo": "Berno y Odón", "Urban II": "Urbano II",
+        "Alexios I Komnenos": "Alejo I Comneno", "Dominic de Guzmán": "Domingo de Guzmán", "Honorius III": "Honorio III",
+        "Clement V": "Clemente V", "Catherine of Siena": "Catalina de Siena", "Bishop Juan de Zumárraga": "Obispo Juan de Zumárraga",
+        "John of the Cross": "Juan de la Cruz", "Gregory XIII": "Gregorio XIII", "Aloysius Lilius": "Luis Lilio",
+        "Christopher Clavius": "Cristóbal Clavio", "Vincent de Paul": "Vicente de Paúl", "Louise de Marillac": "Luisa de Marillac",
+        "Pius XI": "Pío XI", "Pius XII": "Pío XII", "Benedict XVI": "Benedicto XVI", "Francis": "Francisco", "Leo XIV": "León XIV"
+      },
+      static: {
+        "Skip to the timeline": "Saltar a la cronología",
+        "Catholic Church timeline home": "Inicio de la cronología de la Iglesia católica",
+        "Primary navigation": "Navegación principal",
+        "Explore": "Explorar", "Apostles": "Apóstoles", "Saints": "Santos", "Sources": "Fuentes",
+        "AD 30 — 2026 · An interactive chronology": "30 d. C. — 2026 · Una cronología interactiva",
+        "Two thousand years of the": "Dos mil años de la", "Catholic Church": "Iglesia católica",
+        "Follow the apostolic witness, saints, councils, papal succession, reform, division, and renewal across twenty centuries.": "Recorre el testimonio apostólico, los santos, los concilios, la sucesión papal, la reforma, la división y la renovación a lo largo de veinte siglos.",
+        "Enter the timeline": "Entrar en la cronología", "Meet the apostles": "Conocer a los apóstoles",
+        "Original timeline credit": "Crédito de la cronología original", "Original hand-drawn chronology": "Cronología original dibujada a mano",
+        "Created by": "Creada por", "curated milestones": "hitos seleccionados", "apostolic profiles": "perfiles apostólicos",
+        "numbered pontificates": "pontificados numerados", "Timeline summary": "Resumen de la cronología",
+        "Historical eras": "Épocas históricas", "Apostolic Church": "Iglesia apostólica", "Councils & Fathers": "Concilios y Padres",
+        "Medieval Church": "Iglesia medieval", "Reformation & Renewal": "Reforma y renovación", "Modern Church": "Iglesia moderna",
+        "Contemporary Church": "Iglesia contemporánea", "The chronology": "La cronología", "Explore the living line": "Explora la línea viva",
+        "Select a lane, search a person or event, then open any marker for context.": "Selecciona una categoría, busca una persona o un acontecimiento y abre cualquier hito para conocer su contexto.",
+        "Timeline filters": "Filtros de la cronología", "Search the timeline": "Buscar en la cronología",
+        "Try ‘Aquinas’, ‘council’, or ‘Peter’": "Prueba «Aquino», «concilio» o «Pedro»", "Filter by category": "Filtrar por categoría",
+        "Popes": "Papas", "Councils": "Concilios", "Turning points": "Momentos decisivos", "Documents": "Documentos",
+        "Clear all filters": "Borrar todos los filtros", "No entries match this view": "No hay entradas que coincidan con esta vista",
+        "Try another term or clear one of the selected lanes.": "Prueba otro término o elimina una de las categorías seleccionadas.",
+        "Reset the timeline": "Restablecer la cronología", "The first witnesses": "Los primeros testigos", "Apostles in focus": "Los apóstoles en primer plano",
+        "The Twelve form the foundation of the apostolic college. Matthias replaces Judas Iscariot; Paul and Barnabas carry the mission outward; Mary Magdalene is honored as the witness sent to announce the Resurrection.": "Los Doce forman el fundamento del colegio apostólico. Matías sustituye a Judas Iscariote; Pablo y Bernabé llevan la misión más allá; María Magdalena es honrada como la testigo enviada a anunciar la Resurrección.",
+        "Peter": "Pedro", "The Rock · first among the Twelve · witness at Rome": "La Roca · primero entre los Doce · testigo en Roma",
+        "Andrew": "Andrés", "Brother of Peter · brings others to Jesus": "Hermano de Pedro · lleva a otros hasta Jesús",
+        "James the Greater": "Santiago el Mayor", "Son of Zebedee · first of the Twelve martyred": "Hijo de Zebedeo · primer mártir de los Doce",
+        "John": "Juan", "Son of Zebedee · beloved disciple in Christian tradition": "Hijo de Zebedeo · discípulo amado en la tradición cristiana",
+        "Philip": "Felipe", "Called at Bethsaida · speaks with Jesus before the loaves": "Llamado en Betsaida · habla con Jesús antes de la multiplicación de los panes",
+        "Bartholomew": "Bartolomé", "Traditionally identified with Nathanael": "Tradicionalmente identificado con Natanael",
+        "Matthew": "Mateo", "Tax collector called from his post": "Recaudador de impuestos llamado desde su puesto",
+        "Thomas": "Tomás", "Confesses: ‘My Lord and my God’": "Confiesa: «Señor mío y Dios mío»",
+        "James the Less": "Santiago el Menor", "Son of Alphaeus · one of the Twelve": "Hijo de Alfeo · uno de los Doce",
+        "Jude Thaddeus": "Judas Tadeo", "Also called Judas, not Iscariot": "También llamado Judas, no el Iscariote",
+        "Simon the Zealot": "Simón el Zelote", "Named among the Twelve in the Gospels": "Nombrado entre los Doce en los Evangelios",
+        "Matthias": "Matías", "Chosen to take Judas Iscariot’s place": "Elegido para ocupar el lugar de Judas Iscariote",
+        "Paul": "Pablo", "Apostle to the Gentiles · missionary and letter writer": "Apóstol de los gentiles · misionero y autor de cartas",
+        "Barnabas": "Bernabé", "Missionary companion · called an apostle in Acts": "Compañero de misión · llamado apóstol en Hechos",
+        "Mary Magdalene": "María Magdalena", "Witness of the Resurrection · ‘apostle to the apostles’": "Testigo de la Resurrección · «apóstol de los apóstoles»",
+        "Read the Vatican catecheses on the apostles": "Leer las catequesis del Vaticano sobre los apóstoles",
+        "Holiness through history": "La santidad a través de la historia", "Saints across the centuries": "Santos a lo largo de los siglos",
+        "Not a separate line from Church history, but people within it: martyrs, bishops, monastics, scholars, missionaries, reformers, and servants of the poor. Filter the gallery to follow changing forms of Christian witness.": "No son una línea separada de la historia de la Iglesia, sino personas dentro de ella: mártires, obispos, monjes, estudiosos, misioneros, reformadores y servidores de los pobres. Filtra la galería para seguir las diversas formas del testimonio cristiano.",
+        "Filter saints by historical period": "Filtrar santos por período histórico", "All periods": "Todos los períodos",
+        "Early witnesses": "Primeros testigos", "Fathers & founders": "Padres y fundadores", "Medieval voices": "Voces medievales",
+        "Reform & mission": "Reforma y misión", "Modern witnesses": "Testigos modernos",
+        "The dates describe earthly life; “c.” indicates approximation.": "Las fechas describen la vida terrena; «c.» indica aproximación.",
+        "This is a representative reading path, not a ranking or a complete calendar. The worldwide Catholic Church venerates saints from far more communities, cultures, vocations, and periods than a single timeline can display.": "Este es un recorrido representativo, no una clasificación ni un calendario completo. La Iglesia católica universal venera a santos de muchas más comunidades, culturas, vocaciones y épocas de las que puede mostrar una sola cronología.",
+        "Dicastery for the Causes of Saints": "Dicasterio para las Causas de los Santos", "Method & sources": "Método y fuentes",
+        "An interpretive map, carefully sourced": "Un mapa interpretativo, cuidadosamente documentado",
+        "Dates marked “c.” are approximate. Complex separations such as the East–West Schism are shown as processes, not single-day events.": "Las fechas marcadas con «c.» son aproximadas. Las separaciones complejas, como el Cisma de Oriente y Occidente, se muestran como procesos y no como acontecimientos de un solo día.",
+        "Official list of Supreme Pontiffs": "Lista oficial de Sumos Pontífices", "The Holy See · Peter through Leo XIV": "La Santa Sede · de Pedro a León XIV",
+        "Historical councils archive": "Archivo histórico de los concilios", "The Holy See · conciliar documents": "La Santa Sede · documentos conciliares",
+        "Catechism of the Catholic Church": "Catecismo de la Iglesia católica", "Doctrine, worship, moral life, and prayer": "Doctrina, culto, vida moral y oración",
+        "New American Bible": "Nueva Biblia Americana", "USCCB · scriptural chronology and apostolic narratives": "USCCB · cronología bíblica y relatos apostólicos",
+        "This interactive reconstruction follows Joe Bland’s 2008 hand-drawn timeline while checking chronology against the linked references. It is a curated learning aid, not an exhaustive ecclesiastical history.": "Esta reconstrucción interactiva sigue la cronología dibujada a mano por Joe Bland en 2008 y contrasta las fechas con las referencias enlazadas. Es una herramienta educativa seleccionada, no una historia eclesiástica exhaustiva.",
+        "Original timeline · Joe Bland · 2008": "Cronología original · Joe Bland · 2008", "AD 30 — 2026": "30 d. C. — 2026",
+        "JavaScript is required for the interactive timeline.": "Se necesita JavaScript para utilizar la cronología interactiva."
+      },
+      events: {
+        "pentecost": {"title":"Pentecostés y el testimonio público de la Iglesia","summary":"Los discípulos reciben el Espíritu Santo y comienzan a predicar en Jerusalén.","detail":"Hechos presenta Pentecostés como el momento en que la comunidad apostólica pasa de la espera a la proclamación pública. Pedro se dirige a la multitud, sigue el bautismo y toma forma una vida compartida de oración, enseñanza, comunión y caridad."},
+        "paul-conversion": {"title":"Conversión y misión de Pablo","summary":"El encuentro de Saulo con Cristo resucitado inicia una misión que lleva el Evangelio por todo el mundo romano.","detail":"Los viajes y las cartas de Pablo ayudan a formar comunidades en Asia Menor, Grecia y Roma. Sus cartas se convierten en los escritos cristianos más antiguos conservados en el Nuevo Testamento."},
+        "jerusalem-council": {"title":"Concilio de Jerusalén","summary":"Los apóstoles disciernen cómo han de ser recibidos en la Iglesia los conversos gentiles.","detail":"Hechos 15 relata una disputa, los testimonios de Pedro, Pablo y Bernabé, y una decisión formulada por Santiago. La reunión se convierte en el prototipo bíblico del discernimiento conciliar."},
+        "peter-paul-martyrdom": {"title":"Martirio de Pedro y Pablo en Roma","summary":"La tradición antigua sitúa la muerte de los dos principales apóstoles durante la persecución de Nerón.","detail":"Su testimonio otorga a Roma una singular asociación apostólica. La tradición católica considera a Pedro el primer obispo de Roma y remonta a él la sucesión episcopal romana."},
+        "clement-letter": {"title":"Clemente de Roma escribe a Corinto","summary":"Un dirigente de la Iglesia de Roma interviene en una disputa dentro de la iglesia de Corinto.","detail":"La carta conocida como Primera de Clemente figura entre los primeros escritos cristianos fuera del Nuevo Testamento y ofrece un testimonio importante sobre el ministerio, el orden y la temprana solicitud pastoral de Roma por otra iglesia local."},
+        "ignatius-antioch": {"title":"Ignacio de Antioquía camina hacia el martirio","summary":"Siete cartas iluminan la fe, el culto y la estructura episcopal de la Iglesia primitiva.","detail":"Camino de su ejecución en Roma, Ignacio escribe sobre la unidad en torno al obispo, la Eucaristía, la verdadera humanidad de Cristo y la comunión universal de los creyentes."},
+        "irenaeus": {"title":"Ireneo defiende la fe apostólica","summary":"Contra las herejías apela a la Escritura, la regla de la fe y la sucesión apostólica.","detail":"Ireneo, obispo de Lyon, enlaza las iglesias de Oriente y Occidente. Su obra sostiene que la enseñanza pública transmitida por medio de los obispos salvaguarda la unidad de la fe cristiana."},
+        "edict-milan": {"title":"Edicto de Milán","summary":"La política imperial concede a los cristianos tolerancia legal tras períodos de persecución.","detail":"El acuerdo asociado con Constantino y Licinio devuelve los bienes confiscados y permite el culto cristiano. Transforma la posición pública de la Iglesia dentro del Imperio romano."},
+        "nicaea": {"title":"Primer Concilio de Nicea","summary":"El primer concilio ecuménico confiesa al Hijo como consustancial al Padre.","detail":"Los obispos se reúnen en Nicea para abordar la controversia arriana y otras cuestiones de disciplina. El credo del concilio se convierte en el fundamento del Credo niceno-constantinopolitano."},
+        "constantinople": {"title":"Primer Concilio de Constantinopla","summary":"El concilio reafirma Nicea y aclara la confesión del Espíritu Santo.","detail":"El credo utilizado en la liturgia católica se llama convencionalmente niceno porque recibe su forma conciliar madura a través de Nicea y Constantinopla."},
+        "ephesus": {"title":"Concilio de Éfeso","summary":"El concilio afirma la unidad de Cristo y el título de María Theotokos, Madre de Dios.","detail":"El título protege la confesión de que quien nació de María es verdaderamente Dios encarnado. Las sesiones del concilio también revelan profundas tensiones teológicas y políticas entre las principales sedes."},
+        "chalcedon": {"title":"Concilio de Calcedonia","summary":"Cristo es confesado como una persona en dos naturalezas, sin confusión ni división.","detail":"Calcedonia recibe el Tomo del papa León I y da un lenguaje perdurable a la confesión cristológica de la Iglesia, aunque también contribuye a divisiones duraderas con las Iglesias ortodoxas orientales."},
+        "benedict-rule": {"title":"Benito funda Montecasino","summary":"La Regla de san Benito modela la vida monástica occidental en torno a la oración, el trabajo, la estabilidad y la comunidad.","detail":"La equilibrada regla de Benito se convierte en un marco duradero para monasterios que conservan el saber, cultivan la tierra, ofrecen hospitalidad y sostienen el culto en la Europa medieval."},
+        "gregory-great": {"title":"Gregorio Magno es elegido papa","summary":"El liderazgo pastoral, litúrgico, diplomático y misionero de Gregorio marca el papado de la Alta Edad Media.","detail":"Antiguo prefecto y monje, Gregorio organiza la ayuda en Roma, escribe la Regla pastoral y envía la misión de Agustín a los ingleses."},
+        "great-schism": {"title":"Se profundiza la ruptura entre Oriente y Occidente","summary":"Las excomuniones mutuas se convierten en símbolo de la creciente brecha entre Roma y Constantinopla.","detail":"La división entre las Iglesias católica y ortodoxa oriental se desarrolló durante siglos; 1054 es un hito convencional, no un único momento nítido de separación."},
+        "francis": {"title":"El movimiento franciscano recibe la aprobación papal","summary":"Francisco de Asís y sus compañeros abrazan una vida evangélica de pobreza, predicación y servicio.","detail":"Los movimientos mendicantes llevan una nueva forma de vida religiosa a ciudades y universidades en rápido crecimiento. Clara de Asís desarrolla la rama femenina de la familia franciscana."},
+        "lateran-four": {"title":"IV Concilio de Letrán","summary":"Un gran concilio medieval aborda la doctrina, la reforma, la educación, los sacramentos y la cruzada.","detail":"Sus decretos articulan la enseñanza eucarística con el término transubstanciación y exigen la confesión anual y la comunión pascual a los fieles que han alcanzado la edad de discreción."},
+        "aquinas": {"title":"Tomás de Aquino muere camino de Lyon","summary":"La síntesis de fe y razón del teólogo dominico se vuelve fundamental para el pensamiento católico.","detail":"La Suma teológica integra la Escritura, la tradición patrística, la filosofía y las cuestiones disputadas en una exposición estructurada sobre Dios, la creación, la vida moral, Cristo y los sacramentos."},
+        "western-schism": {"title":"Cisma de Occidente","summary":"Varios pretendientes al papado dividen la cristiandad occidental hasta el Concilio de Constanza.","detail":"La crisis sigue al Papado de Aviñón y pone a prueba las estructuras de autoridad de la Iglesia. La elección de Martín V en 1417 restablece una sucesión romana ampliamente reconocida."},
+        "reformation": {"title":"Comienza la Reforma protestante","summary":"La controversia de Martín Lutero sobre las indulgencias se amplía a disputas acerca de la autoridad, la gracia, los sacramentos y la reforma.","detail":"Los movimientos de reforma y los conflictos políticos provocan divisiones duraderas en Occidente y múltiples tradiciones protestantes. La reforma católica ya estaba en marcha en algunos lugares y se acelera de forma drástica."},
+        "trent": {"title":"Concilio de Trento","summary":"El concilio define la enseñanza católica y pone en marcha un amplio programa de reforma institucional.","detail":"A lo largo de tres períodos, Trento aborda la Escritura y la tradición, la justificación, los sacramentos, la Misa, la residencia episcopal, los seminarios y la disciplina pastoral."},
+        "jesuits": {"title":"Aprobada la Compañía de Jesús","summary":"Los jesuitas unen la formación espiritual, la educación, la misión y el servicio directo al papa.","detail":"Los Ejercicios espirituales de Ignacio de Loyola y las escuelas y misiones globales de la Compañía se vuelven centrales para la renovación católica en el mundo moderno temprano."},
+        "rerum-novarum": {"title":"Rerum novarum","summary":"León XIII aborda el trabajo, el capital, la propiedad privada, las asociaciones obreras y los deberes del Estado.","detail":"La encíclica se convierte en un hito de la doctrina social católica moderna y en punto de referencia para posteriores reflexiones papales sobre la vida económica y social."},
+        "vatican-one": {"title":"Concilio Vaticano I","summary":"El concilio enseña sobre la fe y la razón y define el primado y la infalibilidad papales bajo condiciones específicas.","detail":"El concilio se suspende cuando las fuerzas italianas entran en Roma. Sus constituciones Dei Filius y Pastor aeternus configuran la eclesiología católica posterior."},
+        "vatican-two": {"title":"Concilio Vaticano II","summary":"El concilio renueva la relación católica con la Escritura, la liturgia, la eclesiología, el ecumenismo, la libertad religiosa y el mundo moderno.","detail":"Más de 2.000 obispos participan a lo largo de cuatro sesiones. El concilio produce cuatro constituciones, nueve decretos y tres declaraciones."},
+        "catechism": {"title":"Se promulga el Catecismo de la Iglesia católica","summary":"Un catecismo universal organiza la enseñanza católica en torno al credo, los sacramentos, la vida moral y la oración.","detail":"Solicitado por el Sínodo de los Obispos de 1985, el Catecismo sirve como texto de referencia para los catecismos locales y la formación en toda la Iglesia universal."},
+        "stephen-martyr": {"title":"Esteban se convierte en el primer mártir cristiano","summary":"Un diácono de la comunidad de Jerusalén da testimonio ante el consejo y es asesinado fuera de la ciudad.","detail":"Hechos describe a Esteban lleno de fe y del Espíritu Santo. Su oración final evoca el perdón de Cristo desde la cruz, y Saulo aparece entre quienes consienten en su muerte."},
+        "perpetua-felicity": {"title":"Perpetua y Felicidad son martirizadas en Cartago","summary":"El relato carcelario de dos jóvenes cristianas norteafricanas se convierte en un testimonio perdurable del martirio antiguo.","detail":"La Pasión de las santas Perpetua y Felicidad conserva la narración en primera persona de Perpetua desde la prisión junto con el relato de un editor sobre la ejecución del grupo en el anfiteatro."},
+        "diocletian-persecution": {"title":"La Gran Persecución","summary":"Los edictos imperiales atacan iglesias, Escrituras, clero y cristianos que se niegan a ofrecer sacrificios.","detail":"La persecución varía mucho a través del imperio, pero se convierte en el último y más sistemático intento romano de suprimir el cristianismo antes de la tolerancia."},
+        "augustine-hippo": {"title":"Agustín se convierte en obispo de Hipona","summary":"El pastor y teólogo norteafricano configura la reflexión occidental sobre la gracia, la comunidad, la historia y el corazón humano.","detail":"Las Confesiones, La ciudad de Dios, los sermones, las cartas y las controversias teológicas de Agustín forman uno de los conjuntos de escritos más amplios e influyentes de la Iglesia latina."},
+        "vulgate": {"title":"Jerónimo completa una parte esencial de la Biblia latina","summary":"Las traducciones y revisiones de Jerónimo se convierten en el fundamento de la tradición de la Vulgata latina.","detail":"A partir de textos hebreos y griegos, Jerónimo traduce y revisa libros bíblicos durante varias décadas. La tradición latina resultante influye profundamente en el culto, la teología, el arte y la lengua de Occidente."},
+        "patrick-ireland": {"title":"Misión de Patricio en Irlanda","summary":"Un antiguo cautivo regresa como obispo y misionero para servir al pueblo irlandés.","detail":"La propia Confesión de Patricio presenta una vida marcada por la esclavitud, la conversión, la vocación y la misión. La tradición posterior amplía su historia, pero sus escritos siguen siendo el testimonio histórico esencial."},
+        "nicaea-two": {"title":"Segundo Concilio de Nicea","summary":"El concilio distingue la veneración de las imágenes sagradas del culto debido solo a Dios.","detail":"Nicea II pone fin a la primera fase de la iconoclasia bizantina y es reconocido como el séptimo concilio ecuménico tanto por la Iglesia católica como por las Iglesias ortodoxas orientales."},
+        "charlemagne-crowned": {"title":"Carlomagno es coronado emperador en Roma","summary":"La coronación del rey franco por León III vincula de una nueva manera la política papal, imperial y europea.","detail":"La coronación del día de Navidad se convierte en un gran símbolo del desarrollo del Occidente medieval y del posterior Sacro Imperio Romano Germánico, al tiempo que intensifica las tensiones con Bizancio."},
+        "cyril-methodius": {"title":"Cirilo y Metodio comienzan la misión de Moravia","summary":"Los hermanos traducen la Escritura y el culto para los pueblos eslavos y forman al clero local.","detail":"Su misión ejemplifica la traducción de la fe cristiana a la lengua y la cultura locales. Sus discípulos desarrollan el alfabeto cirílico después de la muerte de Cirilo."},
+        "cluny": {"title":"Fundación de la abadía de Cluny","summary":"Una casa benedictina reformada se convierte en el centro de un gran movimiento de renovación monástica y litúrgica.","detail":"La inusual libertad de Cluny frente al control laico local y su red de casas dependientes dan a sus costumbres e influencia reformadora un alcance excepcional en la Europa medieval."},
+        "first-crusade": {"title":"Urbano II convoca la Primera Cruzada","summary":"Un llamamiento a la peregrinación armada pone en marcha campañas que transforman las relaciones entre cristianos, musulmanes y judíos.","detail":"El movimiento cruzado es religioso, político, militar y social. Su historia incluye ideales de peregrinación y reforma junto con conquista, masacre, rivalidad y un trauma perdurable."},
+        "dominicans-approved": {"title":"Confirmada la Orden de Predicadores","summary":"La comunidad de Domingo une vida común, estudio, pobreza y predicación al servicio del Evangelio.","detail":"La orden dominica se convierte en una gran presencia intelectual, misionera y pastoral en la Iglesia, y da teólogos y místicos como Tomás de Aquino y Catalina de Siena."},
+        "avignon-papacy": {"title":"El papado reside en Aviñón","summary":"Siete papas sucesivos gobiernan desde Aviñón durante un período de fuerte influencia francesa.","detail":"La administración papal se vuelve más centralizada y sofisticada, pero su ausencia de Roma perjudica su prestigio y contribuye a las condiciones que preceden al Cisma de Occidente."},
+        "guadalupe": {"title":"Comienza la tradición de Nuestra Señora de Guadalupe","summary":"La tradición católica sostiene que María se aparece al converso indígena Juan Diego cerca de Ciudad de México.","detail":"La devoción guadalupana se vuelve inseparable de la historia y la identidad del catolicismo mexicano y del continente americano. Juan Diego es canonizado en 2002."},
+        "teresa-reform": {"title":"Teresa de Ávila funda San José","summary":"Una reforma carmelita comienza con una pequeña comunidad dedicada a la oración, la sencillez y la vida común.","detail":"Las fundaciones y los escritos espirituales de Teresa, unidos a la obra de Juan de la Cruz, renuevan la vida carmelita y se convierten en clásicos de la mística cristiana."},
+        "gregorian-calendar": {"title":"Promulgado el calendario gregoriano","summary":"Gregorio XIII reforma el calendario para reajustar la fecha del equinoccio de primavera utilizada al calcular la Pascua.","detail":"Los países católicos adoptan primero la reforma; otros Estados lo hacen en los siglos siguientes. Con el tiempo, el calendario se convierte en el calendario civil dominante en todo el mundo."},
+        "vincent-charity": {"title":"Vicente de Paúl organiza misiones y obras de caridad","summary":"Las experiencias de Folleville y Châtillon orientan el ministerio de Vicente hacia la predicación rural y la atención organizada a los pobres.","detail":"Las Cofradías de la Caridad, la Congregación de la Misión y las Hijas de la Caridad dan una forma institucional duradera al servicio, la formación y la misericordia práctica."},
+        "immaculate-conception": {"title":"Definida la Inmaculada Concepción","summary":"Pío IX define solemnemente que María fue preservada del pecado original desde el primer instante de su concepción.","detail":"La definición contenida en Ineffabilis Deus da forma dogmática a una creencia con una larga historia, a veces discutida, en el culto y la teología cristianos."},
+        "lourdes": {"title":"Apariciones de Lourdes","summary":"Bernadette Soubirous relata una serie de apariciones marianas en Massabielle, al sur de Francia.","detail":"Tras una investigación eclesiástica, Lourdes se convierte en un importante lugar de peregrinación, oración, reconciliación y atención a los enfermos. Bernadette es canonizada en 1933."},
+        "fatima": {"title":"Apariciones de Fátima","summary":"Tres niños pastores relatan apariciones marianas centradas en la oración, la conversión y la paz.","detail":"Fátima se convierte en uno de los grandes santuarios marianos del mundo. Francisco y Jacinta Marto son canonizados en 2017; Lúcia dos Santos ingresa más tarde en la vida religiosa."},
+        "lateran-treaty": {"title":"El Tratado de Letrán establece el Estado de la Ciudad del Vaticano","summary":"Un acuerdo entre la Santa Sede e Italia resuelve la Cuestión Romana y establece la soberanía vaticana.","detail":"El tratado crea el Estado territorial que garantiza la independencia de la Santa Sede, mientras un concordato regula las relaciones entre la Iglesia y el Estado en Italia."},
+        "assumption-defined": {"title":"Definida la Asunción de María","summary":"Pío XII define que María fue llevada en cuerpo y alma a la gloria celestial al final de su vida terrena.","detail":"Munificentissimus Deus da definición dogmática a una convicción expresada durante siglos en la liturgia y la devoción de Oriente y Occidente."},
+        "john-paul-two": {"title":"Pontificado de Juan Pablo II","summary":"El primer papa no italiano en 455 años ejerce un ministerio global mediante numerosos viajes, la enseñanza y el testimonio público.","detail":"El largo pontificado de Karol Wojtyła abarca la caída del comunismo europeo, la nueva evangelización, el Código de Derecho Canónico de 1983, el Catecismo, encuentros interreligiosos y la Jornada Mundial de la Juventud."},
+        "benedict-sixteen": {"title":"Pontificado de Benedicto XVI","summary":"El papa teólogo centra su enseñanza en Cristo, la fe y la razón, la Escritura, la liturgia, la esperanza y la caridad.","detail":"Joseph Ratzinger sucede a Juan Pablo II y renuncia en 2013, convirtiéndose en el primer papa en casi seis siglos en renunciar al oficio papal."},
+        "francis-pontificate": {"title":"Pontificado de Francisco","summary":"El primer papa de América subraya el discipulado misionero, la misericordia, la sinodalidad y el cuidado de la creación.","detail":"Jorge Mario Bergoglio, antiguo arzobispo de Buenos Aires, se convierte en el primer papa jesuita. Entre sus principales textos figuran Evangelii gaudium, Laudato si’ y Fratelli tutti."},
+        "leo-fourteen": {"title":"León XIV se convierte en el papa número 267","summary":"Robert Francis Prevost es elegido obispo de Roma el 8 de mayo de 2025.","detail":"La lista oficial de pontífices de la Santa Sede identifica a León XIV como el papa número 267. Nacido en Chicago y activo durante muchos años en Perú, es el primer papa de la Orden de San Agustín."}
+      },
+      saints: {
+        "Stephen": {"name":"Esteban","dates":"m. c. 34–36","place":"Jerusalén","note":"Diácono y primer mártir cristiano"},
+        "Ignatius of Antioch": {"name":"Ignacio de Antioquía","dates":"m. c. 107","place":"Antioquía · Roma","note":"Obispo, mártir y testigo de la unidad católica primitiva"},
+        "Perpetua & Felicity": {"name":"Perpetua y Felicidad","dates":"m. 203","place":"Cartago","note":"Mártires norteafricanas cuyo testimonio desde la prisión se conserva"},
+        "Irenaeus of Lyon": {"name":"Ireneo de Lyon","dates":"c. 130–c. 202","place":"Esmirna · Lyon","note":"Defensor de la tradición apostólica y de la unidad de la Escritura"},
+        "Athanasius": {"name":"Atanasio","dates":"c. 296–373","place":"Alejandría","note":"Obispo y defensor perseverante de la fe nicena"},
+        "Monica & Augustine": {"name":"Mónica y Agustín","dates":"331–430","place":"Norte de África","note":"Madre e hijo; testigos de la oración, la conversión y la gracia"},
+        "Jerome": {"name":"Jerónimo","dates":"c. 347–420","place":"Roma · Belén","note":"Biblista y artífice de la Vulgata latina"},
+        "Patrick": {"name":"Patricio","dates":"siglo V","place":"Britania · Irlanda","note":"Antiguo cautivo, obispo y misionero"},
+        "Benedict & Scholastica": {"name":"Benito y Escolástica","dates":"c. 480–547","place":"Nursia · Montecasino","note":"Figuras fundacionales de la vida monástica occidental"},
+        "Gregory the Great": {"name":"Gregorio Magno","dates":"c. 540–604","place":"Roma","note":"Monje, papa, pastor, diplomático y líder misionero"},
+        "Cyril & Methodius": {"name":"Cirilo y Metodio","dates":"siglo IX","place":"Tesalónica · Moravia","note":"Misioneros y patronos de los pueblos eslavos de Europa"},
+        "Hildegard of Bingen": {"name":"Hildegarda de Bingen","dates":"1098–1179","place":"Renania","note":"Abadesa, compositora, visionaria, naturalista y doctora de la Iglesia"},
+        "Francis & Clare": {"name":"Francisco y Clara","dates":"1181/94–1253","place":"Asís","note":"Pobreza evangélica, fraternidad, contemplación y cuidado de la creación"},
+        "Dominic": {"name":"Domingo","dates":"c. 1170–1221","place":"Castilla · Italia","note":"Fundador de la Orden de Predicadores"},
+        "Thomas Aquinas": {"name":"Tomás de Aquino","dates":"1225–1274","place":"Italia · París","note":"Teólogo dominico y doctor de la Iglesia"},
+        "Catherine of Siena": {"name":"Catalina de Siena","dates":"1347–1380","place":"Siena · Roma","note":"Mística, pacificadora, consejera papal y doctora de la Iglesia"},
+        "Teresa of Ávila": {"name":"Teresa de Ávila","dates":"1515–1582","place":"España","note":"Reformadora carmelita, mística, escritora y doctora de la Iglesia"},
+        "Ignatius & Francis Xavier": {"name":"Ignacio y Francisco Javier","dates":"1491–1556","place":"Europa · Asia","note":"Fundadores jesuitas que unen discernimiento, educación y misión"},
+        "Vincent & Louise": {"name":"Vicente y Luisa","dates":"1581–1660","place":"Francia","note":"Organizadores de la formación y del servicio práctico a los pobres"},
+        "Kateri Tekakwitha": {"name":"Kateri Tekakwitha","dates":"1656–1680","place":"Territorios haudenosaunee","note":"Primera mujer indígena canonizada de Norteamérica"},
+        "Thérèse of Lisieux": {"name":"Teresa de Lisieux","dates":"1873–1897","place":"Normandía","note":"Carmelita cuya «pequeña vía» centra la vida ordinaria en el amor"},
+        "Maximilian Kolbe": {"name":"Maximiliano Kolbe","dates":"1894–1941","place":"Polonia · Auschwitz","note":"Sacerdote franciscano que se ofreció a morir en lugar de otro prisionero"},
+        "Edith Stein": {"name":"Edith Stein","dates":"1891–1942","place":"Alemania · Auschwitz","note":"Filósofa, carmelita, mártir judeocristiana y patrona de Europa"},
+        "Óscar Romero": {"name":"Óscar Romero","dates":"1917–1980","place":"El Salvador","note":"Arzobispo y mártir que defendió a los pobres en medio de la violencia política"},
+        "Teresa of Calcutta": {"name":"Teresa de Calcuta","dates":"1910–1997","place":"Skopie · Calcuta","note":"Fundadora de las Misioneras de la Caridad"},
+        "John Paul II": {"name":"Juan Pablo II","dates":"1920–2005","place":"Polonia · Roma","note":"Papa, filósofo, pastor universal y testigo bajo el totalitarismo"}
+      }
+    };
+
+    const COPY = {
+      en: { entry: "entry shown", entries: "entries shown", profiles: "profiles", readContext: "Read the context", people: "People in this moment", openReference: "Open the primary reference", closeDetails: "Close details", languageChanged: "Language changed to English." },
+      es: { entry: "entrada mostrada", entries: "entradas mostradas", profiles: "perfiles", readContext: "Leer el contexto", people: "Personas en este momento", openReference: "Abrir la referencia principal", closeDetails: "Cerrar detalles", languageChanged: "Idioma cambiado a español." }
+    };
+
+    function preferredLanguage() {
+      const requested = new URLSearchParams(window.location.search).get("lang");
+      if (requested === "en" || requested === "es") return requested;
+      try {
+        const saved = window.localStorage.getItem("timeline-language");
+        if (saved === "en" || saved === "es") return saved;
+      } catch (_) {}
+      return String(navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
+    }
+
+    const state = { query: "", categories: new Set(), era: "all", saintPeriod: "all", language: preferredLanguage() };
     const h = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[char]);
     const search = document.getElementById("timelineSearch");
     const timeline = document.getElementById("timelineList");
@@ -1556,22 +1847,87 @@ footer {
     const saintsGrid = document.getElementById("saintsGrid");
     const saintCount = document.getElementById("saintCount");
     const detailRoot = document.getElementById("detailRoot");
+    const languageStatus = document.getElementById("languageStatus");
     let lastFocused = null;
     let dialogKeyHandler = null;
 
+    const staticTextRecords = [];
+    const staticAttributeRecords = [];
+
+    function cacheStaticTranslations() {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          const parent = node.parentElement;
+          const key = node.nodeValue.trim();
+          if (!parent || !key || parent.closest("script,style,#timelineList,#saintsGrid,#detailRoot")) return NodeFilter.FILTER_REJECT;
+          return SPANISH.static[key] ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      let node;
+      while ((node = walker.nextNode())) {
+        const original = node.nodeValue;
+        const key = original.trim();
+        const start = original.indexOf(key);
+        staticTextRecords.push({ node, en: original, es: original.slice(0, start) + SPANISH.static[key] + original.slice(start + key.length) });
+      }
+      document.querySelectorAll("[aria-label],[placeholder]").forEach((element) => {
+        ["aria-label", "placeholder"].forEach((attribute) => {
+          const original = element.getAttribute(attribute);
+          if (original && SPANISH.static[original]) staticAttributeRecords.push({ element, attribute, en: original, es: SPANISH.static[original] });
+        });
+      });
+    }
+
+    function normalizeSearch(value) {
+      return String(value || "").toLocaleLowerCase(state.language === "es" ? "es" : "en").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function spanishYearLabel(label) {
+      const approximate = label.startsWith("c. AD ");
+      const year = label.replace(/^c\. AD /, "").replace(/^AD /, "").replace("present", "actualidad");
+      if (year.includes("actualidad")) return (approximate ? "c. " : "") + year;
+      return (approximate ? "c. " : "") + year + " d. C.";
+    }
+
+    function localizedEvent(event) {
+      if (state.language !== "es") return event;
+      const translation = SPANISH.events[event.id] || {};
+      return {
+        ...event,
+        ...translation,
+        yearLabel: spanishYearLabel(event.yearLabel),
+        people: (event.people || []).map((person) => SPANISH.names[person] || person)
+      };
+    }
+
+    function localizedSaint(saint) {
+      if (state.language !== "es") return saint;
+      return { ...saint, ...(SPANISH.saints[saint.name] || {}) };
+    }
+
+    function categoryLabel(category) {
+      return state.language === "es" ? (SPANISH.categories[category] || category) : category;
+    }
+
     function filteredEvents() {
-      const normalized = state.query.trim().toLocaleLowerCase();
+      const normalized = normalizeSearch(state.query.trim());
       return DATA.EVENTS.filter((event) => {
         const inCategory = state.categories.size === 0 || state.categories.has(event.category);
         const inEra = state.era === "all" || event.era === state.era;
-        const searchable = [event.title, event.summary, event.detail, event.yearLabel, event.category, ...(event.people || [])].join(" ").toLocaleLowerCase();
-        return inCategory && inEra && (!normalized || searchable.includes(normalized));
-      }).sort((a, b) => a.year - b.year);
+        if (!inCategory || !inEra) return false;
+        const localized = localizedEvent(event);
+        const searchable = normalizeSearch([
+          event.title, event.summary, event.detail, event.yearLabel, event.category, ...(event.people || []),
+          localized.title, localized.summary, localized.detail, localized.yearLabel, categoryLabel(event.category), ...(localized.people || [])
+        ].join(" "));
+        return !normalized || searchable.includes(normalized);
+      }).map(localizedEvent).sort((a, b) => a.year - b.year);
     }
 
     function renderTimeline() {
       const events = filteredEvents();
-      resultCount.textContent = events.length + (events.length === 1 ? " entry shown" : " entries shown");
+      const copy = COPY[state.language];
+      resultCount.textContent = events.length + " " + (events.length === 1 ? copy.entry : copy.entries);
       const hasFilters = Boolean(state.query.trim()) || state.categories.size > 0 || state.era !== "all";
       clearButton.hidden = !hasFilters;
       timeline.hidden = events.length === 0;
@@ -1579,7 +1935,7 @@ footer {
       timeline.innerHTML = events.map((event, index) => {
         const side = index % 2 ? "right" : "left";
         const cls = DATA.categoryClass[event.category];
-        return '<li class="' + cls + ' ' + side + '"><span class="timeline-dot" aria-hidden="true"></span><button type="button" class="event-card" data-event-id="' + h(event.id) + '"><span class="event-meta"><span class="event-year">' + h(event.yearLabel) + '</span><span class="event-category">' + h(event.category) + '</span></span><strong>' + h(event.title) + '</strong><span class="event-summary">' + h(event.summary) + '</span><span class="open-detail">Read the context <span aria-hidden="true">↗</span></span></button></li>';
+        return '<li class="' + cls + ' ' + side + '"><span class="timeline-dot" aria-hidden="true"></span><button type="button" class="event-card" data-event-id="' + h(event.id) + '"><span class="event-meta"><span class="event-year">' + h(event.yearLabel) + '</span><span class="event-category">' + h(categoryLabel(event.category)) + '</span></span><strong>' + h(event.title) + '</strong><span class="event-summary">' + h(event.summary) + '</span><span class="open-detail">' + h(copy.readContext) + ' <span aria-hidden="true">↗</span></span></button></li>';
       }).join("");
     }
 
@@ -1594,8 +1950,8 @@ footer {
     }
 
     function renderSaints() {
-      const saints = DATA.SAINTS.filter((saint) => state.saintPeriod === "all" || saint.period === state.saintPeriod);
-      saintCount.textContent = saints.length + " profiles";
+      const saints = DATA.SAINTS.filter((saint) => state.saintPeriod === "all" || saint.period === state.saintPeriod).map(localizedSaint);
+      saintCount.textContent = saints.length + " " + COPY[state.language].profiles;
       saintsGrid.innerHTML = saints.map((saint, index) => '<article><div class="saint-card-head"><span>' + String(index + 1).padStart(2, "0") + '</span><b>' + h(saint.dates) + '</b></div><h3>' + h(saint.name) + '</h3><p>' + h(saint.note) + '</p><small>' + h(saint.place) + '</small></article>').join("");
     }
 
@@ -1609,12 +1965,14 @@ footer {
     }
 
     function openDetail(id) {
-      const event = DATA.EVENTS.find((item) => item.id === id);
+      const originalEvent = DATA.EVENTS.find((item) => item.id === id);
+      const event = originalEvent ? localizedEvent(originalEvent) : null;
       if (!event) return;
+      const copy = COPY[state.language];
       lastFocused = document.activeElement;
-      const people = event.people?.length ? '<div class="people-list"><span>People in this moment</span><div>' + event.people.map((person) => '<b>' + h(person) + '</b>').join("") + '</div></div>' : "";
-      const source = event.source ? '<a href="' + h(event.source) + '" target="_blank" rel="noreferrer">Open the primary reference <span aria-hidden="true">↗</span></a>' : "";
-      detailRoot.innerHTML = '<div class="detail-backdrop" role="presentation" data-close-backdrop><section class="detail-panel ' + DATA.categoryClass[event.category] + '" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-describedby="detail-summary"><button class="close-detail" type="button" data-close-detail aria-label="Close details">×</button><p class="detail-kicker">' + h(event.yearLabel) + ' · ' + h(event.category) + '</p><h2 id="detail-title">' + h(event.title) + '</h2><p class="detail-summary" id="detail-summary">' + h(event.summary) + '</p><div class="detail-rule"></div><p>' + h(event.detail) + '</p>' + people + source + '</section></div>';
+      const people = event.people?.length ? '<div class="people-list"><span>' + h(copy.people) + '</span><div>' + event.people.map((person) => '<b>' + h(person) + '</b>').join("") + '</div></div>' : "";
+      const source = event.source ? '<a href="' + h(event.source) + '" target="_blank" rel="noreferrer">' + h(copy.openReference) + ' <span aria-hidden="true">↗</span></a>' : "";
+      detailRoot.innerHTML = '<div class="detail-backdrop" role="presentation" data-close-backdrop><section class="detail-panel ' + DATA.categoryClass[event.category] + '" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-describedby="detail-summary"><button class="close-detail" type="button" data-close-detail aria-label="' + h(copy.closeDetails) + '">×</button><p class="detail-kicker">' + h(event.yearLabel) + ' · ' + h(categoryLabel(event.category)) + '</p><h2 id="detail-title">' + h(event.title) + '</h2><p class="detail-summary" id="detail-summary">' + h(event.summary) + '</p><div class="detail-rule"></div><p>' + h(event.detail) + '</p>' + people + source + '</section></div>';
       document.body.style.overflow = "hidden";
       const panel = detailRoot.querySelector("[role=dialog]");
       const close = detailRoot.querySelector("[data-close-detail]");
@@ -1630,6 +1988,32 @@ footer {
         else if (!keyboardEvent.shiftKey && document.activeElement === last) { keyboardEvent.preventDefault(); first.focus(); }
       };
       window.addEventListener("keydown", dialogKeyHandler);
+    }
+
+    function setLanguage(language, announce = true) {
+      if (language !== "en" && language !== "es") return;
+      closeDetail();
+      state.language = language;
+      document.documentElement.lang = language;
+      document.title = language === "es" ? SPANISH.title : "Two Thousand Years of the Catholic Church";
+      const description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute("content", language === "es" ? SPANISH.description : "An interactive chronology of the apostles, saints, popes, councils, and turning points in Catholic Church history.");
+      staticTextRecords.forEach((record) => { record.node.nodeValue = record[language]; });
+      staticAttributeRecords.forEach((record) => { record.element.setAttribute(record.attribute, record[language]); });
+      document.querySelectorAll("[data-language]").forEach((button) => {
+        const active = button.dataset.language === language;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      try { window.localStorage.setItem("timeline-language", language); } catch (_) {}
+      try {
+        const url = new URL(window.location.href);
+        if (language === "es") url.searchParams.set("lang", "es"); else url.searchParams.delete("lang");
+        window.history.replaceState({}, "", url);
+      } catch (_) {}
+      renderTimeline();
+      renderSaints();
+      languageStatus.textContent = announce ? COPY[language].languageChanged : "";
     }
 
     search.addEventListener("input", () => { state.query = search.value; renderTimeline(); });
@@ -1668,8 +2052,13 @@ footer {
       if (clickEvent.target.matches("[data-close-detail],[data-close-backdrop]")) closeDetail();
     });
 
-    renderTimeline();
-    renderSaints();
+    document.querySelector(".language-switch").addEventListener("click", (clickEvent) => {
+      const button = clickEvent.target.closest("[data-language]");
+      if (button) setLanguage(button.dataset.language);
+    });
+
+    cacheStaticTranslations();
+    setLanguage(state.language, false);
   })();
   </script>
 </body>
