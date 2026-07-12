@@ -13,8 +13,9 @@ An interactive, browser-based chronology of Catholic Church history—from the a
 - Dedicated profiles for 15 apostles and apostolic witnesses
 - Filterable gallery of 26 representative saints
 - Full-text search across dates, people, events, and descriptions
+- Complete English and Spanish editions with a built-in language switcher
 - Filters for historical era and event category
-- Accessible event-detail panels with keyboard navigation and Escape-to-close behavior
+- Accessible event-detail panels, visible keyboard focus, a skip link, and Escape-to-close behavior
 - Responsive presentation for desktop, tablet, and mobile browsers
 - No framework, build process, API key, or external JavaScript dependency
 
@@ -26,6 +27,14 @@ The complete experience is contained in `index.html`.
 2. Open `index.html` in a modern web browser.
 
 No web server or package installation is required.
+
+## English and Spanish / Inglés y español
+
+Use the **English / Español** control in the site header to change languages. The choice is remembered in the browser, and first-time visitors whose browser is set to Spanish automatically receive the Spanish edition. Timeline search recognizes names and terms in either language.
+
+The Spanish edition can also be shared directly with `?lang=es` appended to the site address.
+
+Usa el control **English / Español** de la cabecera para cambiar de idioma. La elección se guarda en el navegador y quienes visiten el sitio por primera vez con el navegador configurado en español recibirán automáticamente la edición en español. La búsqueda reconoce nombres y términos en ambos idiomas.
 
 ## Repository structure
 
