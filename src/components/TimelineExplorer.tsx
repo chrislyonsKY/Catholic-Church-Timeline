@@ -66,6 +66,22 @@ export function TimelineExplorer({ era, onEraChange }: TimelineExplorerProps) {
         <p>{t("timelineBody")}</p>
       </header>
 
+      <div className="archive-ruler" aria-label={t("eraLabel")}>
+        {eras.map((item) => (
+          <button
+            type="button"
+            data-era={item.id}
+            className={era === item.id ? "is-active" : ""}
+            aria-pressed={era === item.id}
+            onClick={() => onEraChange(era === item.id ? "all" : item.id)}
+            key={item.id}
+          >
+            <span>{item.number}</span>
+            <strong>{localize(item.years, language)}</strong>
+          </button>
+        ))}
+      </div>
+
       <div className="archive-controls" role="search" aria-label={t("timelineKicker")}>
         <label className="archive-search">
           <span>{t("searchLabel")}</span>

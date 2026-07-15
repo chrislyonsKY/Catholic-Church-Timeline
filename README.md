@@ -10,9 +10,10 @@
 
 ## The exhibition
 
-The interface follows the editorial system established for the Cartographic Archive: paper and ink tones, restrained rust and sea accents, serif display typography, mono archival labels, strong rules, and information-dense registers. It is a designed historical tool rather than a generic card dashboard.
+The interface carries the editorial rigor of the Cartographic Archive into a distinct **ecclesial observatory** concept: a lapis night field, data-driven twenty-century dial, illuminated era spectrum, typographic registers, and high-contrast coral and gold exhibition rooms. It is a designed historical instrument rather than a generic card dashboard.
 
 - 52 curated historical records across six eras
+- A data-driven chronometer plotting all 52 events across twenty centuries
 - 15 apostolic profiles and 26 representative saint profiles
 - Search across English and Spanish names, descriptions, people, councils, and documents
 - Era, category, period, sort, and layout controls

@@ -26,8 +26,8 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner">
         <a href="#top" className="wordmark" aria-label={t("homeLink")}>
-          <span className="wordmark__mark" aria-hidden="true">HE</span>
-          <span className="wordmark__name">{t("siteName")}</span>
+          <span className="wordmark__mark" aria-hidden="true">✣</span>
+          <span className="wordmark__name"><b>Historia</b><small>Ecclesiae</small></span>
         </a>
 
         <nav className="primary-nav" aria-label={t("primaryNavigation")}>
@@ -54,7 +54,13 @@ export function SiteHeader() {
           <summary>{t("menu")}</summary>
           <nav aria-label={t("mobileNavigation")}>
             {navigation.map(([href, key]) => (
-              <a href={href} key={href} onClick={() => mobileMenuRef.current?.removeAttribute("open")}>{t(key)}</a>
+              <a
+                href={href}
+                key={href}
+                onClick={() => window.requestAnimationFrame(() => mobileMenuRef.current?.removeAttribute("open"))}
+              >
+                {t(key)}
+              </a>
             ))}
           </nav>
         </details>

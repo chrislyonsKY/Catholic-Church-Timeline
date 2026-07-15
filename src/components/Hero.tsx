@@ -1,62 +1,53 @@
 import { eras, events } from "../data";
 import { useLanguage } from "../hooks/useLanguage";
-import { localize } from "../utils";
+import { TemporalDial } from "./TemporalDial";
 
 export function Hero() {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
-      <section className="hero-shell" aria-labelledby="hero-title">
+      <section className="observatory-hero" aria-labelledby="hero-title">
+        <aside className="observatory-hero__rail" aria-hidden="true">
+          <span>VOL. I</span>
+          <i />
+          <span>AD 30—2026</span>
+        </aside>
+
         <div className="hero-copy">
           <p className="section-kicker">{t("heroKicker")}</p>
           <h1 id="hero-title">
             {t("heroTitleLead")} <em>{t("heroTitleAccent")}</em>
           </h1>
           <p className="hero-deck">{t("heroDeck")}</p>
-          <div className="flex flex-wrap gap-3">
+          <div className="hero-actions">
             <a className="button button--primary" href="#timeline">{t("exploreTimeline")}</a>
             <a className="button button--secondary" href="#apostles">{t("meetApostles")}</a>
           </div>
         </div>
 
-        <figure className="chronology-plate" aria-label={t("plateLabel")}>
-          <div className="chronology-plate__head">
-            <span>{t("plateLabel")}</span>
-            <strong>{t("plateSpan")}</strong>
-          </div>
-          <ol>
-            {eras.map((era) => (
-              <li key={era.id}>
-                <span>{era.number}</span>
-                <div>
-                  <strong>{localize(era.title, language)}</strong>
-                  <small>{localize(era.years, language)}</small>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <figcaption>
-            <span>{t("creditLabel")}</span>
-            <strong>Joe Bland · 2008</strong>
-          </figcaption>
-        </figure>
+        <TemporalDial />
+
+        <dl className="observatory-stats">
+          <div><dt>{events.length}</dt><dd>{t("plateEvents")}</dd></div>
+          <div><dt>{eras.length}</dt><dd>{t("plateEras")}</dd></div>
+          <div><dt>15</dt><dd>{t("plateApostles")}</dd></div>
+          <div><dt>26</dt><dd>{t("plateSaints")}</dd></div>
+        </dl>
       </section>
 
-      <section className="exhibition-intro" aria-labelledby="about-title">
-        <div>
-          <p className="section-kicker section-kicker--dark">{t("aboutKicker")}</p>
-          <h2 id="about-title">{t("aboutTitle")}</h2>
+      <section className="manifesto" aria-labelledby="about-title">
+        <div className="manifesto__index">
+          <span>01</span>
+          <p>{t("aboutKicker")}</p>
         </div>
-        <div className="exhibition-intro__copy">
+        <div className="manifesto__statement">
+          <h2 id="about-title">{t("aboutTitle")}</h2>
           <p>{t("aboutLead")}</p>
+        </div>
+        <div className="manifesto__notes">
           <p>{t("aboutBody")}</p>
-          <dl className="exhibition-facts">
-            <div><dt>{events.length}</dt><dd>{t("plateEvents")}</dd></div>
-            <div><dt>15</dt><dd>{t("plateApostles")}</dd></div>
-            <div><dt>26</dt><dd>{t("plateSaints")}</dd></div>
-          </dl>
-          <aside className="credit-note">
+          <aside>
             <span>{t("creditLabel")}</span>
             <p>{t("creditBody")}</p>
           </aside>

@@ -29,7 +29,7 @@ export function ChronologySection({ onBrowseEra }: { onBrowseEra: (era: EraId) =
             .slice(0, 3);
 
           return (
-            <li key={era.id}>
+            <li key={era.id} data-era={era.id}>
               <div className="era-list__number">{era.number}</div>
               <div className="era-list__copy">
                 <span>{localize(era.years, language)} · {formatCount(eraEvents.length)} {t("records")}</span>

@@ -14,9 +14,9 @@ export function SaintsSection() {
 
   return (
     <section id="saints" className="saints-section section-shell" aria-labelledby="saints-title">
-      <header className="section-heading section-heading--light">
+      <header className="section-heading">
         <div>
-          <p className="section-kicker section-kicker--dark">{t("saintsKicker")}</p>
+          <p className="section-kicker">{t("saintsKicker")}</p>
           <h2 id="saints-title">{t("saintsTitle")}</h2>
         </div>
         <p>{t("saintsBody")}</p>
