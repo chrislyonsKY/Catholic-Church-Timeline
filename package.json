@@ -9,9 +9,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base=/Catholic-Church-Timeline/",
     "preview": "vite preview",
     "test": "node --test tests/*.test.mjs",
-    "check": "npm run test && npm run build"
+    "check": "npm run test && npm run build",
+    "prepare:pages": "npm run test && npm run build:pages && node scripts/publish-pages.mjs",
+    "verify:pages": "npm run prepare:pages && node scripts/verify-pages.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

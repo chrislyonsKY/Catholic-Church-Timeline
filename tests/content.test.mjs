@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const content = JSON.parse(
-  await readFile(new URL("../src/data/content.json", import.meta.url), "utf8"),
+  await readFile(new URL("../app/src/data/content.json", import.meta.url), "utf8"),
 );
 
 const languages = ["en", "es"];
