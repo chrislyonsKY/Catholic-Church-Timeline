@@ -1,0 +1,2245 @@
+{
+  "events": [
+    {
+      "id": "pentecost",
+      "year": 30,
+      "yearLabel": {
+        "en": "c. AD 30",
+        "es": "c. 30 d. C."
+      },
+      "title": {
+        "en": "Pentecost and the Church’s public witness",
+        "es": "Pentecostés y el testimonio público de la Iglesia"
+      },
+      "summary": {
+        "en": "The disciples receive the Holy Spirit and begin preaching in Jerusalem.",
+        "es": "Los discípulos reciben el Espíritu Santo y comienzan a predicar en Jerusalén."
+      },
+      "detail": {
+        "en": "Acts presents Pentecost as the moment the apostolic community moves from waiting to public proclamation. Peter addresses the crowd, baptism follows, and a shared life of prayer, teaching, fellowship, and charity takes shape.",
+        "es": "Hechos presenta Pentecostés como el momento en que la comunidad apostólica pasa de la espera a la proclamación pública. Pedro se dirige a la multitud, sigue el bautismo y toma forma una vida compartida de oración, enseñanza, comunión y caridad."
+      },
+      "people": {
+        "en": [
+          "Peter",
+          "The Twelve",
+          "Mary",
+          "The first disciples"
+        ],
+        "es": [
+          "Pedro",
+          "Los Doce",
+          "María",
+          "Los primeros discípulos"
+        ]
+      },
+      "category": "turning-points",
+      "era": "apostolic",
+      "source": "https://bible.usccb.org/bible/acts/2"
+    },
+    {
+      "id": "paul-conversion",
+      "year": 35,
+      "yearLabel": {
+        "en": "c. AD 33–36",
+        "es": "c. 33–36 d. C."
+      },
+      "title": {
+        "en": "Conversion and mission of Paul",
+        "es": "Conversión y misión de Pablo"
+      },
+      "summary": {
+        "en": "Saul’s encounter with the risen Christ begins a mission that carries the Gospel across the Roman world.",
+        "es": "El encuentro de Saulo con Cristo resucitado inicia una misión que lleva el Evangelio por todo el mundo romano."
+      },
+      "detail": {
+        "en": "Paul’s journeys and letters help form communities across Asia Minor, Greece, and Rome. His letters become the earliest Christian writings preserved in the New Testament.",
+        "es": "Los viajes y las cartas de Pablo ayudan a formar comunidades en Asia Menor, Grecia y Roma. Sus cartas se convierten en los escritos cristianos más antiguos conservados en el Nuevo Testamento."
+      },
+      "people": {
+        "en": [
+          "Paul",
+          "Ananias",
+          "Barnabas"
+        ],
+        "es": [
+          "Pablo",
+          "Ananías",
+          "Bernabé"
+        ]
+      },
+      "category": "apostles",
+      "era": "apostolic",
+      "source": "https://bible.usccb.org/bible/acts/9"
+    },
+    {
+      "id": "jerusalem-council",
+      "year": 49,
+      "yearLabel": {
+        "en": "c. AD 49",
+        "es": "c. 49 d. C."
+      },
+      "title": {
+        "en": "Council of Jerusalem",
+        "es": "Concilio de Jerusalén"
+      },
+      "summary": {
+        "en": "The apostles discern how Gentile converts are to be received into the Church.",
+        "es": "Los apóstoles disciernen cómo han de ser recibidos en la Iglesia los conversos gentiles."
+      },
+      "detail": {
+        "en": "Acts 15 records a dispute, testimony from Peter, Paul, and Barnabas, and a judgment articulated by James. The gathering becomes the scriptural prototype for conciliar discernment.",
+        "es": "Hechos 15 relata una disputa, los testimonios de Pedro, Pablo y Bernabé, y una decisión formulada por Santiago. La reunión se convierte en el prototipo bíblico del discernimiento conciliar."
+      },
+      "people": {
+        "en": [
+          "Peter",
+          "James",
+          "Paul",
+          "Barnabas"
+        ],
+        "es": [
+          "Pedro",
+          "Santiago",
+          "Pablo",
+          "Bernabé"
+        ]
+      },
+      "category": "councils",
+      "era": "apostolic",
+      "source": "https://bible.usccb.org/bible/acts/15"
+    },
+    {
+      "id": "peter-paul-martyrdom",
+      "year": 67,
+      "yearLabel": {
+        "en": "c. AD 64–67",
+        "es": "c. 64–67 d. C."
+      },
+      "title": {
+        "en": "Martyrdom of Peter and Paul at Rome",
+        "es": "Martirio de Pedro y Pablo en Roma"
+      },
+      "summary": {
+        "en": "Ancient tradition places the deaths of the two principal apostles during Nero’s persecution.",
+        "es": "La tradición antigua sitúa la muerte de los dos principales apóstoles durante la persecución de Nerón."
+      },
+      "detail": {
+        "en": "Their witness gives Rome a singular apostolic association. Catholic tradition regards Peter as the first Bishop of Rome and traces the Roman episcopal succession from him.",
+        "es": "Su testimonio otorga a Roma una singular asociación apostólica. La tradición católica considera a Pedro el primer obispo de Roma y remonta a él la sucesión episcopal romana."
+      },
+      "people": {
+        "en": [
+          "Peter",
+          "Paul",
+          "Nero"
+        ],
+        "es": [
+          "Pedro",
+          "Pablo",
+          "Nerón"
+        ]
+      },
+      "category": "apostles",
+      "era": "apostolic",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20060614.html"
+    },
+    {
+      "id": "clement-letter",
+      "year": 96,
+      "yearLabel": {
+        "en": "c. AD 96",
+        "es": "c. 96 d. C."
+      },
+      "title": {
+        "en": "Clement of Rome writes to Corinth",
+        "es": "Clemente de Roma escribe a Corinto"
+      },
+      "summary": {
+        "en": "A Roman church leader intervenes in a dispute within the church at Corinth.",
+        "es": "Un dirigente de la Iglesia de Roma interviene en una disputa dentro de la iglesia de Corinto."
+      },
+      "detail": {
+        "en": "The letter known as First Clement is among the earliest Christian writings outside the New Testament and is important evidence for ministry, order, and Rome’s early pastoral concern for another local church.",
+        "es": "La carta conocida como Primera de Clemente figura entre los primeros escritos cristianos fuera del Nuevo Testamento y ofrece un testimonio importante sobre el ministerio, el orden y la temprana solicitud pastoral de Roma por otra iglesia local."
+      },
+      "people": {
+        "en": [
+          "Clement I"
+        ],
+        "es": [
+          "Clemente I"
+        ]
+      },
+      "category": "popes",
+      "era": "apostolic",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070307.html"
+    },
+    {
+      "id": "ignatius-antioch",
+      "year": 107,
+      "yearLabel": {
+        "en": "c. AD 107",
+        "es": "c. 107 d. C."
+      },
+      "title": {
+        "en": "Ignatius of Antioch journeys to martyrdom",
+        "es": "Ignacio de Antioquía camina hacia el martirio"
+      },
+      "summary": {
+        "en": "Seven letters illuminate the faith, worship, and episcopal structure of the early Church.",
+        "es": "Siete cartas iluminan la fe, el culto y la estructura episcopal de la Iglesia primitiva."
+      },
+      "detail": {
+        "en": "On his way to execution in Rome, Ignatius writes about unity around the bishop, the Eucharist, Christ’s true humanity, and the worldwide communion of believers.",
+        "es": "Camino de su ejecución en Roma, Ignacio escribe sobre la unidad en torno al obispo, la Eucaristía, la verdadera humanidad de Cristo y la comunión universal de los creyentes."
+      },
+      "people": {
+        "en": [
+          "Ignatius of Antioch"
+        ],
+        "es": [
+          "Ignacio de Antioquía"
+        ]
+      },
+      "category": "saints",
+      "era": "apostolic",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070314.html"
+    },
+    {
+      "id": "irenaeus",
+      "year": 180,
+      "yearLabel": {
+        "en": "c. AD 180",
+        "es": "c. 180 d. C."
+      },
+      "title": {
+        "en": "Irenaeus defends the apostolic faith",
+        "es": "Ireneo defiende la fe apostólica"
+      },
+      "summary": {
+        "en": "Against Heresies appeals to Scripture, the rule of faith, and apostolic succession.",
+        "es": "Contra las herejías apela a la Escritura, la regla de la fe y la sucesión apostólica."
+      },
+      "detail": {
+        "en": "Irenaeus, Bishop of Lyon, connects the churches of East and West. His writing argues that the public teaching handed down through the bishops safeguards the unity of Christian faith.",
+        "es": "Ireneo, obispo de Lyon, enlaza las iglesias de Oriente y Occidente. Su obra sostiene que la enseñanza pública transmitida por medio de los obispos salvaguarda la unidad de la fe cristiana."
+      },
+      "people": {
+        "en": [
+          "Irenaeus of Lyon"
+        ],
+        "es": [
+          "Ireneo de Lyon"
+        ]
+      },
+      "category": "saints",
+      "era": "apostolic",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070328.html"
+    },
+    {
+      "id": "edict-milan",
+      "year": 313,
+      "yearLabel": {
+        "en": "AD 313",
+        "es": "313 d. C."
+      },
+      "title": {
+        "en": "Edict of Milan",
+        "es": "Edicto de Milán"
+      },
+      "summary": {
+        "en": "Imperial policy grants Christians legal toleration after periods of persecution.",
+        "es": "La política imperial concede a los cristianos tolerancia legal tras períodos de persecución."
+      },
+      "detail": {
+        "en": "The agreement associated with Constantine and Licinius restores confiscated property and permits Christian worship. It changes the Church’s public position within the Roman Empire.",
+        "es": "El acuerdo asociado con Constantino y Licinio devuelve los bienes confiscados y permite el culto cristiano. Transforma la posición pública de la Iglesia dentro del Imperio romano."
+      },
+      "people": {
+        "en": [
+          "Constantine",
+          "Licinius",
+          "Miltiades"
+        ],
+        "es": [
+          "Constantino",
+          "Licinio",
+          "Melquíades"
+        ]
+      },
+      "category": "turning-points",
+      "era": "imperial"
+    },
+    {
+      "id": "nicaea",
+      "year": 325,
+      "yearLabel": {
+        "en": "AD 325",
+        "es": "325 d. C."
+      },
+      "title": {
+        "en": "First Council of Nicaea",
+        "es": "Primer Concilio de Nicea"
+      },
+      "summary": {
+        "en": "The first ecumenical council confesses the Son as consubstantial with the Father.",
+        "es": "El primer concilio ecuménico confiesa al Hijo como consustancial al Padre."
+      },
+      "detail": {
+        "en": "Bishops gather at Nicaea to address the Arian controversy and other questions of discipline. The council’s creed becomes the foundation of the Nicene-Constantinopolitan Creed.",
+        "es": "Los obispos se reúnen en Nicea para abordar la controversia arriana y otras cuestiones de disciplina. El credo del concilio se convierte en el fundamento del Credo niceno-constantinopolitano."
+      },
+      "people": {
+        "en": [
+          "Athanasius",
+          "Constantine",
+          "Hosius of Cordoba"
+        ],
+        "es": [
+          "Atanasio",
+          "Constantino",
+          "Osio de Córdoba"
+        ]
+      },
+      "category": "councils",
+      "era": "imperial",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "constantinople",
+      "year": 381,
+      "yearLabel": {
+        "en": "AD 381",
+        "es": "381 d. C."
+      },
+      "title": {
+        "en": "First Council of Constantinople",
+        "es": "Primer Concilio de Constantinopla"
+      },
+      "summary": {
+        "en": "The council reaffirms Nicaea and clarifies the confession of the Holy Spirit.",
+        "es": "El concilio reafirma Nicea y aclara la confesión del Espíritu Santo."
+      },
+      "detail": {
+        "en": "The creed used in Catholic liturgy is conventionally called Nicene because it receives its mature conciliar form through Nicaea and Constantinople.",
+        "es": "El credo utilizado en la liturgia católica se llama convencionalmente niceno porque recibe su forma conciliar madura a través de Nicea y Constantinopla."
+      },
+      "people": {
+        "en": [
+          "Gregory of Nazianzus",
+          "Theodosius I"
+        ],
+        "es": [
+          "Gregorio Nacianceno",
+          "Teodosio I"
+        ]
+      },
+      "category": "councils",
+      "era": "imperial",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "ephesus",
+      "year": 431,
+      "yearLabel": {
+        "en": "AD 431",
+        "es": "431 d. C."
+      },
+      "title": {
+        "en": "Council of Ephesus",
+        "es": "Concilio de Éfeso"
+      },
+      "summary": {
+        "en": "The council affirms Christ’s unity and Mary’s title Theotokos, Mother of God.",
+        "es": "El concilio afirma la unidad de Cristo y el título de María Theotokos, Madre de Dios."
+      },
+      "detail": {
+        "en": "The title protects the confession that the one born of Mary is truly God incarnate. The council’s proceedings also expose deep theological and political tensions among major sees.",
+        "es": "El título protege la confesión de que quien nació de María es verdaderamente Dios encarnado. Las sesiones del concilio también revelan profundas tensiones teológicas y políticas entre las principales sedes."
+      },
+      "people": {
+        "en": [
+          "Cyril of Alexandria",
+          "Nestorius"
+        ],
+        "es": [
+          "Cirilo de Alejandría",
+          "Nestorio"
+        ]
+      },
+      "category": "councils",
+      "era": "imperial",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "chalcedon",
+      "year": 451,
+      "yearLabel": {
+        "en": "AD 451",
+        "es": "451 d. C."
+      },
+      "title": {
+        "en": "Council of Chalcedon",
+        "es": "Concilio de Calcedonia"
+      },
+      "summary": {
+        "en": "Christ is confessed as one person in two natures, without confusion or division.",
+        "es": "Cristo es confesado como una persona en dos naturalezas, sin confusión ni división."
+      },
+      "detail": {
+        "en": "Chalcedon receives Pope Leo I’s Tome and gives enduring language to the Church’s Christological confession, while also contributing to lasting divisions with Oriental Orthodox churches.",
+        "es": "Calcedonia recibe el Tomo del papa León I y da un lenguaje perdurable a la confesión cristológica de la Iglesia, aunque también contribuye a divisiones duraderas con las Iglesias ortodoxas orientales."
+      },
+      "people": {
+        "en": [
+          "Leo the Great",
+          "Pulcheria",
+          "Marcian"
+        ],
+        "es": [
+          "León Magno",
+          "Pulcheria",
+          "Marciano"
+        ]
+      },
+      "category": "councils",
+      "era": "imperial",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "benedict-rule",
+      "year": 529,
+      "yearLabel": {
+        "en": "c. AD 529",
+        "es": "c. 529 d. C."
+      },
+      "title": {
+        "en": "Benedict establishes Monte Cassino",
+        "es": "Benito funda Montecasino"
+      },
+      "summary": {
+        "en": "The Rule of Saint Benedict shapes Western monastic life around prayer, work, stability, and community.",
+        "es": "La Regla de san Benito modela la vida monástica occidental en torno a la oración, el trabajo, la estabilidad y la comunidad."
+      },
+      "detail": {
+        "en": "Benedict’s balanced rule becomes a durable framework for monasteries that preserve learning, cultivate land, offer hospitality, and sustain worship across medieval Europe.",
+        "es": "La equilibrada regla de Benito se convierte en un marco duradero para monasterios que conservan el saber, cultivan la tierra, ofrecen hospitalidad y sostienen el culto en la Europa medieval."
+      },
+      "people": {
+        "en": [
+          "Benedict of Nursia",
+          "Scholastica"
+        ],
+        "es": [
+          "Benito de Nursia",
+          "Escolástica"
+        ]
+      },
+      "category": "saints",
+      "era": "imperial",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080409.html"
+    },
+    {
+      "id": "gregory-great",
+      "year": 590,
+      "yearLabel": {
+        "en": "AD 590",
+        "es": "590 d. C."
+      },
+      "title": {
+        "en": "Gregory the Great becomes pope",
+        "es": "Gregorio Magno es elegido papa"
+      },
+      "summary": {
+        "en": "Gregory’s pastoral, liturgical, diplomatic, and missionary leadership marks the early medieval papacy.",
+        "es": "El liderazgo pastoral, litúrgico, diplomático y misionero de Gregorio marca el papado de la Alta Edad Media."
+      },
+      "detail": {
+        "en": "A former prefect and monk, Gregory organizes relief in Rome, writes the Pastoral Rule, and sends Augustine’s mission to the English.",
+        "es": "Antiguo prefecto y monje, Gregorio organiza la ayuda en Roma, escribe la Regla pastoral y envía la misión de Agustín a los ingleses."
+      },
+      "people": {
+        "en": [
+          "Gregory I",
+          "Augustine of Canterbury"
+        ],
+        "es": [
+          "Gregorio I",
+          "Agustín de Canterbury"
+        ]
+      },
+      "category": "popes",
+      "era": "imperial",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080528.html"
+    },
+    {
+      "id": "great-schism",
+      "year": 1054,
+      "yearLabel": {
+        "en": "AD 1054",
+        "es": "1054 d. C."
+      },
+      "title": {
+        "en": "East–West rupture deepens",
+        "es": "Se profundiza la ruptura entre Oriente y Occidente"
+      },
+      "summary": {
+        "en": "Mutual excommunications become a symbol of the widening breach between Rome and Constantinople.",
+        "es": "Las excomuniones mutuas se convierten en símbolo de la creciente brecha entre Roma y Constantinopla."
+      },
+      "detail": {
+        "en": "The division between the Catholic and Eastern Orthodox churches developed over centuries; 1054 is a conventional marker, not a single clean moment of separation.",
+        "es": "La división entre las Iglesias católica y ortodoxa oriental se desarrolló durante siglos; 1054 es un hito convencional, no un único momento nítido de separación."
+      },
+      "people": {
+        "en": [
+          "Leo IX",
+          "Michael Cerularius",
+          "Humbert of Silva Candida"
+        ],
+        "es": [
+          "León IX",
+          "Miguel Cerulario",
+          "Humberto de Silva Candida"
+        ]
+      },
+      "category": "turning-points",
+      "era": "medieval"
+    },
+    {
+      "id": "francis",
+      "year": 1209,
+      "yearLabel": {
+        "en": "c. AD 1209",
+        "es": "c. 1209 d. C."
+      },
+      "title": {
+        "en": "Franciscan movement receives papal approval",
+        "es": "El movimiento franciscano recibe la aprobación papal"
+      },
+      "summary": {
+        "en": "Francis of Assisi and his companions embrace a Gospel life of poverty, preaching, and service.",
+        "es": "Francisco de Asís y sus compañeros abrazan una vida evangélica de pobreza, predicación y servicio."
+      },
+      "detail": {
+        "en": "The mendicant movements bring a new form of religious life into rapidly growing towns and universities. Clare of Assisi develops the women’s branch of the Franciscan family.",
+        "es": "Los movimientos mendicantes llevan una nueva forma de vida religiosa a ciudades y universidades en rápido crecimiento. Clara de Asís desarrolla la rama femenina de la familia franciscana."
+      },
+      "people": {
+        "en": [
+          "Francis of Assisi",
+          "Clare of Assisi",
+          "Innocent III"
+        ],
+        "es": [
+          "Francisco de Asís",
+          "Clara de Asís",
+          "Inocencio III"
+        ]
+      },
+      "category": "saints",
+      "era": "medieval",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100127.html"
+    },
+    {
+      "id": "lateran-four",
+      "year": 1215,
+      "yearLabel": {
+        "en": "AD 1215",
+        "es": "1215 d. C."
+      },
+      "title": {
+        "en": "Fourth Lateran Council",
+        "es": "IV Concilio de Letrán"
+      },
+      "summary": {
+        "en": "A major medieval council addresses doctrine, reform, education, sacraments, and crusade.",
+        "es": "Un gran concilio medieval aborda la doctrina, la reforma, la educación, los sacramentos y la cruzada."
+      },
+      "detail": {
+        "en": "Its decrees articulate Eucharistic teaching with the term transubstantiation and require annual confession and Easter Communion for the faithful who have reached the age of discretion.",
+        "es": "Sus decretos articulan la enseñanza eucarística con el término transubstanciación y exigen la confesión anual y la comunión pascual a los fieles que han alcanzado la edad de discreción."
+      },
+      "people": {
+        "en": [
+          "Innocent III"
+        ],
+        "es": [
+          "Inocencio III"
+        ]
+      },
+      "category": "councils",
+      "era": "medieval",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "aquinas",
+      "year": 1274,
+      "yearLabel": {
+        "en": "AD 1274",
+        "es": "1274 d. C."
+      },
+      "title": {
+        "en": "Thomas Aquinas dies en route to Lyon",
+        "es": "Tomás de Aquino muere camino de Lyon"
+      },
+      "summary": {
+        "en": "The Dominican theologian’s synthesis of faith and reason becomes foundational in Catholic thought.",
+        "es": "La síntesis de fe y razón del teólogo dominico se vuelve fundamental para el pensamiento católico."
+      },
+      "detail": {
+        "en": "The Summa theologiae integrates Scripture, patristic tradition, philosophy, and disputed questions in a structured account of God, creation, moral life, Christ, and the sacraments.",
+        "es": "La Suma teológica integra la Escritura, la tradición patrística, la filosofía y las cuestiones disputadas en una exposición estructurada sobre Dios, la creación, la vida moral, Cristo y los sacramentos."
+      },
+      "people": {
+        "en": [
+          "Thomas Aquinas"
+        ],
+        "es": [
+          "Tomás de Aquino"
+        ]
+      },
+      "category": "saints",
+      "era": "medieval",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100602.html"
+    },
+    {
+      "id": "western-schism",
+      "year": 1378,
+      "yearLabel": {
+        "en": "AD 1378–1417",
+        "es": "1378–1417 d. C."
+      },
+      "title": {
+        "en": "Western Schism",
+        "es": "Cisma de Occidente"
+      },
+      "summary": {
+        "en": "Competing papal claimants divide Western Christendom until the Council of Constance.",
+        "es": "Varios pretendientes al papado dividen la cristiandad occidental hasta el Concilio de Constanza."
+      },
+      "detail": {
+        "en": "The crisis follows the Avignon Papacy and tests the Church’s structures of authority. The election of Martin V in 1417 restores a broadly recognized Roman succession.",
+        "es": "La crisis sigue al Papado de Aviñón y pone a prueba las estructuras de autoridad de la Iglesia. La elección de Martín V en 1417 restablece una sucesión romana ampliamente reconocida."
+      },
+      "people": {
+        "en": [
+          "Gregory XI",
+          "Urban VI",
+          "Martin V"
+        ],
+        "es": [
+          "Gregorio XI",
+          "Urbano VI",
+          "Martín V"
+        ]
+      },
+      "category": "turning-points",
+      "era": "medieval"
+    },
+    {
+      "id": "reformation",
+      "year": 1517,
+      "yearLabel": {
+        "en": "AD 1517",
+        "es": "1517 d. C."
+      },
+      "title": {
+        "en": "The Protestant Reformation begins",
+        "es": "Comienza la Reforma protestante"
+      },
+      "summary": {
+        "en": "Martin Luther’s controversy over indulgences expands into disputes over authority, grace, sacraments, and reform.",
+        "es": "La controversia de Martín Lutero sobre las indulgencias se amplía a disputas acerca de la autoridad, la gracia, los sacramentos y la reforma."
+      },
+      "detail": {
+        "en": "Reform movements and political conflicts lead to enduring Western divisions and multiple Protestant traditions. Catholic reform was already underway in some settings and accelerates dramatically.",
+        "es": "Los movimientos de reforma y los conflictos políticos provocan divisiones duraderas en Occidente y múltiples tradiciones protestantes. La reforma católica ya estaba en marcha en algunos lugares y se acelera de forma drástica."
+      },
+      "people": {
+        "en": [
+          "Martin Luther",
+          "Leo X"
+        ],
+        "es": [
+          "Martín Lutero",
+          "León X"
+        ]
+      },
+      "category": "turning-points",
+      "era": "reformation"
+    },
+    {
+      "id": "trent",
+      "year": 1545,
+      "yearLabel": {
+        "en": "AD 1545–1563",
+        "es": "1545–1563 d. C."
+      },
+      "title": {
+        "en": "Council of Trent",
+        "es": "Concilio de Trento"
+      },
+      "summary": {
+        "en": "The council defines Catholic teaching and launches a far-reaching program of institutional reform.",
+        "es": "El concilio define la enseñanza católica y pone en marcha un amplio programa de reforma institucional."
+      },
+      "detail": {
+        "en": "Across three periods, Trent addresses Scripture and tradition, justification, the sacraments, the Mass, episcopal residence, seminaries, and pastoral discipline.",
+        "es": "A lo largo de tres períodos, Trento aborda la Escritura y la tradición, la justificación, los sacramentos, la Misa, la residencia episcopal, los seminarios y la disciplina pastoral."
+      },
+      "people": {
+        "en": [
+          "Paul III",
+          "Julius III",
+          "Pius IV",
+          "Charles Borromeo"
+        ],
+        "es": [
+          "Pablo III",
+          "Julio III",
+          "Pío IV",
+          "Carlos Borromeo"
+        ]
+      },
+      "category": "councils",
+      "era": "reformation",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "jesuits",
+      "year": 1540,
+      "yearLabel": {
+        "en": "AD 1540",
+        "es": "1540 d. C."
+      },
+      "title": {
+        "en": "Society of Jesus approved",
+        "es": "Aprobada la Compañía de Jesús"
+      },
+      "summary": {
+        "en": "The Jesuits unite spiritual formation, education, mission, and direct service to the pope.",
+        "es": "Los jesuitas unen la formación espiritual, la educación, la misión y el servicio directo al papa."
+      },
+      "detail": {
+        "en": "Ignatius of Loyola’s Spiritual Exercises and the Society’s global schools and missions become central to Catholic renewal in the early modern world.",
+        "es": "Los Ejercicios espirituales de Ignacio de Loyola y las escuelas y misiones globales de la Compañía se vuelven centrales para la renovación católica en el mundo moderno temprano."
+      },
+      "people": {
+        "en": [
+          "Ignatius of Loyola",
+          "Francis Xavier",
+          "Paul III"
+        ],
+        "es": [
+          "Ignacio de Loyola",
+          "Francisco Javier",
+          "Pablo III"
+        ]
+      },
+      "category": "saints",
+      "era": "reformation",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20060422.html"
+    },
+    {
+      "id": "rerum-novarum",
+      "year": 1891,
+      "yearLabel": {
+        "en": "AD 1891",
+        "es": "1891 d. C."
+      },
+      "title": {
+        "en": "Rerum novarum",
+        "es": "Rerum novarum"
+      },
+      "summary": {
+        "en": "Leo XIII addresses labor, capital, private property, workers’ associations, and the duties of the state.",
+        "es": "León XIII aborda el trabajo, el capital, la propiedad privada, las asociaciones obreras y los deberes del Estado."
+      },
+      "detail": {
+        "en": "The encyclical becomes a landmark of modern Catholic social teaching and a reference point for later papal reflection on economic and social life.",
+        "es": "La encíclica se convierte en un hito de la doctrina social católica moderna y en punto de referencia para posteriores reflexiones papales sobre la vida económica y social."
+      },
+      "people": {
+        "en": [
+          "Leo XIII"
+        ],
+        "es": [
+          "León XIII"
+        ]
+      },
+      "category": "documents",
+      "era": "modern",
+      "source": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html"
+    },
+    {
+      "id": "vatican-one",
+      "year": 1869,
+      "yearLabel": {
+        "en": "AD 1869–1870",
+        "es": "1869–1870 d. C."
+      },
+      "title": {
+        "en": "First Vatican Council",
+        "es": "Concilio Vaticano I"
+      },
+      "summary": {
+        "en": "The council teaches on faith and reason and defines papal primacy and infallibility under specific conditions.",
+        "es": "El concilio enseña sobre la fe y la razón y define el primado y la infalibilidad papales bajo condiciones específicas."
+      },
+      "detail": {
+        "en": "The council is suspended as Italian forces enter Rome. Its constitutions Dei Filius and Pastor aeternus shape subsequent Catholic ecclesiology.",
+        "es": "El concilio se suspende cuando las fuerzas italianas entran en Roma. Sus constituciones Dei Filius y Pastor aeternus configuran la eclesiología católica posterior."
+      },
+      "people": {
+        "en": [
+          "Pius IX"
+        ],
+        "es": [
+          "Pío IX"
+        ]
+      },
+      "category": "councils",
+      "era": "modern",
+      "source": "https://www.vatican.va/archive/hist_councils/i_ecum/index.htm"
+    },
+    {
+      "id": "vatican-two",
+      "year": 1962,
+      "yearLabel": {
+        "en": "AD 1962–1965",
+        "es": "1962–1965 d. C."
+      },
+      "title": {
+        "en": "Second Vatican Council",
+        "es": "Concilio Vaticano II"
+      },
+      "summary": {
+        "en": "The council renews Catholic engagement with Scripture, liturgy, ecclesiology, ecumenism, religious liberty, and the modern world.",
+        "es": "El concilio renueva la relación católica con la Escritura, la liturgia, la eclesiología, el ecumenismo, la libertad religiosa y el mundo moderno."
+      },
+      "detail": {
+        "en": "More than 2,000 bishops participate across four sessions. The council produces four constitutions, nine decrees, and three declarations.",
+        "es": "Más de 2.000 obispos participan a lo largo de cuatro sesiones. El concilio produce cuatro constituciones, nueve decretos y tres declaraciones."
+      },
+      "people": {
+        "en": [
+          "John XXIII",
+          "Paul VI"
+        ],
+        "es": [
+          "Juan XXIII",
+          "Pablo VI"
+        ]
+      },
+      "category": "councils",
+      "era": "contemporary",
+      "source": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index.htm"
+    },
+    {
+      "id": "catechism",
+      "year": 1992,
+      "yearLabel": {
+        "en": "AD 1992",
+        "es": "1992 d. C."
+      },
+      "title": {
+        "en": "Catechism of the Catholic Church promulgated",
+        "es": "Se promulga el Catecismo de la Iglesia católica"
+      },
+      "summary": {
+        "en": "A universal catechism organizes Catholic teaching around creed, sacraments, moral life, and prayer.",
+        "es": "Un catecismo universal organiza la enseñanza católica en torno al credo, los sacramentos, la vida moral y la oración."
+      },
+      "detail": {
+        "en": "Requested by the 1985 Synod of Bishops, the Catechism serves as a reference text for local catechisms and instruction throughout the worldwide Church.",
+        "es": "Solicitado por el Sínodo de los Obispos de 1985, el Catecismo sirve como texto de referencia para los catecismos locales y la formación en toda la Iglesia universal."
+      },
+      "people": {
+        "en": [
+          "John Paul II",
+          "Joseph Ratzinger"
+        ],
+        "es": [
+          "Juan Pablo II",
+          "Joseph Ratzinger"
+        ]
+      },
+      "category": "documents",
+      "era": "contemporary",
+      "source": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+    },
+    {
+      "id": "stephen-martyr",
+      "year": 34,
+      "yearLabel": {
+        "en": "c. AD 34–36",
+        "es": "c. 34–36 d. C."
+      },
+      "title": {
+        "en": "Stephen becomes the first Christian martyr",
+        "es": "Esteban se convierte en el primer mártir cristiano"
+      },
+      "summary": {
+        "en": "A deacon of the Jerusalem community bears witness before the council and is killed outside the city.",
+        "es": "Un diácono de la comunidad de Jerusalén da testimonio ante el consejo y es asesinado fuera de la ciudad."
+      },
+      "detail": {
+        "en": "Acts describes Stephen as filled with faith and the Holy Spirit. His final prayer echoes Christ’s forgiveness from the cross, and Saul appears among those consenting to his death.",
+        "es": "Hechos describe a Esteban lleno de fe y del Espíritu Santo. Su oración final evoca el perdón de Cristo desde la cruz, y Saulo aparece entre quienes consienten en su muerte."
+      },
+      "people": {
+        "en": [
+          "Stephen",
+          "Saul"
+        ],
+        "es": [
+          "Esteban",
+          "Saulo"
+        ]
+      },
+      "category": "saints",
+      "era": "apostolic",
+      "source": "https://bible.usccb.org/bible/acts/6"
+    },
+    {
+      "id": "perpetua-felicity",
+      "year": 203,
+      "yearLabel": {
+        "en": "AD 203",
+        "es": "203 d. C."
+      },
+      "title": {
+        "en": "Perpetua and Felicity are martyred at Carthage",
+        "es": "Perpetua y Felicidad son martirizadas en Cartago"
+      },
+      "summary": {
+        "en": "The prison account of two young North African Christians becomes an enduring record of early martyrdom.",
+        "es": "El relato carcelario de dos jóvenes cristianas norteafricanas se convierte en un testimonio perdurable del martirio antiguo."
+      },
+      "detail": {
+        "en": "The Passion of Saints Perpetua and Felicity preserves Perpetua’s first-person prison narrative alongside an editor’s account of the group’s execution in the amphitheater.",
+        "es": "La Pasión de las santas Perpetua y Felicidad conserva la narración en primera persona de Perpetua desde la prisión junto con el relato de un editor sobre la ejecución del grupo en el anfiteatro."
+      },
+      "people": {
+        "en": [
+          "Perpetua",
+          "Felicity",
+          "Saturus"
+        ],
+        "es": [
+          "Perpetua",
+          "Felicidad",
+          "Sáturo"
+        ]
+      },
+      "category": "saints",
+      "era": "apostolic"
+    },
+    {
+      "id": "diocletian-persecution",
+      "year": 303,
+      "yearLabel": {
+        "en": "AD 303–311",
+        "es": "303–311 d. C."
+      },
+      "title": {
+        "en": "The Great Persecution",
+        "es": "La Gran Persecución"
+      },
+      "summary": {
+        "en": "Imperial edicts target churches, Scriptures, clergy, and Christians who refuse sacrifice.",
+        "es": "Los edictos imperiales atacan iglesias, Escrituras, clero y cristianos que se niegan a ofrecer sacrificios."
+      },
+      "detail": {
+        "en": "The persecution varies sharply across the empire but becomes the last and most systematic Roman attempt to suppress Christianity before toleration.",
+        "es": "La persecución varía mucho a través del imperio, pero se convierte en el último y más sistemático intento romano de suprimir el cristianismo antes de la tolerancia."
+      },
+      "people": {
+        "en": [
+          "Diocletian",
+          "Galerius"
+        ],
+        "es": [
+          "Diocleciano",
+          "Galerio"
+        ]
+      },
+      "category": "turning-points",
+      "era": "apostolic"
+    },
+    {
+      "id": "augustine-hippo",
+      "year": 395,
+      "yearLabel": {
+        "en": "AD 395",
+        "es": "395 d. C."
+      },
+      "title": {
+        "en": "Augustine becomes Bishop of Hippo",
+        "es": "Agustín se convierte en obispo de Hipona"
+      },
+      "summary": {
+        "en": "The North African pastor and theologian shapes Western reflection on grace, community, history, and the human heart.",
+        "es": "El pastor y teólogo norteafricano configura la reflexión occidental sobre la gracia, la comunidad, la historia y el corazón humano."
+      },
+      "detail": {
+        "en": "Augustine’s Confessions, City of God, sermons, letters, and theological controversies leave one of the largest and most influential bodies of writing in the Latin Church.",
+        "es": "Las Confesiones, La ciudad de Dios, los sermones, las cartas y las controversias teológicas de Agustín forman uno de los conjuntos de escritos más amplios e influyentes de la Iglesia latina."
+      },
+      "people": {
+        "en": [
+          "Augustine of Hippo",
+          "Monica",
+          "Ambrose"
+        ],
+        "es": [
+          "Agustín de Hipona",
+          "Mónica",
+          "Ambrosio"
+        ]
+      },
+      "category": "saints",
+      "era": "imperial",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080109.html"
+    },
+    {
+      "id": "vulgate",
+      "year": 405,
+      "yearLabel": {
+        "en": "c. AD 405",
+        "es": "c. 405 d. C."
+      },
+      "title": {
+        "en": "Jerome completes major work on the Latin Bible",
+        "es": "Jerónimo completa una parte esencial de la Biblia latina"
+      },
+      "summary": {
+        "en": "Jerome’s translations and revisions become the foundation of the Latin Vulgate tradition.",
+        "es": "Las traducciones y revisiones de Jerónimo se convierten en el fundamento de la tradición de la Vulgata latina."
+      },
+      "detail": {
+        "en": "Working from Hebrew and Greek texts, Jerome produces and revises biblical books over several decades. The resulting Latin tradition profoundly shapes Western worship, theology, art, and language.",
+        "es": "A partir de textos hebreos y griegos, Jerónimo traduce y revisa libros bíblicos durante varias décadas. La tradición latina resultante influye profundamente en el culto, la teología, el arte y la lengua de Occidente."
+      },
+      "people": {
+        "en": [
+          "Jerome",
+          "Paula of Rome",
+          "Damasus I"
+        ],
+        "es": [
+          "Jerónimo",
+          "Paula de Roma",
+          "Dámaso I"
+        ]
+      },
+      "category": "documents",
+      "era": "imperial",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20071107.html"
+    },
+    {
+      "id": "patrick-ireland",
+      "year": 432,
+      "yearLabel": {
+        "en": "c. AD 432",
+        "es": "c. 432 d. C."
+      },
+      "title": {
+        "en": "Patrick’s mission in Ireland",
+        "es": "Misión de Patricio en Irlanda"
+      },
+      "summary": {
+        "en": "A former captive returns as a bishop and missionary to serve the Irish people.",
+        "es": "Un antiguo cautivo regresa como obispo y misionero para servir al pueblo irlandés."
+      },
+      "detail": {
+        "en": "Patrick’s own Confession presents a life marked by enslavement, conversion, vocation, and mission. Later tradition expands his story, but his writings remain the essential historical witness.",
+        "es": "La propia Confesión de Patricio presenta una vida marcada por la esclavitud, la conversión, la vocación y la misión. La tradición posterior amplía su historia, pero sus escritos siguen siendo el testimonio histórico esencial."
+      },
+      "people": {
+        "en": [
+          "Patrick of Ireland"
+        ],
+        "es": [
+          "Patricio de Irlanda"
+        ]
+      },
+      "category": "saints",
+      "era": "imperial"
+    },
+    {
+      "id": "nicaea-two",
+      "year": 787,
+      "yearLabel": {
+        "en": "AD 787",
+        "es": "787 d. C."
+      },
+      "title": {
+        "en": "Second Council of Nicaea",
+        "es": "Segundo Concilio de Nicea"
+      },
+      "summary": {
+        "en": "The council distinguishes the veneration of sacred images from the worship owed to God alone.",
+        "es": "El concilio distingue la veneración de las imágenes sagradas del culto debido solo a Dios."
+      },
+      "detail": {
+        "en": "Nicaea II ends the first phase of Byzantine iconoclasm and is recognized as the seventh ecumenical council by both Catholic and Eastern Orthodox churches.",
+        "es": "Nicea II pone fin a la primera fase de la iconoclasia bizantina y es reconocido como el séptimo concilio ecuménico tanto por la Iglesia católica como por las Iglesias ortodoxas orientales."
+      },
+      "people": {
+        "en": [
+          "Irene of Athens",
+          "Adrian I",
+          "Tarasios of Constantinople"
+        ],
+        "es": [
+          "Irene de Atenas",
+          "Adriano I",
+          "Tarasio de Constantinopla"
+        ]
+      },
+      "category": "councils",
+      "era": "imperial",
+      "source": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1987/documents/hf_jp-ii_apl_19871204_duodecimum-saeculum.html"
+    },
+    {
+      "id": "charlemagne-crowned",
+      "year": 800,
+      "yearLabel": {
+        "en": "AD 800",
+        "es": "800 d. C."
+      },
+      "title": {
+        "en": "Charlemagne crowned emperor in Rome",
+        "es": "Carlomagno es coronado emperador en Roma"
+      },
+      "summary": {
+        "en": "Leo III’s coronation of the Frankish king binds papal, imperial, and European politics in a new form.",
+        "es": "La coronación del rey franco por León III vincula de una nueva manera la política papal, imperial y europea."
+      },
+      "detail": {
+        "en": "The Christmas Day coronation becomes a major symbol in the development of the medieval West and the later Holy Roman Empire, while intensifying tensions with Byzantium.",
+        "es": "La coronación del día de Navidad se convierte en un gran símbolo del desarrollo del Occidente medieval y del posterior Sacro Imperio Romano Germánico, al tiempo que intensifica las tensiones con Bizancio."
+      },
+      "people": {
+        "en": [
+          "Charlemagne",
+          "Leo III"
+        ],
+        "es": [
+          "Carlomagno",
+          "León III"
+        ]
+      },
+      "category": "turning-points",
+      "era": "imperial"
+    },
+    {
+      "id": "cyril-methodius",
+      "year": 863,
+      "yearLabel": {
+        "en": "AD 863",
+        "es": "863 d. C."
+      },
+      "title": {
+        "en": "Cyril and Methodius begin the Moravian mission",
+        "es": "Cirilo y Metodio comienzan la misión de Moravia"
+      },
+      "summary": {
+        "en": "The brothers translate Scripture and worship for Slavic peoples and train local clergy.",
+        "es": "Los hermanos traducen la Escritura y el culto para los pueblos eslavos y forman al clero local."
+      },
+      "detail": {
+        "en": "Their mission models the translation of Christian faith into local language and culture. Their disciples develop the Cyrillic script after Cyril’s death.",
+        "es": "Su misión ejemplifica la traducción de la fe cristiana a la lengua y la cultura locales. Sus discípulos desarrollan el alfabeto cirílico después de la muerte de Cirilo."
+      },
+      "people": {
+        "en": [
+          "Cyril",
+          "Methodius",
+          "Adrian II"
+        ],
+        "es": [
+          "Cirilo",
+          "Metodio",
+          "Adriano II"
+        ]
+      },
+      "category": "saints",
+      "era": "medieval",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2009/documents/hf_ben-xvi_aud_20090617.html"
+    },
+    {
+      "id": "cluny",
+      "year": 910,
+      "yearLabel": {
+        "en": "AD 910",
+        "es": "910 d. C."
+      },
+      "title": {
+        "en": "Abbey of Cluny founded",
+        "es": "Fundación de la abadía de Cluny"
+      },
+      "summary": {
+        "en": "A reformed Benedictine house becomes the center of a major movement of monastic and liturgical renewal.",
+        "es": "Una casa benedictina reformada se convierte en el centro de un gran movimiento de renovación monástica y litúrgica."
+      },
+      "detail": {
+        "en": "Cluny’s unusual freedom from local lay control and its network of dependent houses give its customs and reforming influence exceptional reach across medieval Europe.",
+        "es": "La inusual libertad de Cluny frente al control laico local y su red de casas dependientes dan a sus costumbres e influencia reformadora un alcance excepcional en la Europa medieval."
+      },
+      "people": {
+        "en": [
+          "William I of Aquitaine",
+          "Bern Odo"
+        ],
+        "es": [
+          "Guillermo I de Aquitania",
+          "Berno y Odón"
+        ]
+      },
+      "category": "turning-points",
+      "era": "medieval"
+    },
+    {
+      "id": "first-crusade",
+      "year": 1095,
+      "yearLabel": {
+        "en": "AD 1095",
+        "es": "1095 d. C."
+      },
+      "title": {
+        "en": "Urban II calls the First Crusade",
+        "es": "Urbano II convoca la Primera Cruzada"
+      },
+      "summary": {
+        "en": "A call for armed pilgrimage sets in motion campaigns that transform relations among Christians, Muslims, and Jews.",
+        "es": "Un llamamiento a la peregrinación armada pone en marcha campañas que transforman las relaciones entre cristianos, musulmanes y judíos."
+      },
+      "detail": {
+        "en": "The crusading movement is religious, political, military, and social. Its history includes pilgrimage and reform ideals alongside conquest, massacre, rivalry, and enduring trauma.",
+        "es": "El movimiento cruzado es religioso, político, militar y social. Su historia incluye ideales de peregrinación y reforma junto con conquista, masacre, rivalidad y un trauma perdurable."
+      },
+      "people": {
+        "en": [
+          "Urban II",
+          "Alexios I Komnenos"
+        ],
+        "es": [
+          "Urbano II",
+          "Alejo I Comneno"
+        ]
+      },
+      "category": "turning-points",
+      "era": "medieval"
+    },
+    {
+      "id": "dominicans-approved",
+      "year": 1216,
+      "yearLabel": {
+        "en": "AD 1216",
+        "es": "1216 d. C."
+      },
+      "title": {
+        "en": "Order of Preachers confirmed",
+        "es": "Confirmada la Orden de Predicadores"
+      },
+      "summary": {
+        "en": "Dominic’s community joins common life, study, poverty, and preaching in service of the Gospel.",
+        "es": "La comunidad de Domingo une vida común, estudio, pobreza y predicación al servicio del Evangelio."
+      },
+      "detail": {
+        "en": "The Dominican order becomes a major intellectual, missionary, and pastoral presence in the Church, producing theologians and mystics including Thomas Aquinas and Catherine of Siena.",
+        "es": "La orden dominica se convierte en una gran presencia intelectual, misionera y pastoral en la Iglesia, y da teólogos y místicos como Tomás de Aquino y Catalina de Siena."
+      },
+      "people": {
+        "en": [
+          "Dominic de Guzmán",
+          "Honorius III"
+        ],
+        "es": [
+          "Domingo de Guzmán",
+          "Honorio III"
+        ]
+      },
+      "category": "saints",
+      "era": "medieval",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100203.html"
+    },
+    {
+      "id": "avignon-papacy",
+      "year": 1309,
+      "yearLabel": {
+        "en": "AD 1309–1377",
+        "es": "1309–1377 d. C."
+      },
+      "title": {
+        "en": "The papacy resides at Avignon",
+        "es": "El papado reside en Aviñón"
+      },
+      "summary": {
+        "en": "Seven successive popes govern from Avignon during a period of strong French influence.",
+        "es": "Siete papas sucesivos gobiernan desde Aviñón durante un período de fuerte influencia francesa."
+      },
+      "detail": {
+        "en": "The papal administration grows more centralized and sophisticated, but its absence from Rome damages prestige and contributes to conditions preceding the Western Schism.",
+        "es": "La administración papal se vuelve más centralizada y sofisticada, pero su ausencia de Roma perjudica su prestigio y contribuye a las condiciones que preceden al Cisma de Occidente."
+      },
+      "people": {
+        "en": [
+          "Clement V",
+          "Gregory XI",
+          "Catherine of Siena"
+        ],
+        "es": [
+          "Clemente V",
+          "Gregorio XI",
+          "Catalina de Siena"
+        ]
+      },
+      "category": "popes",
+      "era": "medieval"
+    },
+    {
+      "id": "guadalupe",
+      "year": 1531,
+      "yearLabel": {
+        "en": "AD 1531",
+        "es": "1531 d. C."
+      },
+      "title": {
+        "en": "Our Lady of Guadalupe tradition begins",
+        "es": "Comienza la tradición de Nuestra Señora de Guadalupe"
+      },
+      "summary": {
+        "en": "Catholic tradition holds that Mary appears to the Indigenous convert Juan Diego near Mexico City.",
+        "es": "La tradición católica sostiene que María se aparece al converso indígena Juan Diego cerca de Ciudad de México."
+      },
+      "detail": {
+        "en": "The Guadalupe devotion becomes inseparable from the history and identity of Mexican and wider American Catholicism. Juan Diego is canonized in 2002.",
+        "es": "La devoción guadalupana se vuelve inseparable de la historia y la identidad del catolicismo mexicano y del continente americano. Juan Diego es canonizado en 2002."
+      },
+      "people": {
+        "en": [
+          "Juan Diego",
+          "Bishop Juan de Zumárraga"
+        ],
+        "es": [
+          "Juan Diego",
+          "Obispo Juan de Zumárraga"
+        ]
+      },
+      "category": "saints",
+      "era": "reformation",
+      "source": "https://www.vatican.va/content/john-paul-ii/en/homilies/2002/documents/hf_jp-ii_hom_20020731_canonization-mexico.html"
+    },
+    {
+      "id": "teresa-reform",
+      "year": 1562,
+      "yearLabel": {
+        "en": "AD 1562",
+        "es": "1562 d. C."
+      },
+      "title": {
+        "en": "Teresa of Ávila founds Saint Joseph’s",
+        "es": "Teresa de Ávila funda San José"
+      },
+      "summary": {
+        "en": "A Carmelite reform begins with a small community devoted to prayer, simplicity, and common life.",
+        "es": "Una reforma carmelita comienza con una pequeña comunidad dedicada a la oración, la sencillez y la vida común."
+      },
+      "detail": {
+        "en": "Teresa’s foundations and spiritual writings, joined by John of the Cross’s work, renew Carmelite life and become classics of Christian mysticism.",
+        "es": "Las fundaciones y los escritos espirituales de Teresa, unidos a la obra de Juan de la Cruz, renuevan la vida carmelita y se convierten en clásicos de la mística cristiana."
+      },
+      "people": {
+        "en": [
+          "Teresa of Ávila",
+          "John of the Cross"
+        ],
+        "es": [
+          "Teresa of Ávila",
+          "Juan de la Cruz"
+        ]
+      },
+      "category": "saints",
+      "era": "reformation",
+      "source": "https://www.vatican.va/content/benedict-xvi/en/audiences/2011/documents/hf_ben-xvi_aud_20110202.html"
+    },
+    {
+      "id": "gregorian-calendar",
+      "year": 1582,
+      "yearLabel": {
+        "en": "AD 1582",
+        "es": "1582 d. C."
+      },
+      "title": {
+        "en": "Gregorian calendar promulgated",
+        "es": "Promulgado el calendario gregoriano"
+      },
+      "summary": {
+        "en": "Gregory XIII reforms the calendar to realign the date of the spring equinox used in calculating Easter.",
+        "es": "Gregorio XIII reforma el calendario para reajustar la fecha del equinoccio de primavera utilizada al calcular la Pascua."
+      },
+      "detail": {
+        "en": "Catholic countries adopt the reform first; other states follow over succeeding centuries. The calendar eventually becomes the dominant civil calendar worldwide.",
+        "es": "Los países católicos adoptan primero la reforma; otros Estados lo hacen en los siglos siguientes. Con el tiempo, el calendario se convierte en el calendario civil dominante en todo el mundo."
+      },
+      "people": {
+        "en": [
+          "Gregory XIII",
+          "Aloysius Lilius",
+          "Christopher Clavius"
+        ],
+        "es": [
+          "Gregorio XIII",
+          "Luis Lilio",
+          "Cristóbal Clavio"
+        ]
+      },
+      "category": "documents",
+      "era": "reformation"
+    },
+    {
+      "id": "vincent-charity",
+      "year": 1617,
+      "yearLabel": {
+        "en": "AD 1617",
+        "es": "1617 d. C."
+      },
+      "title": {
+        "en": "Vincent de Paul organizes missions and charity",
+        "es": "Vicente de Paúl organiza misiones y obras de caridad"
+      },
+      "summary": {
+        "en": "Experiences at Folleville and Châtillon redirect Vincent’s ministry toward rural preaching and organized care for the poor.",
+        "es": "Las experiencias de Folleville y Châtillon orientan el ministerio de Vicente hacia la predicación rural y la atención organizada a los pobres."
+      },
+      "detail": {
+        "en": "The Confraternities of Charity, Congregation of the Mission, and Daughters of Charity give durable institutional form to service, formation, and practical mercy.",
+        "es": "Las Cofradías de la Caridad, la Congregación de la Misión y las Hijas de la Caridad dan una forma institucional duradera al servicio, la formación y la misericordia práctica."
+      },
+      "people": {
+        "en": [
+          "Vincent de Paul",
+          "Louise de Marillac"
+        ],
+        "es": [
+          "Vicente de Paúl",
+          "Luisa de Marillac"
+        ]
+      },
+      "category": "saints",
+      "era": "reformation"
+    },
+    {
+      "id": "immaculate-conception",
+      "year": 1854,
+      "yearLabel": {
+        "en": "AD 1854",
+        "es": "1854 d. C."
+      },
+      "title": {
+        "en": "Immaculate Conception defined",
+        "es": "Definida la Inmaculada Concepción"
+      },
+      "summary": {
+        "en": "Pius IX solemnly defines that Mary was preserved from original sin from the first moment of her conception.",
+        "es": "Pío IX define solemnemente que María fue preservada del pecado original desde el primer instante de su concepción."
+      },
+      "detail": {
+        "en": "The definition in Ineffabilis Deus gives dogmatic form to a belief with a long and sometimes disputed history in Christian worship and theology.",
+        "es": "La definición contenida en Ineffabilis Deus da forma dogmática a una creencia con una larga historia, a veces discutida, en el culto y la teología cristianos."
+      },
+      "people": {
+        "en": [
+          "Pius IX"
+        ],
+        "es": [
+          "Pío IX"
+        ]
+      },
+      "category": "documents",
+      "era": "modern",
+      "source": "https://www.vatican.va/content/pius-ix/en/documents/enciclica-ineffabilis-deus-8-dicembre-1854.html"
+    },
+    {
+      "id": "lourdes",
+      "year": 1858,
+      "yearLabel": {
+        "en": "AD 1858",
+        "es": "1858 d. C."
+      },
+      "title": {
+        "en": "Apparitions at Lourdes",
+        "es": "Apariciones de Lourdes"
+      },
+      "summary": {
+        "en": "Bernadette Soubirous reports a series of Marian apparitions at Massabielle in southern France.",
+        "es": "Bernadette Soubirous relata una serie de apariciones marianas en Massabielle, al sur de Francia."
+      },
+      "detail": {
+        "en": "After ecclesiastical investigation, Lourdes becomes a major place of pilgrimage, prayer, reconciliation, and ministry to the sick. Bernadette is canonized in 1933.",
+        "es": "Tras una investigación eclesiástica, Lourdes se convierte en un importante lugar de peregrinación, oración, reconciliación y atención a los enfermos. Bernadette es canonizada en 1933."
+      },
+      "people": {
+        "en": [
+          "Bernadette Soubirous"
+        ],
+        "es": [
+          "Bernadette Soubirous"
+        ]
+      },
+      "category": "saints",
+      "era": "modern"
+    },
+    {
+      "id": "fatima",
+      "year": 1917,
+      "yearLabel": {
+        "en": "AD 1917",
+        "es": "1917 d. C."
+      },
+      "title": {
+        "en": "Apparitions at Fátima",
+        "es": "Apariciones de Fátima"
+      },
+      "summary": {
+        "en": "Three shepherd children report Marian apparitions centered on prayer, conversion, and peace.",
+        "es": "Tres niños pastores relatan apariciones marianas centradas en la oración, la conversión y la paz."
+      },
+      "detail": {
+        "en": "Fátima becomes one of the world’s major Marian shrines. Francisco and Jacinta Marto are canonized in 2017; Lúcia dos Santos later enters religious life.",
+        "es": "Fátima se convierte en uno de los grandes santuarios marianos del mundo. Francisco y Jacinta Marto son canonizados en 2017; Lúcia dos Santos ingresa más tarde en la vida religiosa."
+      },
+      "people": {
+        "en": [
+          "Lúcia dos Santos",
+          "Francisco Marto",
+          "Jacinta Marto"
+        ],
+        "es": [
+          "Lúcia dos Santos",
+          "Francisco Marto",
+          "Jacinta Marto"
+        ]
+      },
+      "category": "saints",
+      "era": "modern",
+      "source": "https://www.vatican.va/content/francesco/en/homilies/2017/documents/papa-francesco_20170513_omelia-pellegrinaggio-fatima.html"
+    },
+    {
+      "id": "lateran-treaty",
+      "year": 1929,
+      "yearLabel": {
+        "en": "AD 1929",
+        "es": "1929 d. C."
+      },
+      "title": {
+        "en": "Lateran Treaty establishes Vatican City State",
+        "es": "El Tratado de Letrán establece el Estado de la Ciudad del Vaticano"
+      },
+      "summary": {
+        "en": "An agreement between the Holy See and Italy resolves the Roman Question and establishes Vatican sovereignty.",
+        "es": "Un acuerdo entre la Santa Sede e Italia resuelve la Cuestión Romana y establece la soberanía vaticana."
+      },
+      "detail": {
+        "en": "The treaty creates the territorial state that guarantees the Holy See’s independence while a concordat regulates Church–state relations in Italy.",
+        "es": "El tratado crea el Estado territorial que garantiza la independencia de la Santa Sede, mientras un concordato regula las relaciones entre la Iglesia y el Estado en Italia."
+      },
+      "people": {
+        "en": [
+          "Pius XI",
+          "Pietro Gasparri",
+          "Benito Mussolini"
+        ],
+        "es": [
+          "Pío XI",
+          "Pietro Gasparri",
+          "Benito Mussolini"
+        ]
+      },
+      "category": "turning-points",
+      "era": "modern"
+    },
+    {
+      "id": "assumption-defined",
+      "year": 1950,
+      "yearLabel": {
+        "en": "AD 1950",
+        "es": "1950 d. C."
+      },
+      "title": {
+        "en": "Assumption of Mary defined",
+        "es": "Definida la Asunción de María"
+      },
+      "summary": {
+        "en": "Pius XII defines that Mary was taken body and soul into heavenly glory at the end of her earthly life.",
+        "es": "Pío XII define que María fue llevada en cuerpo y alma a la gloria celestial al final de su vida terrena."
+      },
+      "detail": {
+        "en": "Munificentissimus Deus gives dogmatic definition to a conviction expressed for centuries in Eastern and Western liturgy and devotion.",
+        "es": "Munificentissimus Deus da definición dogmática a una convicción expresada durante siglos en la liturgia y la devoción de Oriente y Occidente."
+      },
+      "people": {
+        "en": [
+          "Pius XII"
+        ],
+        "es": [
+          "Pío XII"
+        ]
+      },
+      "category": "documents",
+      "era": "modern",
+      "source": "https://www.vatican.va/content/pius-xii/en/apost_constitutions/documents/hf_p-xii_apc_19501101_munificentissimus-deus.html"
+    },
+    {
+      "id": "john-paul-two",
+      "year": 1978,
+      "yearLabel": {
+        "en": "AD 1978–2005",
+        "es": "1978–2005 d. C."
+      },
+      "title": {
+        "en": "Pontificate of John Paul II",
+        "es": "Pontificado de Juan Pablo II"
+      },
+      "summary": {
+        "en": "The first non-Italian pope in 455 years undertakes a global ministry through extensive travel, teaching, and public witness.",
+        "es": "El primer papa no italiano en 455 años ejerce un ministerio global mediante numerosos viajes, la enseñanza y el testimonio público."
+      },
+      "detail": {
+        "en": "Karol Wojtyła’s long pontificate spans the fall of European communism, the new evangelization, the 1983 Code of Canon Law, the Catechism, interreligious encounters, and World Youth Day.",
+        "es": "El largo pontificado de Karol Wojtyła abarca la caída del comunismo europeo, la nueva evangelización, el Código de Derecho Canónico de 1983, el Catecismo, encuentros interreligiosos y la Jornada Mundial de la Juventud."
+      },
+      "people": {
+        "en": [
+          "John Paul II"
+        ],
+        "es": [
+          "Juan Pablo II"
+        ]
+      },
+      "category": "popes",
+      "era": "contemporary",
+      "source": "https://www.vatican.va/content/john-paul-ii/en.html"
+    },
+    {
+      "id": "benedict-sixteen",
+      "year": 2005,
+      "yearLabel": {
+        "en": "AD 2005–2013",
+        "es": "2005–2013 d. C."
+      },
+      "title": {
+        "en": "Pontificate of Benedict XVI",
+        "es": "Pontificado de Benedicto XVI"
+      },
+      "summary": {
+        "en": "The theologian-pope centers his teaching on Christ, faith and reason, Scripture, liturgy, hope, and charity.",
+        "es": "El papa teólogo centra su enseñanza en Cristo, la fe y la razón, la Escritura, la liturgia, la esperanza y la caridad."
+      },
+      "detail": {
+        "en": "Joseph Ratzinger succeeds John Paul II and resigns in 2013, becoming the first pope in nearly six centuries to renounce the papal office.",
+        "es": "Joseph Ratzinger sucede a Juan Pablo II y renuncia en 2013, convirtiéndose en el primer papa en casi seis siglos en renunciar al oficio papal."
+      },
+      "people": {
+        "en": [
+          "Benedict XVI"
+        ],
+        "es": [
+          "Benedicto XVI"
+        ]
+      },
+      "category": "popes",
+      "era": "contemporary",
+      "source": "https://www.vatican.va/content/benedict-xvi/en.html"
+    },
+    {
+      "id": "francis-pontificate",
+      "year": 2013,
+      "yearLabel": {
+        "en": "AD 2013–2025",
+        "es": "2013–2025 d. C."
+      },
+      "title": {
+        "en": "Pontificate of Francis",
+        "es": "Pontificado de Francisco"
+      },
+      "summary": {
+        "en": "The first pope from the Americas emphasizes missionary discipleship, mercy, synodality, and care for creation.",
+        "es": "El primer papa de América subraya el discipulado misionero, la misericordia, la sinodalidad y el cuidado de la creación."
+      },
+      "detail": {
+        "en": "Jorge Mario Bergoglio, the former Archbishop of Buenos Aires, becomes the first Jesuit pope. His major texts include Evangelii gaudium, Laudato si’, and Fratelli tutti.",
+        "es": "Jorge Mario Bergoglio, antiguo arzobispo de Buenos Aires, se convierte en el primer papa jesuita. Entre sus principales textos figuran Evangelii gaudium, Laudato si’ y Fratelli tutti."
+      },
+      "people": {
+        "en": [
+          "Francis"
+        ],
+        "es": [
+          "Francisco"
+        ]
+      },
+      "category": "popes",
+      "era": "contemporary",
+      "source": "https://www.vatican.va/content/francesco/en.html"
+    },
+    {
+      "id": "leo-fourteen",
+      "year": 2025,
+      "yearLabel": {
+        "en": "AD 2025–present",
+        "es": "2025–actualidad"
+      },
+      "title": {
+        "en": "Leo XIV becomes the 267th pope",
+        "es": "León XIV se convierte en el papa número 267"
+      },
+      "summary": {
+        "en": "Robert Francis Prevost is elected Bishop of Rome on 8 May 2025.",
+        "es": "Robert Francis Prevost es elegido obispo de Roma el 8 de mayo de 2025."
+      },
+      "detail": {
+        "en": "The Holy See’s official pontiff list identifies Leo XIV as the 267th pope. Born in Chicago and long active in Peru, he is the first pope from the Order of Saint Augustine.",
+        "es": "La lista oficial de pontífices de la Santa Sede identifica a León XIV como el papa número 267. Nacido en Chicago y activo durante muchos años en Perú, es el primer papa de la Orden de San Agustín."
+      },
+      "people": {
+        "en": [
+          "Leo XIV"
+        ],
+        "es": [
+          "León XIV"
+        ]
+      },
+      "category": "popes",
+      "era": "contemporary",
+      "source": "https://www.vatican.va/content/leo-xiv/en.html"
+    }
+  ],
+  "saints": [
+    {
+      "id": "stephen",
+      "name": {
+        "en": "Stephen",
+        "es": "Esteban"
+      },
+      "dates": {
+        "en": "d. c. 34–36",
+        "es": "m. c. 34–36"
+      },
+      "place": {
+        "en": "Jerusalem",
+        "es": "Jerusalén"
+      },
+      "note": {
+        "en": "Deacon and first Christian martyr",
+        "es": "Diácono y primer mártir cristiano"
+      },
+      "period": "early"
+    },
+    {
+      "id": "ignatius-of-antioch",
+      "name": {
+        "en": "Ignatius of Antioch",
+        "es": "Ignacio de Antioquía"
+      },
+      "dates": {
+        "en": "d. c. 107",
+        "es": "m. c. 107"
+      },
+      "place": {
+        "en": "Antioch · Rome",
+        "es": "Antioquía · Roma"
+      },
+      "note": {
+        "en": "Bishop, martyr, and witness to early catholic unity",
+        "es": "Obispo, mártir y testigo de la unidad católica primitiva"
+      },
+      "period": "early"
+    },
+    {
+      "id": "perpetua-felicity",
+      "name": {
+        "en": "Perpetua & Felicity",
+        "es": "Perpetua y Felicidad"
+      },
+      "dates": {
+        "en": "d. 203",
+        "es": "m. 203"
+      },
+      "place": {
+        "en": "Carthage",
+        "es": "Cartago"
+      },
+      "note": {
+        "en": "North African martyrs whose prison witness survives",
+        "es": "Mártires norteafricanas cuyo testimonio desde la prisión se conserva"
+      },
+      "period": "early"
+    },
+    {
+      "id": "irenaeus-of-lyon",
+      "name": {
+        "en": "Irenaeus of Lyon",
+        "es": "Ireneo de Lyon"
+      },
+      "dates": {
+        "en": "c. 130–c. 202",
+        "es": "c. 130–c. 202"
+      },
+      "place": {
+        "en": "Smyrna · Lyon",
+        "es": "Esmirna · Lyon"
+      },
+      "note": {
+        "en": "Defender of apostolic tradition and the unity of Scripture",
+        "es": "Defensor de la tradición apostólica y de la unidad de la Escritura"
+      },
+      "period": "early"
+    },
+    {
+      "id": "athanasius",
+      "name": {
+        "en": "Athanasius",
+        "es": "Atanasio"
+      },
+      "dates": {
+        "en": "c. 296–373",
+        "es": "c. 296–373"
+      },
+      "place": {
+        "en": "Alexandria",
+        "es": "Alejandría"
+      },
+      "note": {
+        "en": "Bishop and persistent defender of Nicene faith",
+        "es": "Obispo y defensor perseverante de la fe nicena"
+      },
+      "period": "founders"
+    },
+    {
+      "id": "monica-augustine",
+      "name": {
+        "en": "Monica & Augustine",
+        "es": "Mónica y Agustín"
+      },
+      "dates": {
+        "en": "331–430",
+        "es": "331–430"
+      },
+      "place": {
+        "en": "North Africa",
+        "es": "Norte de África"
+      },
+      "note": {
+        "en": "Mother and son; witnesses to prayer, conversion, and grace",
+        "es": "Madre e hijo; testigos de la oración, la conversión y la gracia"
+      },
+      "period": "founders"
+    },
+    {
+      "id": "jerome",
+      "name": {
+        "en": "Jerome",
+        "es": "Jerónimo"
+      },
+      "dates": {
+        "en": "c. 347–420",
+        "es": "c. 347–420"
+      },
+      "place": {
+        "en": "Rome · Bethlehem",
+        "es": "Roma · Belén"
+      },
+      "note": {
+        "en": "Biblical scholar and architect of the Latin Vulgate",
+        "es": "Biblista y artífice de la Vulgata latina"
+      },
+      "period": "founders"
+    },
+    {
+      "id": "patrick",
+      "name": {
+        "en": "Patrick",
+        "es": "Patricio"
+      },
+      "dates": {
+        "en": "5th century",
+        "es": "siglo V"
+      },
+      "place": {
+        "en": "Britain · Ireland",
+        "es": "Britania · Irlanda"
+      },
+      "note": {
+        "en": "Former captive, bishop, and missionary",
+        "es": "Antiguo cautivo, obispo y misionero"
+      },
+      "period": "founders"
+    },
+    {
+      "id": "benedict-scholastica",
+      "name": {
+        "en": "Benedict & Scholastica",
+        "es": "Benito y Escolástica"
+      },
+      "dates": {
+        "en": "c. 480–547",
+        "es": "c. 480–547"
+      },
+      "place": {
+        "en": "Nursia · Monte Cassino",
+        "es": "Nursia · Montecasino"
+      },
+      "note": {
+        "en": "Foundational figures of Western monastic life",
+        "es": "Figuras fundacionales de la vida monástica occidental"
+      },
+      "period": "founders"
+    },
+    {
+      "id": "gregory-the-great",
+      "name": {
+        "en": "Gregory the Great",
+        "es": "Gregorio Magno"
+      },
+      "dates": {
+        "en": "c. 540–604",
+        "es": "c. 540–604"
+      },
+      "place": {
+        "en": "Rome",
+        "es": "Roma"
+      },
+      "note": {
+        "en": "Monk, pope, pastor, diplomat, and missionary leader",
+        "es": "Monje, papa, pastor, diplomático y líder misionero"
+      },
+      "period": "founders"
+    },
+    {
+      "id": "cyril-methodius",
+      "name": {
+        "en": "Cyril & Methodius",
+        "es": "Cirilo y Metodio"
+      },
+      "dates": {
+        "en": "9th century",
+        "es": "siglo IX"
+      },
+      "place": {
+        "en": "Thessalonica · Moravia",
+        "es": "Tesalónica · Moravia"
+      },
+      "note": {
+        "en": "Missionaries and patrons of Europe’s Slavic peoples",
+        "es": "Misioneros y patronos de los pueblos eslavos de Europa"
+      },
+      "period": "medieval"
+    },
+    {
+      "id": "hildegard-of-bingen",
+      "name": {
+        "en": "Hildegard of Bingen",
+        "es": "Hildegarda de Bingen"
+      },
+      "dates": {
+        "en": "1098–1179",
+        "es": "1098–1179"
+      },
+      "place": {
+        "en": "Rhineland",
+        "es": "Renania"
+      },
+      "note": {
+        "en": "Abbess, composer, visionary, naturalist, and Doctor of the Church",
+        "es": "Abadesa, compositora, visionaria, naturalista y doctora de la Iglesia"
+      },
+      "period": "medieval"
+    },
+    {
+      "id": "francis-clare",
+      "name": {
+        "en": "Francis & Clare",
+        "es": "Francisco y Clara"
+      },
+      "dates": {
+        "en": "1181/94–1253",
+        "es": "1181/94–1253"
+      },
+      "place": {
+        "en": "Assisi",
+        "es": "Asís"
+      },
+      "note": {
+        "en": "Gospel poverty, fraternity, contemplation, and care for creation",
+        "es": "Pobreza evangélica, fraternidad, contemplación y cuidado de la creación"
+      },
+      "period": "medieval"
+    },
+    {
+      "id": "dominic",
+      "name": {
+        "en": "Dominic",
+        "es": "Domingo"
+      },
+      "dates": {
+        "en": "c. 1170–1221",
+        "es": "c. 1170–1221"
+      },
+      "place": {
+        "en": "Castile · Italy",
+        "es": "Castilla · Italia"
+      },
+      "note": {
+        "en": "Founder of the Order of Preachers",
+        "es": "Fundador de la Orden de Predicadores"
+      },
+      "period": "medieval"
+    },
+    {
+      "id": "thomas-aquinas",
+      "name": {
+        "en": "Thomas Aquinas",
+        "es": "Tomás de Aquino"
+      },
+      "dates": {
+        "en": "1225–1274",
+        "es": "1225–1274"
+      },
+      "place": {
+        "en": "Italy · Paris",
+        "es": "Italia · París"
+      },
+      "note": {
+        "en": "Dominican theologian and Doctor of the Church",
+        "es": "Teólogo dominico y doctor de la Iglesia"
+      },
+      "period": "medieval"
+    },
+    {
+      "id": "catherine-of-siena",
+      "name": {
+        "en": "Catherine of Siena",
+        "es": "Catalina de Siena"
+      },
+      "dates": {
+        "en": "1347–1380",
+        "es": "1347–1380"
+      },
+      "place": {
+        "en": "Siena · Rome",
+        "es": "Siena · Roma"
+      },
+      "note": {
+        "en": "Mystic, peacemaker, papal counselor, and Doctor of the Church",
+        "es": "Mística, pacificadora, consejera papal y doctora de la Iglesia"
+      },
+      "period": "medieval"
+    },
+    {
+      "id": "teresa-of-avila",
+      "name": {
+        "en": "Teresa of Ávila",
+        "es": "Teresa de Ávila"
+      },
+      "dates": {
+        "en": "1515–1582",
+        "es": "1515–1582"
+      },
+      "place": {
+        "en": "Spain",
+        "es": "España"
+      },
+      "note": {
+        "en": "Carmelite reformer, mystic, writer, and Doctor of the Church",
+        "es": "Reformadora carmelita, mística, escritora y doctora de la Iglesia"
+      },
+      "period": "renewal"
+    },
+    {
+      "id": "ignatius-francis-xavier",
+      "name": {
+        "en": "Ignatius & Francis Xavier",
+        "es": "Ignacio y Francisco Javier"
+      },
+      "dates": {
+        "en": "1491–1556",
+        "es": "1491–1556"
+      },
+      "place": {
+        "en": "Europe · Asia",
+        "es": "Europa · Asia"
+      },
+      "note": {
+        "en": "Jesuit founders joining discernment, education, and mission",
+        "es": "Fundadores jesuitas que unen discernimiento, educación y misión"
+      },
+      "period": "renewal"
+    },
+    {
+      "id": "vincent-louise",
+      "name": {
+        "en": "Vincent & Louise",
+        "es": "Vicente y Luisa"
+      },
+      "dates": {
+        "en": "1581–1660",
+        "es": "1581–1660"
+      },
+      "place": {
+        "en": "France",
+        "es": "Francia"
+      },
+      "note": {
+        "en": "Organizers of formation and practical service to the poor",
+        "es": "Organizadores de la formación y del servicio práctico a los pobres"
+      },
+      "period": "renewal"
+    },
+    {
+      "id": "kateri-tekakwitha",
+      "name": {
+        "en": "Kateri Tekakwitha",
+        "es": "Kateri Tekakwitha"
+      },
+      "dates": {
+        "en": "1656–1680",
+        "es": "1656–1680"
+      },
+      "place": {
+        "en": "Haudenosaunee lands",
+        "es": "Territorios haudenosaunee"
+      },
+      "note": {
+        "en": "First canonized Indigenous woman of North America",
+        "es": "Primera mujer indígena canonizada de Norteamérica"
+      },
+      "period": "renewal"
+    },
+    {
+      "id": "therese-of-lisieux",
+      "name": {
+        "en": "Thérèse of Lisieux",
+        "es": "Teresa de Lisieux"
+      },
+      "dates": {
+        "en": "1873–1897",
+        "es": "1873–1897"
+      },
+      "place": {
+        "en": "Normandy",
+        "es": "Normandía"
+      },
+      "note": {
+        "en": "Carmelite whose ‘little way’ centers ordinary life in love",
+        "es": "Carmelita cuya «pequeña vía» centra la vida ordinaria en el amor"
+      },
+      "period": "modern"
+    },
+    {
+      "id": "maximilian-kolbe",
+      "name": {
+        "en": "Maximilian Kolbe",
+        "es": "Maximiliano Kolbe"
+      },
+      "dates": {
+        "en": "1894–1941",
+        "es": "1894–1941"
+      },
+      "place": {
+        "en": "Poland · Auschwitz",
+        "es": "Polonia · Auschwitz"
+      },
+      "note": {
+        "en": "Franciscan priest who volunteered to die in another prisoner’s place",
+        "es": "Sacerdote franciscano que se ofreció a morir en lugar de otro prisionero"
+      },
+      "period": "modern"
+    },
+    {
+      "id": "edith-stein",
+      "name": {
+        "en": "Edith Stein",
+        "es": "Edith Stein"
+      },
+      "dates": {
+        "en": "1891–1942",
+        "es": "1891–1942"
+      },
+      "place": {
+        "en": "Germany · Auschwitz",
+        "es": "Alemania · Auschwitz"
+      },
+      "note": {
+        "en": "Philosopher, Carmelite, Jewish-Christian martyr, and patron of Europe",
+        "es": "Filósofa, carmelita, mártir judeocristiana y patrona de Europa"
+      },
+      "period": "modern"
+    },
+    {
+      "id": "oscar-romero",
+      "name": {
+        "en": "Óscar Romero",
+        "es": "Óscar Romero"
+      },
+      "dates": {
+        "en": "1917–1980",
+        "es": "1917–1980"
+      },
+      "place": {
+        "en": "El Salvador",
+        "es": "El Salvador"
+      },
+      "note": {
+        "en": "Archbishop and martyr who defended the poor amid political violence",
+        "es": "Arzobispo y mártir que defendió a los pobres en medio de la violencia política"
+      },
+      "period": "modern"
+    },
+    {
+      "id": "teresa-of-calcutta",
+      "name": {
+        "en": "Teresa of Calcutta",
+        "es": "Teresa de Calcuta"
+      },
+      "dates": {
+        "en": "1910–1997",
+        "es": "1910–1997"
+      },
+      "place": {
+        "en": "Skopje · Kolkata",
+        "es": "Skopie · Calcuta"
+      },
+      "note": {
+        "en": "Founder of the Missionaries of Charity",
+        "es": "Fundadora de las Misioneras de la Caridad"
+      },
+      "period": "modern"
+    },
+    {
+      "id": "john-paul-ii",
+      "name": {
+        "en": "John Paul II",
+        "es": "Juan Pablo II"
+      },
+      "dates": {
+        "en": "1920–2005",
+        "es": "1920–2005"
+      },
+      "place": {
+        "en": "Poland · Rome",
+        "es": "Polonia · Roma"
+      },
+      "note": {
+        "en": "Pope, philosopher, global pastor, and witness under totalitarianism",
+        "es": "Papa, filósofo, pastor universal y testigo bajo el totalitarismo"
+      },
+      "period": "modern"
+    }
+  ]
+}

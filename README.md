@@ -1,64 +1,93 @@
-# Two Thousand Years of the Catholic Church
+# Historia Ecclesiae
 
 [![Deploy GitHub Pages](https://github.com/chrislyonsKY/Catholic-Church-Timeline/actions/workflows/pages.yml/badge.svg)](https://github.com/chrislyonsKY/Catholic-Church-Timeline/actions/workflows/pages.yml)
-[![License](https://img.shields.io/badge/License-Apache%202.0-355C7D.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-a7482e.svg)](LICENSE)
+[![English and Spanish](https://img.shields.io/badge/languages-English%20%7C%20Espa%C3%B1ol-2f6866.svg)](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=es)
 
-An interactive, browser-based chronology of Catholic Church history—from the apostolic age through the pontificate of Leo XIV. The timeline presents major councils, saints, popes, documents, reform movements, divisions, and other consequential moments across twenty centuries.
+**Two Thousand Years of the Catholic Church** is a bilingual digital exhibition of apostolic witness, saints, councils, papal succession, reform, division, and renewal from AD 30 to the present.
 
-**[View the interactive timeline](https://chrislyonsKY.github.io/Catholic-Church-Timeline/)**
+**[Explore the live timeline](https://chrislyonsKY.github.io/Catholic-Church-Timeline/)** · **[Abrir en español](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=es)**
 
-## Highlights
+## The exhibition
 
-- 52 curated historical milestones spanning approximately AD 30–2026
-- Dedicated profiles for 15 apostles and apostolic witnesses
-- Filterable gallery of 26 representative saints
-- Full-text search across dates, people, events, and descriptions
-- Complete English and Spanish editions with a built-in language switcher
-- Filters for historical era and event category
-- Accessible event-detail panels, visible keyboard focus, a skip link, and Escape-to-close behavior
-- Responsive presentation for desktop, tablet, and mobile browsers
-- No framework, build process, API key, or external JavaScript dependency
+The interface follows the editorial system established for the Cartographic Archive: paper and ink tones, restrained rust and sea accents, serif display typography, mono archival labels, strong rules, and information-dense registers. It is a designed historical tool rather than a generic card dashboard.
 
-## Use locally
+- 52 curated historical records across six eras
+- 15 apostolic profiles and 26 representative saint profiles
+- Search across English and Spanish names, descriptions, people, councils, and documents
+- Era, category, period, sort, and layout controls
+- Source-linked event dialogs with keyboard and backdrop dismissal
+- A complete Spanish interface selected with the **English / Español** control
+- Responsive, print-aware layouts and reduced-motion support
+- Semantic headings, native controls, skip navigation, visible focus, and live announcements
 
-The complete experience is contained in `index.html`.
+The selected language is stored locally and reflected in the shareable URL. Spanish can be opened directly with `?lang=es`.
 
-1. Download or clone this repository.
-2. Open `index.html` in a modern web browser.
+## Architecture
 
-No web server or package installation is required.
+This edition replaces the earlier single-file prototype with a maintainable, typed application:
 
-## English and Spanish / Inglés y español
-
-Use the **English / Español** control in the site header to change languages. The choice is remembered in the browser, and first-time visitors whose browser is set to Spanish automatically receive the Spanish edition. Timeline search recognizes names and terms in either language.
-
-The Spanish edition can also be shared directly with `?lang=es` appended to the site address.
-
-Usa el control **English / Español** de la cabecera para cambiar de idioma. La elección se guarda en el navegador y quienes visiten el sitio por primera vez con el navegador configurado en español recibirán automáticamente la edición en español. La búsqueda reconoce nombres y términos en ambos idiomas.
-
-## Repository structure
-
-| Path | Purpose |
+| Layer | Implementation |
 | --- | --- |
-| `index.html` | Complete interactive timeline, including its CSS, JavaScript, and historical data |
-| `.github/workflows/pages.yml` | Automated GitHub Pages deployment workflow |
-| `LICENSE` | Apache License 2.0 |
+| UI | React 19 components with semantic HTML |
+| Language | Typed English/Spanish dictionaries and localized content records |
+| Styling | Tailwind CSS 4 plus a documented editorial component layer |
+| Tooling | TypeScript 5 and Vite 7 |
+| Validation | Node test runner data-contract tests plus strict TypeScript build |
+| Hosting | GitHub Actions production build deployed to GitHub Pages |
 
-## Historical approach
+Historical content lives separately from presentation code in `src/data/content.json`. Adding a record does not require editing a component or duplicating markup.
 
-This is a curated learning aid rather than an exhaustive ecclesiastical history. Approximate dates are marked with “c.”, and complex developments—such as the East–West Schism—are described as historical processes rather than isolated events.
+## Run locally
 
-Primary reference links are included within the timeline. Major reference collections include:
+Node.js 22.13 or newer is required.
 
-- [The Holy See: Supreme Pontiffs](https://www.vatican.va/content/vatican/en/holy-father.html)
-- [The Holy See: Historical Councils](https://www.vatican.va/archive/hist_councils/index.htm)
-- [Catechism of the Catholic Church](https://www.vatican.va/archive/ENG0015/_INDEX.HTM)
-- [United States Conference of Catholic Bishops: Bible](https://bible.usccb.org/bible)
+```bash
+git clone https://github.com/chrislyonsKY/Catholic-Church-Timeline.git
+cd Catholic-Church-Timeline
+npm ci
+npm run dev
+```
+
+Vite prints the local address when the development server starts.
+
+## Validate a change
+
+```bash
+npm run check
+```
+
+The command validates record counts, unique IDs, categories, eras, source URLs, and both language editions before running a strict TypeScript production build. Preview that build with:
+
+```bash
+npm run preview
+```
+
+## Project structure
+
+```text
+src/
+├── components/       Exhibition sections and interactive controls
+├── data/             Typed chronology, apostle, saint, and source records
+├── hooks/            Language state and URL persistence
+├── App.tsx           Page composition
+├── i18n.ts           English and Spanish interface copy
+├── styles.css        Tailwind entry point and editorial design system
+└── types.ts          Shared domain types
+tests/                Content contract tests
+.github/workflows/    GitHub Pages build and deployment
+```
+
+## Historical approach and sources
+
+This is a curated learning aid, not an exhaustive ecclesiastical history. Approximate dates are marked with “c.”, editorial period boundaries are identified as such, and complex developments are described as processes rather than isolated moments.
+
+Individual records link to primary references where available. Core reference collections include the [Holy See’s list of Supreme Pontiffs](https://www.vatican.va/content/vatican/en/holy-father.html), [historical councils archive](https://www.vatican.va/archive/hist_councils/index.htm), [Catechism of the Catholic Church](https://www.vatican.va/archive/ENG0015/_INDEX.HTM), and the [USCCB Bible](https://bible.usccb.org/bible).
 
 ## Attribution
 
-The original hand-drawn chronology was created by **Joe Bland in 2008**. This repository presents an interactive digital interpretation of that chronology with expanded navigation, structured historical context, and linked references.
+The original hand-drawn chronology was created by **Joe Bland in 2008**. This project is a structured, bilingual digital interpretation with expanded historical context, navigation, and references. The original source photograph is not included in the site or repository.
 
 ## License
 
-This project is distributed under the [Apache License 2.0](LICENSE).
+Distributed under the existing [Apache License 2.0](LICENSE).
