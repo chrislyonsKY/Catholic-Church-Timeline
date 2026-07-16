@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import "leaflet/dist/leaflet.css";
+import type { LayerGroup, Map as LeafletMap, Marker as LeafletMarker } from "leaflet";
 import { events } from "../data";
 import { atlasPlaces } from "../data/livingAtlas";
 import { atlasTranslate } from "../data/livingAtlasCopy";
@@ -34,6 +36,7 @@ interface ArcGISView {
 }
 
 type ArcGISConstructor<T> = new (properties: Record<string, unknown>) => T;
+type MapState = "loading" | "arcgis" | "fallback" | "failed";
 
 declare global {
   interface Window {
@@ -44,6 +47,15 @@ declare global {
 }
 
 let arcGISLoader: Promise<NonNullable<Window["$arcgis"]>> | null = null;
+
+function supportsWebGL2(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    return Boolean(canvas.getContext("webgl2"));
+  } catch {
+    return false;
+  }
+}
 
 function loadArcGIS(): Promise<NonNullable<Window["$arcgis"]>> {
   if (window.$arcgis) return Promise.resolve(window.$arcgis);
@@ -88,10 +100,15 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
   const graphicConstructorRef = useRef<ArcGISConstructor<ArcGISGraphic> | null>(null);
   const popupTemplateConstructorRef = useRef<ArcGISConstructor<unknown> | null>(null);
   const graphicsRef = useRef<ArcGISGraphic[]>([]);
+  const leafletRef = useRef<typeof import("leaflet") | null>(null);
+  const leafletMapRef = useRef<LeafletMap | null>(null);
+  const leafletLayerRef = useRef<LayerGroup | null>(null);
+  const leafletMarkersRef = useRef<Map<string, LeafletMarker>>(new Map());
+  const fallbackHasFitRef = useRef(false);
   const pendingPopupPlaceRef = useRef<string | null>(null);
   const focusHandlerRef = useRef(onFocusEvent);
   const openHandlerRef = useRef(onOpenEvent);
-  const [mapState, setMapState] = useState<"loading" | "ready" | "failed">("loading");
+  const [mapState, setMapState] = useState<MapState>("loading");
 
   focusHandlerRef.current = onFocusEvent;
   openHandlerRef.current = onOpenEvent;
@@ -167,22 +184,52 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
     return root;
   }
 
+  function buildRasterPopupContent(place: AtlasPlace, placeEvents: TimelineEvent[]): HTMLElement {
+    const root = document.createElement("article");
+    root.className = "atlas-raster-popup";
+    const heading = document.createElement("h4");
+    heading.className = "atlas-raster-popup__title";
+    heading.textContent = localize(place.name, language);
+    root.append(heading, buildPopupContent(place, placeEvents));
+    return root;
+  }
+
   function fitVisiblePlaces() {
     const view = viewRef.current;
     const geometries = graphicsRef.current.map((graphic) => graphic.geometry).filter(Boolean);
-    if (!view || geometries.length === 0) return;
-    void view.goTo(geometries, { animate: !reduceMotion, duration: reduceMotion ? 0 : 850, padding: 70 }).catch(() => undefined);
+    if (view && geometries.length > 0) {
+      void view.goTo(geometries, { animate: !reduceMotion, duration: reduceMotion ? 0 : 850, padding: 70 }).catch(() => undefined);
+      return;
+    }
+
+    const leaflet = leafletRef.current;
+    const map = leafletMapRef.current;
+    const markers = Array.from(leafletMarkersRef.current.values());
+    if (!leaflet || !map || markers.length === 0) return;
+    map.fitBounds(leaflet.latLngBounds(markers.map((marker) => marker.getLatLng())), {
+      animate: !reduceMotion,
+      maxZoom: 5,
+      padding: [48, 48],
+    });
   }
 
   function openPlacePopup(placeId: string) {
     const view = viewRef.current;
     const graphic = graphicsRef.current.find((candidate) => candidate.attributes?.placeId === placeId);
-    if (!view || !graphic) return;
-    view.openPopup?.({ features: [graphic], location: graphic.geometry });
-    void view.goTo({ target: graphic.geometry, zoom: Math.max(view.zoom, 5) }, {
-      animate: !reduceMotion,
-      duration: reduceMotion ? 0 : 650,
-    }).catch(() => undefined);
+    if (view && graphic) {
+      view.openPopup?.({ features: [graphic], location: graphic.geometry });
+      void view.goTo({ target: graphic.geometry, zoom: Math.max(view.zoom, 5) }, {
+        animate: !reduceMotion,
+        duration: reduceMotion ? 0 : 650,
+      }).catch(() => undefined);
+      return;
+    }
+
+    const map = leafletMapRef.current;
+    const marker = leafletMarkersRef.current.get(placeId);
+    if (!map || !marker) return;
+    marker.openPopup();
+    map.setView(marker.getLatLng(), Math.max(map.getZoom(), 5), { animate: !reduceMotion });
   }
 
   useEffect(() => {
@@ -191,9 +238,26 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
     let pointerHandle: { remove: () => void } | null = null;
     let actionHandle: { remove: () => void } | null = null;
     let pointerFrame = 0;
+    let resizeFrame = 0;
     let latestPointerEvent: unknown;
 
-    void loadArcGIS().then(async (arcgis) => {
+    function clearArcGIS() {
+      pointerHandle?.remove();
+      actionHandle?.remove();
+      pointerHandle = null;
+      actionHandle = null;
+      if (pointerFrame) window.cancelAnimationFrame(pointerFrame);
+      pointerFrame = 0;
+      viewRef.current?.destroy();
+      viewRef.current = null;
+      layerRef.current = null;
+      graphicConstructorRef.current = null;
+      popupTemplateConstructorRef.current = null;
+      graphicsRef.current = [];
+    }
+
+    async function initializeArcGIS() {
+      const arcgis = await loadArcGIS();
       const [ArcMap, MapView, Graphic, GraphicsLayer, PopupTemplate] = await arcgis.import<[
         ArcGISConstructor<unknown>,
         ArcGISConstructor<ArcGISView>,
@@ -246,26 +310,137 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
         const event = events.find((candidate) => candidate.id === eventId);
         if (event) openHandlerRef.current(event);
       }) ?? null;
-      if (!cancelled) setMapState("ready");
-    }).catch(() => {
-      if (!cancelled) setMapState("failed");
-    });
+      if (!cancelled) setMapState("arcgis");
+    }
+
+    async function initializeRasterFallback() {
+      const leaflet = await import("leaflet");
+      if (cancelled || !containerRef.current) return;
+      const map = leaflet.map(containerRef.current, {
+        attributionControl: true,
+        maxZoom: 12,
+        minZoom: 2,
+        preferCanvas: false,
+        worldCopyJump: true,
+        zoomControl: false,
+      }).setView([40, 15], 3);
+      leaflet.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxNativeZoom: 19,
+        maxZoom: 19,
+      }).addTo(map);
+      leaflet.control.zoom({ position: "bottomleft" }).addTo(map);
+      const layer = leaflet.layerGroup().addTo(map);
+      leafletRef.current = leaflet;
+      leafletMapRef.current = map;
+      leafletLayerRef.current = layer;
+      resizeFrame = window.requestAnimationFrame(() => {
+        resizeFrame = 0;
+        if (!cancelled) map.invalidateSize(false);
+      });
+      if (!cancelled) setMapState("fallback");
+    }
+
+    async function initializeMap() {
+      if (supportsWebGL2()) {
+        try {
+          await initializeArcGIS();
+          return;
+        } catch (error) {
+          console.warn("ArcGIS MapView unavailable; activating the raster compatibility map.", error);
+          clearArcGIS();
+          containerRef.current?.replaceChildren();
+        }
+      }
+
+      try {
+        await initializeRasterFallback();
+      } catch (error) {
+        console.error("The raster compatibility map could not initialize.", error);
+        if (!cancelled) setMapState("failed");
+      }
+    }
+
+    void initializeMap();
 
     return () => {
       cancelled = true;
-      pointerHandle?.remove();
-      actionHandle?.remove();
-      if (pointerFrame) window.cancelAnimationFrame(pointerFrame);
-      viewRef.current?.destroy();
-      viewRef.current = null;
-      layerRef.current = null;
-      graphicConstructorRef.current = null;
-      popupTemplateConstructorRef.current = null;
-      graphicsRef.current = [];
+      if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
+      clearArcGIS();
+      leafletMapRef.current?.remove();
+      leafletMapRef.current = null;
+      leafletLayerRef.current = null;
+      leafletMarkersRef.current.clear();
+      leafletRef.current = null;
+      fallbackHasFitRef.current = false;
     };
   }, []);
 
   useEffect(() => {
+    if (mapState === "fallback") {
+      const leaflet = leafletRef.current;
+      const map = leafletMapRef.current;
+      const layer = leafletLayerRef.current;
+      if (!leaflet || !map || !layer) return;
+      layer.clearLayers();
+      leafletMarkersRef.current.clear();
+
+      for (const { place, placeEvents } of visiblePlaces) {
+        const focusedEvent = placeEvents.find((event) => event.id === selectedEventId);
+        const representedEvent = focusedEvent ?? placeEvents[0];
+        const focused = Boolean(focusedEvent);
+        const multiple = placeEvents.length > 1;
+        const markerClass = focused ? "is-focus" : multiple ? "is-multiple" : "is-past";
+        const icon = leaflet.divIcon({
+          className: `atlas-leaflet-marker ${markerClass}`,
+          html: '<span aria-hidden="true"></span>',
+          iconAnchor: [11, 11],
+          iconSize: [22, 22],
+          popupAnchor: [0, -13],
+        });
+        const marker = leaflet.marker([place.latitude, place.longitude], {
+          alt: localize(place.name, language),
+          icon,
+          keyboard: true,
+          riseOnHover: true,
+          title: localize(place.name, language),
+          zIndexOffset: focused ? 1000 : multiple ? 500 : 0,
+        });
+        marker.bindPopup(buildRasterPopupContent(place, placeEvents), {
+          className: "atlas-leaflet-popup",
+          closeButton: true,
+          maxWidth: 380,
+        });
+        marker.on("click", () => {
+          if (representedEvent.id === selectedEventId) return;
+          pendingPopupPlaceRef.current = place.id;
+          focusHandlerRef.current(representedEvent);
+        });
+        marker.addTo(layer);
+        leafletMarkersRef.current.set(place.id, marker);
+      }
+
+      const markers = Array.from(leafletMarkersRef.current.values());
+      if (!fallbackHasFitRef.current && markers.length > 0) {
+        map.fitBounds(leaflet.latLngBounds(markers.map((marker) => marker.getLatLng())), {
+          animate: false,
+          maxZoom: 4,
+          padding: [42, 42],
+        });
+        fallbackHasFitRef.current = true;
+      }
+
+      const pendingPlaceId = pendingPopupPlaceRef.current;
+      const pendingMarker = pendingPlaceId ? leafletMarkersRef.current.get(pendingPlaceId) : undefined;
+      if (pendingMarker) {
+        pendingMarker.openPopup();
+        map.panTo(pendingMarker.getLatLng(), { animate: !reduceMotion });
+        pendingPopupPlaceRef.current = null;
+      }
+      return;
+    }
+
+    if (mapState !== "arcgis") return;
     const layer = layerRef.current;
     const Graphic = graphicConstructorRef.current;
     const PopupTemplate = popupTemplateConstructorRef.current;
@@ -310,21 +485,34 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
       viewRef.current?.openPopup?.({ features: [pendingGraphic], location: pendingGraphic.geometry });
       pendingPopupPlaceRef.current = null;
     }
-  }, [language, mapState, selectedEventId, visiblePlaces]);
+  }, [language, mapState, reduceMotion, selectedEventId, visiblePlaces]);
 
   useEffect(() => {
-    if (mapState !== "ready") return;
-    const view = viewRef.current;
     const place = atlasPlaces.find((candidate) => candidate.eventIds.includes(selectedEventId));
-    if (!view || !place) return;
-    void view.goTo({ center: [place.longitude, place.latitude], zoom: Math.max(view.zoom, 5) }, {
-      animate: !reduceMotion,
-      duration: reduceMotion ? 0 : 700,
-    }).catch(() => undefined);
+    if (!place) return;
+
+    if (mapState === "arcgis") {
+      const view = viewRef.current;
+      if (!view) return;
+      void view.goTo({ center: [place.longitude, place.latitude], zoom: Math.max(view.zoom, 5) }, {
+        animate: !reduceMotion,
+        duration: reduceMotion ? 0 : 700,
+      }).catch(() => undefined);
+      return;
+    }
+
+    if (mapState === "fallback") {
+      const map = leafletMapRef.current;
+      const marker = leafletMarkersRef.current.get(place.id);
+      if (!map || !marker) return;
+      map.setView(marker.getLatLng(), Math.max(map.getZoom(), 5), { animate: !reduceMotion });
+    }
   }, [mapState, reduceMotion, selectedEventId]);
 
+  const mapReady = mapState === "arcgis" || mapState === "fallback";
+
   return (
-    <section className="ecclesial-map" data-map-build="20260716b" aria-labelledby="ecclesial-map-title">
+    <section className="ecclesial-map" data-map-build="20260716c" data-map-engine={mapState} aria-labelledby="ecclesial-map-title">
       <header className="atlas-panel-heading">
         <span className="atlas-eyebrow">02 · {a("mapKicker")}</span>
         <h3 id="ecclesial-map-title">{a("mapTitle")}</h3>
@@ -333,17 +521,18 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
       <div className="ecclesial-map__layout">
         <div className="ecclesial-map__stage">
           <div ref={containerRef} className="ecclesial-map__canvas" aria-label={a("mapTitle")} />
-          {mapState !== "ready" && (
+          {!mapReady && (
             <div className="ecclesial-map__status" role="status">
               <span className="atlas-loader" aria-hidden="true" />
               {mapState === "failed" ? a("mapFailed") : a("mapLoading")}
             </div>
           )}
-          {mapState === "ready" && (
+          {mapReady && (
             <div className="ecclesial-map__tools">
               <button type="button" onClick={fitVisiblePlaces} aria-label={a("mapFit")}><span aria-hidden="true">⌗</span>{a("mapFit")}</button>
             </div>
           )}
+          {mapState === "fallback" && <p className="ecclesial-map__engine" role="status">{a("mapCompatibility")}</p>}
           <p className="ecclesial-map__hint"><span aria-hidden="true">＋</span>{a("mapPopupHint")}</p>
           <div className="ecclesial-map__legend" aria-label={a("mapAccuracy")}>
             <span><i className="is-past" />{a("mapLegendPast")}</span>
