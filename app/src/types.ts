@@ -67,3 +67,53 @@ export interface Era {
   title: LocalizedText;
   thesis: LocalizedText;
 }
+
+export type PlaceAccuracy = "site" | "city" | "region";
+
+export interface AtlasPlace {
+  id: string;
+  name: LocalizedText;
+  region: LocalizedText;
+  longitude: number;
+  latitude: number;
+  accuracy: PlaceAccuracy;
+  eventIds: string[];
+  note: LocalizedText;
+}
+
+export interface SourceObject {
+  id: string;
+  title: LocalizedText;
+  dateLabel: LocalizedText;
+  repository: LocalizedText;
+  description: LocalizedText;
+  relationshipNote: LocalizedText;
+  startYear: number;
+  endYear: number;
+  relatedEventIds: string[];
+  manifestUrl: string;
+  canvasLabel: LocalizedText;
+  imageService: string;
+  objectUrl: string;
+  rights: string;
+}
+
+export type KnowledgeNodeType = "event" | "person" | "era" | "source";
+
+export interface KnowledgeNode {
+  id: string;
+  type: KnowledgeNodeType;
+  label: string;
+  year?: number;
+  eventId?: string;
+  sourceId?: string;
+  eraId?: EraId;
+  evidence: string;
+}
+
+export interface KnowledgeEdge {
+  id: string;
+  source: string;
+  target: string;
+  relation: "names" | "belongs-to" | "witnessed-by";
+}

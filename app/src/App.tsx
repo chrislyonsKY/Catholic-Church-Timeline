@@ -12,6 +12,7 @@ import { TimelineExplorer } from "./components/TimelineExplorer";
 import { TraditionMap } from "./components/TraditionMap";
 import { LanguageProvider, useLanguage } from "./hooks/useLanguage";
 import type { EraId } from "./types";
+import { LivingAtlasSection } from "./components/LivingAtlasSection";
 
 function TimelineSite() {
   const { t } = useLanguage();
@@ -33,6 +34,7 @@ function TimelineSite() {
       <main id="main-content">
         <Hero onStartTour={() => setTourOpen(true)} />
         <ChronologySection onBrowseEra={browseEra} />
+        <LivingAtlasSection />
         <TimelineExplorer era={era} onEraChange={setEra} />
         <TraditionMap />
         <ApostlesSection />
