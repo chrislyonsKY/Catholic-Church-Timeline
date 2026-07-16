@@ -42,14 +42,38 @@ export function ReadingSettings() {
             ))}
           </div>
         </fieldset>
-        <label>
-          <input type="checkbox" checked={highContrast} onChange={(event) => setHighContrast(event.target.checked)} />
-          <span>{t("highContrast")}</span>
-        </label>
-        <label>
-          <input type="checkbox" checked={reduceMotion} onChange={(event) => setReduceMotion(event.target.checked)} />
-          <span>{t("reduceMotion")}</span>
-        </label>
+        <div className="reading-settings__toggles">
+          <button
+            className="reading-settings__toggle"
+            type="button"
+            aria-pressed={highContrast}
+            onClick={() => setHighContrast(!highContrast)}
+          >
+            <span className="reading-settings__toggle-copy">
+              <strong>{t("highContrast")}</strong>
+              <small>{t("highContrastDescription")}</small>
+            </span>
+            <span className="reading-settings__toggle-state">
+              <span className="reading-settings__switch" aria-hidden="true" />
+              <span>{highContrast ? t("settingOn") : t("settingOff")}</span>
+            </span>
+          </button>
+          <button
+            className="reading-settings__toggle"
+            type="button"
+            aria-pressed={reduceMotion}
+            onClick={() => setReduceMotion(!reduceMotion)}
+          >
+            <span className="reading-settings__toggle-copy">
+              <strong>{t("reduceMotion")}</strong>
+              <small>{t("reduceMotionDescription")}</small>
+            </span>
+            <span className="reading-settings__toggle-state">
+              <span className="reading-settings__switch" aria-hidden="true" />
+              <span>{reduceMotion ? t("settingOn") : t("settingOff")}</span>
+            </span>
+          </button>
+        </div>
         <button className="reading-settings__reset" type="button" onClick={reset}>{t("resetPreferences")}</button>
       </div>
     </details>

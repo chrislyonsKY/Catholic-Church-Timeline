@@ -1,221 +1,4 @@
-import type { Language } from "./types";
-
-const en = {
-  pageTitle: "Two Thousand Years of the Catholic Church",
-  metaDescription: "A multilingual, source-led chronology of the apostles, saints, popes, councils, and turning points in Catholic Church history.",
-  siteName: "Historia Ecclesiae",
-  homeLink: "Historia Ecclesiae home",
-  skip: "Skip to main content",
-  primaryNavigation: "Primary navigation",
-  mobileNavigation: "Mobile navigation",
-  footerNavigation: "Footer navigation",
-  navChronology: "Chronology",
-  navTimeline: "Timeline",
-  navBranches: "Traditions",
-  navApostles: "Apostles",
-  navSaints: "Saints",
-  navSources: "Sources",
-  menu: "Menu",
-  language: "Language",
-  languageSelect: "Choose language",
-  heroKicker: "Digital chronology Â· AD 30â€“2026",
-  heroTitleLead: "Two thousand years of the",
-  heroTitleAccent: "Catholic Church.",
-  heroDeck: "A source-led reading of apostolic witness, saints, councils, papal succession, reform, division, and renewal across twenty centuries.",
-  exploreTimeline: "Explore the timeline",
-  meetApostles: "Meet the apostles",
-  startTour: "Take the guided tour",
-  plateLabel: "Chronology register",
-  dialLabel: "Twenty-century chronometer",
-  plateSpan: "AD 30 â€” 2026",
-  plateEvents: "curated events",
-  plateEras: "historical eras",
-  plateApostles: "apostolic profiles",
-  plateSaints: "saint profiles",
-  creditLabel: "Original chronology",
-  creditBody: "Hand-drawn by Joe Bland in 2008. Rebuilt here as a multilingual, source-linked digital exhibition.",
-  aboutKicker: "About the chronology",
-  aboutTitle: "History is not a single unbroken line.",
-  aboutLead: "This exhibition treats Church history as a connected record of witness, doctrine, institutions, people, ruptures, and renewal.",
-  aboutBody: "The dates and categories provide orientation rather than a claim of completeness. Approximate dates are marked, and complex separations are described as historical processes.",
-  chronologyKicker: "Chronology",
-  chronologyTitle: "Six eras of continuity and change",
-  chronologyBody: "The boundaries are editorial. Traditions overlap, older forms persist, and developments move unevenly across regions.",
-  browseEra: "Browse this era",
-  timelineKicker: "Event archive",
-  timelineTitle: "Inspect the historical record",
-  timelineBody: "Search people and events, set a century range, narrow the record by era or category, and open any entry for connected context and sources.",
-  searchLabel: "Search the chronology",
-  searchPlaceholder: "Person, event, council, documentâ€¦",
-  eraLabel: "Era",
-  categoryLabel: "Category",
-  sortLabel: "Sort",
-  allEras: "All eras",
-  allCategories: "All categories",
-  oldestFirst: "Oldest first",
-  newestFirst: "Newest first",
-  titleAZ: "Title Aâ€“Z",
-  records: "records",
-  of: "of",
-  timelineLayout: "Timeline",
-  indexLayout: "Index",
-  layoutLabel: "Archive layout",
-  readRecord: "Open record",
-  emptyTitle: "No records match these filters.",
-  clearFilters: "Clear filters",
-  centuryRange: "Century range",
-  centuryFrom: "From century",
-  centuryTo: "To century",
-  centuryReset: "All twenty-one centuries",
-  centuryVisible: "Visible span",
-  centuryShort: "C",
-  dialogClose: "Close record",
-  peopleLabel: "People in this moment",
-  primaryReference: "Open the primary reference",
-  historicalContext: "Historical context",
-  longView: "The longer view",
-  chronologyNeighbors: "Before and after",
-  relatedRecords: "Connected records",
-  previousRecord: "Previous moment",
-  nextRecord: "Next moment",
-  copyLink: "Copy record link",
-  linkCopied: "Link copied",
-  linkCopyFailed: "Copy this address from your browser",
-  branchesKicker: "Communion & fracture",
-  branchesTitle: "Traditions develop, divide, and remain connected",
-  branchesBody: "This interpretive map marks conventional turning points. It does not reduce centuries of theological, political, cultural, and pastoral history to a single break.",
-  branchesInstruction: "Select a tradition or turning point for context.",
-  branchMapLabel: "Interactive map of major Christian traditions and separations",
-  branchReadRecord: "Open the related timeline record",
-  branchSource: "Read the ecumenical source",
-  apostlesKicker: "Apostolic register",
-  apostlesTitle: "The first witnesses",
-  apostlesBody: "The Twelve form the apostolic college. Matthias replaces Judas Iscariot; Paul and Barnabas carry the mission outward; Mary Magdalene is honored as the witness sent to announce the Resurrection.",
-  vaticanCatecheses: "Read the Vatican catecheses on the apostles",
-  scriptureLabel: "Scriptural witness",
-  shareProfile: "Copy profile link",
-  moreDetails: "Profile details",
-  saintsKicker: "Witness archive",
-  saintsTitle: "Holiness across the centuries",
-  saintsBody: "A representative path through martyrs, bishops, monastics, scholars, missionaries, reformers, and servants of the poorâ€”not a ranking or complete calendar.",
-  saintProfiles: "profiles",
-  datesNote: "Dates describe earthly life; â€œc.â€ indicates approximation.",
-  connectedRecord: "Open connected timeline record",
-  sourcesKicker: "Method & sources",
-  sourcesTitle: "An interpretive map, carefully sourced",
-  sourcesBody: "Primary references accompany individual events. These collections establish the chronology, conciliar record, papal succession, and scriptural frame.",
-  editorialNote: "This reconstruction follows Joe Blandâ€™s 2008 hand-drawn timeline while checking chronology against linked references. It is a curated learning aid, not an exhaustive ecclesiastical history.",
-  footerBody: "A multilingual digital exhibition tracing two thousand years of Catholic history through people, councils, documents, institutions, division, and renewal.",
-  sourceCode: "Source code",
-  backToTop: "Back to top",
-  originalCreditLine: "Original chronology Â· Joe Bland Â· 2008",
-  languageChanged: "Language changed to English.",
-  accessibility: "Reading settings",
-  accessibilityOpen: "Open reading settings",
-  textSize: "Text size",
-  textNormal: "Default",
-  textLarge: "Large",
-  textLargest: "Largest",
-  highContrast: "High contrast",
-  reduceMotion: "Reduce motion",
-  resetPreferences: "Reset settings",
-  tourTitle: "How to read this observatory",
-  tourIntro: "A short orientation to the chronology, controls, connections, and source notes.",
-  tourStep: "Step",
-  tourBack: "Back",
-  tourNext: "Next",
-  tourFinish: "Begin exploring",
-  tourClose: "Close guided tour",
-  tourOneTitle: "Read the twenty-century dial",
-  tourOneBody: "The opening chronometer plots every curated event around twenty centuries and groups them into six editorial eras.",
-  tourTwoTitle: "Set the historical window",
-  tourTwoBody: "Use the two century handles to zoom from the whole record into a precise span, then combine that range with search, era, and category filters.",
-  tourThreeTitle: "Open a connected record",
-  tourThreeBody: "Every event panel adds era context, neighboring moments, related records, people, a shareable address, and its primary reference.",
-  tourFourTitle: "Follow communion and fracture",
-  tourFourBody: "The traditions map presents separations as developing historical processes and links conventional markers back to the chronology.",
-  tourFiveTitle: "Make the exhibition yours",
-  tourFiveBody: "Choose a language, enlarge text, increase contrast, reduce motion, and share direct links to events, apostles, and saints.",
-} as const;
-
-export type CopyKey = keyof typeof en;
-
-const es: Record<CopyKey, string> = {
-  pageTitle: "Dos mil aÃ±os de la Iglesia catÃ³lica",
-  metaDescription: "Una cronologÃ­a multilingÃ¼e y basada en fuentes de los apÃ³stoles, los santos, los papas, los concilios y los momentos decisivos de la historia de la Iglesia catÃ³lica.",
-  siteName: "Historia Ecclesiae", homeLink: "Inicio de Historia Ecclesiae", skip: "Saltar al contenido principal", primaryNavigation: "NavegaciÃ³n principal", mobileNavigation: "NavegaciÃ³n mÃ³vil", footerNavigation: "NavegaciÃ³n del pie de pÃ¡gina",
-  navChronology: "CronologÃ­a", navTimeline: "LÃ­nea de tiempo", navBranches: "Tradiciones", navApostles: "ApÃ³stoles", navSaints: "Santos", navSources: "Fuentes", menu: "MenÃº", language: "Idioma", languageSelect: "Elegir idioma",
-  heroKicker: "CronologÃ­a digital Â· 30 d. C.â€“2026", heroTitleLead: "Dos mil aÃ±os de la", heroTitleAccent: "Iglesia catÃ³lica.", heroDeck: "Una lectura basada en fuentes del testimonio apostÃ³lico, los santos, los concilios, la sucesiÃ³n papal, la reforma, la divisiÃ³n y la renovaciÃ³n a lo largo de veinte siglos.", exploreTimeline: "Explorar la cronologÃ­a", meetApostles: "Conocer a los apÃ³stoles", startTour: "Iniciar la visita guiada",
-  plateLabel: "Registro cronolÃ³gico", dialLabel: "CronÃ³metro de veinte siglos", plateSpan: "30 d. C. â€” 2026", plateEvents: "eventos seleccionados", plateEras: "Ã©pocas histÃ³ricas", plateApostles: "perfiles apostÃ³licos", plateSaints: "perfiles de santos",
-  creditLabel: "CronologÃ­a original", creditBody: "Dibujada a mano por Joe Bland en 2008. Reconstruida aquÃ­ como una exposiciÃ³n digital multilingÃ¼e y enlazada a fuentes.",
-  aboutKicker: "Sobre la cronologÃ­a", aboutTitle: "La historia no es una Ãºnica lÃ­nea ininterrumpida.", aboutLead: "Esta exposiciÃ³n trata la historia de la Iglesia como un registro conectado de testimonio, doctrina, instituciones, personas, rupturas y renovaciÃ³n.", aboutBody: "Las fechas y categorÃ­as orientan, pero no pretenden ser completas. Se indican las fechas aproximadas y las separaciones complejas se describen como procesos histÃ³ricos.",
-  chronologyKicker: "CronologÃ­a", chronologyTitle: "Seis Ã©pocas de continuidad y cambio", chronologyBody: "Los lÃ­mites son editoriales. Las tradiciones se superponen, las formas antiguas persisten y los procesos avanzan de manera desigual entre regiones.", browseEra: "Explorar esta Ã©poca",
-  timelineKicker: "Archivo de eventos", timelineTitle: "Examinar el registro histÃ³rico", timelineBody: "Busca personas y acontecimientos, define un intervalo de siglos, limita el registro por Ã©poca o categorÃ­a y abre cualquier entrada para ver su contexto, conexiones y fuentes.", searchLabel: "Buscar en la cronologÃ­a", searchPlaceholder: "Persona, evento, concilio, documentoâ€¦", eraLabel: "Ã‰poca", categoryLabel: "CategorÃ­a", sortLabel: "Orden", allEras: "Todas las Ã©pocas", allCategories: "Todas las categorÃ­as", oldestFirst: "MÃ¡s antiguos primero", newestFirst: "MÃ¡s recientes primero", titleAZ: "TÃ­tulo Aâ€“Z", records: "registros", of: "de", timelineLayout: "CronologÃ­a", indexLayout: "Ãndice", layoutLabel: "DiseÃ±o del archivo", readRecord: "Abrir registro", emptyTitle: "NingÃºn registro coincide con estos filtros.", clearFilters: "Borrar filtros",
-  centuryRange: "Intervalo de siglos", centuryFrom: "Desde el siglo", centuryTo: "Hasta el siglo", centuryReset: "Los veintiÃºn siglos", centuryVisible: "Intervalo visible", centuryShort: "S",
-  dialogClose: "Cerrar registro", peopleLabel: "Personas en este momento", primaryReference: "Abrir la referencia principal", historicalContext: "Contexto histÃ³rico", longView: "La perspectiva amplia", chronologyNeighbors: "Antes y despuÃ©s", relatedRecords: "Registros relacionados", previousRecord: "Momento anterior", nextRecord: "Momento siguiente", copyLink: "Copiar enlace del registro", linkCopied: "Enlace copiado", linkCopyFailed: "Copia esta direcciÃ³n desde el navegador",
-  branchesKicker: "ComuniÃ³n y fractura", branchesTitle: "Las tradiciones se desarrollan, se dividen y permanecen conectadas", branchesBody: "Este mapa interpretativo seÃ±ala hitos convencionales. No reduce siglos de historia teolÃ³gica, polÃ­tica, cultural y pastoral a una sola ruptura.", branchesInstruction: "Selecciona una tradiciÃ³n o un punto decisivo para ver su contexto.", branchMapLabel: "Mapa interactivo de las principales tradiciones y separaciones cristianas", branchReadRecord: "Abrir el registro relacionado", branchSource: "Leer la fuente ecumÃ©nica",
-  apostlesKicker: "Registro apostÃ³lico", apostlesTitle: "Los primeros testigos", apostlesBody: "Los Doce forman el colegio apostÃ³lico. MatÃ­as sustituye a Judas Iscariote; Pablo y BernabÃ© llevan la misiÃ³n mÃ¡s allÃ¡; MarÃ­a Magdalena es honrada como la testigo enviada a anunciar la ResurrecciÃ³n.", vaticanCatecheses: "Leer las catequesis del Vaticano sobre los apÃ³stoles", scriptureLabel: "Testimonio bÃ­blico", shareProfile: "Copiar enlace del perfil", moreDetails: "Detalles del perfil",
-  saintsKicker: "Archivo de testigos", saintsTitle: "La santidad a travÃ©s de los siglos", saintsBody: "Un recorrido representativo por mÃ¡rtires, obispos, monjes, estudiosos, misioneros, reformadores y servidores de los pobres; no una clasificaciÃ³n ni un calendario completo.", saintProfiles: "perfiles", datesNote: "Las fechas describen la vida terrena; Â«c.Â» indica aproximaciÃ³n.", connectedRecord: "Abrir el registro cronolÃ³gico relacionado",
-  sourcesKicker: "MÃ©todo y fuentes", sourcesTitle: "Un mapa interpretativo, cuidadosamente documentado", sourcesBody: "Las referencias primarias acompaÃ±an a los eventos individuales. Estas colecciones establecen la cronologÃ­a, el registro conciliar, la sucesiÃ³n papal y el marco bÃ­blico.", editorialNote: "Esta reconstrucciÃ³n sigue la cronologÃ­a dibujada a mano por Joe Bland en 2008 y contrasta las fechas con las referencias enlazadas. Es una herramienta educativa seleccionada, no una historia eclesiÃ¡stica exhaustiva.", footerBody: "Una exposiciÃ³n digital multilingÃ¼e que recorre dos mil aÃ±os de historia catÃ³lica a travÃ©s de personas, concilios, documentos, instituciones, divisiÃ³n y renovaciÃ³n.", sourceCode: "CÃ³digo fuente", backToTop: "Volver arriba", originalCreditLine: "CronologÃ­a original Â· Joe Bland Â· 2008", languageChanged: "Idioma cambiado a espaÃ±ol.",
-  accessibility: "Ajustes de lectura", accessibilityOpen: "Abrir los ajustes de lectura", textSize: "TamaÃ±o del texto", textNormal: "Predeterminado", textLarge: "Grande", textLargest: "Muy grande", highContrast: "Alto contraste", reduceMotion: "Reducir movimiento", resetPreferences: "Restablecer ajustes",
-  tourTitle: "CÃ³mo leer este observatorio", tourIntro: "Una breve orientaciÃ³n sobre la cronologÃ­a, los controles, las conexiones y las notas de fuentes.", tourStep: "Paso", tourBack: "AtrÃ¡s", tourNext: "Siguiente", tourFinish: "Comenzar a explorar", tourClose: "Cerrar la visita guiada", tourOneTitle: "Leer el dial de veinte siglos", tourOneBody: "El cronÃ³metro inicial sitÃºa cada evento seleccionado a lo largo de veinte siglos y los agrupa en seis Ã©pocas editoriales.", tourTwoTitle: "Definir la ventana histÃ³rica", tourTwoBody: "Usa los dos controles de siglo para acercarte desde el registro completo hasta un intervalo preciso y combÃ­nalo con la bÃºsqueda y los filtros.", tourThreeTitle: "Abrir un registro conectado", tourThreeBody: "Cada panel aÃ±ade el contexto de la Ã©poca, los momentos vecinos, registros relacionados, personas, una direcciÃ³n compartible y la referencia principal.", tourFourTitle: "Seguir la comuniÃ³n y la fractura", tourFourBody: "El mapa de tradiciones presenta las separaciones como procesos histÃ³ricos y enlaza sus hitos convencionales con la cronologÃ­a.", tourFiveTitle: "Adaptar la exposiciÃ³n", tourFiveBody: "Elige idioma, aumenta el texto o el contraste, reduce el movimiento y comparte enlaces directos a eventos, apÃ³stoles y santos.",
-};
-
-const fr: Record<CopyKey, string> = {
-  pageTitle: "Deux mille ans dâ€™histoire de lâ€™Ã‰glise catholique", metaDescription: "Une chronologie multilingue et documentÃ©e des apÃ´tres, des saints, des papes, des conciles et des tournants de lâ€™histoire de lâ€™Ã‰glise catholique.",
-  siteName: "Historia Ecclesiae", homeLink: "Accueil de Historia Ecclesiae", skip: "Aller au contenu principal", primaryNavigation: "Navigation principale", mobileNavigation: "Navigation mobile", footerNavigation: "Navigation du pied de page",
-  navChronology: "Chronologie", navTimeline: "Frise", navBranches: "Traditions", navApostles: "ApÃ´tres", navSaints: "Saints", navSources: "Sources", menu: "Menu", language: "Langue", languageSelect: "Choisir la langue",
-  heroKicker: "Chronologie numÃ©rique Â· 30â€“2026 apr. J.-C.", heroTitleLead: "Deux mille ans de", heroTitleAccent: "lâ€™Ã‰glise catholique.", heroDeck: "Une lecture documentÃ©e du tÃ©moignage apostolique, des saints, des conciles, de la succession pontificale, des rÃ©formes, des divisions et du renouveau Ã  travers vingt siÃ¨cles.", exploreTimeline: "Explorer la chronologie", meetApostles: "Rencontrer les apÃ´tres", startTour: "Commencer la visite guidÃ©e",
-  plateLabel: "Registre chronologique", dialLabel: "ChronomÃ¨tre de vingt siÃ¨cles", plateSpan: "30 â€” 2026 apr. J.-C.", plateEvents: "Ã©vÃ©nements choisis", plateEras: "Ã©poques historiques", plateApostles: "profils apostoliques", plateSaints: "profils de saints",
-  creditLabel: "Chronologie originale", creditBody: "DessinÃ©e Ã  la main par Joe Bland en 2008. Reconstruite ici comme une exposition numÃ©rique multilingue reliÃ©e Ã  ses sources.",
-  aboutKicker: "Ã€ propos de la chronologie", aboutTitle: "Lâ€™histoire nâ€™est pas une seule ligne ininterrompue.", aboutLead: "Cette exposition aborde lâ€™histoire de lâ€™Ã‰glise comme un ensemble reliÃ© de tÃ©moignages, de doctrines, dâ€™institutions, de personnes, de ruptures et de renouveaux.", aboutBody: "Les dates et catÃ©gories servent de repÃ¨res sans prÃ©tendre Ã  lâ€™exhaustivitÃ©. Les dates approximatives sont signalÃ©es et les sÃ©parations complexes sont dÃ©crites comme des processus historiques.",
-  chronologyKicker: "Chronologie", chronologyTitle: "Six Ã©poques de continuitÃ© et de changement", chronologyBody: "Les limites sont Ã©ditoriales. Les traditions se chevauchent, les formes anciennes persistent et les Ã©volutions progressent inÃ©galement selon les rÃ©gions.", browseEra: "Explorer cette Ã©poque",
-  timelineKicker: "Archives des Ã©vÃ©nements", timelineTitle: "Examiner le dossier historique", timelineBody: "Recherchez des personnes et des Ã©vÃ©nements, dÃ©finissez une plage de siÃ¨cles, filtrez par Ã©poque ou catÃ©gorie et ouvrez chaque notice pour ses liens, son contexte et ses sources.", searchLabel: "Rechercher dans la chronologie", searchPlaceholder: "Personne, Ã©vÃ©nement, concile, documentâ€¦", eraLabel: "Ã‰poque", categoryLabel: "CatÃ©gorie", sortLabel: "Tri", allEras: "Toutes les Ã©poques", allCategories: "Toutes les catÃ©gories", oldestFirst: "Plus anciens dâ€™abord", newestFirst: "Plus rÃ©cents dâ€™abord", titleAZ: "Titre Aâ€“Z", records: "notices", of: "sur", timelineLayout: "Chronologie", indexLayout: "Index", layoutLabel: "PrÃ©sentation des archives", readRecord: "Ouvrir la notice", emptyTitle: "Aucune notice ne correspond Ã  ces filtres.", clearFilters: "Effacer les filtres",
-  centuryRange: "Plage de siÃ¨cles", centuryFrom: "Du siÃ¨cle", centuryTo: "Au siÃ¨cle", centuryReset: "Les vingt et un siÃ¨cles", centuryVisible: "PÃ©riode visible", centuryShort: "S",
-  dialogClose: "Fermer la notice", peopleLabel: "Personnes liÃ©es Ã  ce moment", primaryReference: "Ouvrir la rÃ©fÃ©rence principale", historicalContext: "Contexte historique", longView: "Perspective gÃ©nÃ©rale", chronologyNeighbors: "Avant et aprÃ¨s", relatedRecords: "Notices associÃ©es", previousRecord: "Moment prÃ©cÃ©dent", nextRecord: "Moment suivant", copyLink: "Copier le lien de la notice", linkCopied: "Lien copiÃ©", linkCopyFailed: "Copiez cette adresse depuis votre navigateur",
-  branchesKicker: "Communion et fracture", branchesTitle: "Les traditions se dÃ©veloppent, se sÃ©parent et restent liÃ©es", branchesBody: "Cette carte interprÃ©tative indique des jalons conventionnels. Elle ne rÃ©duit pas des siÃ¨cles dâ€™histoire thÃ©ologique, politique, culturelle et pastorale Ã  une seule rupture.", branchesInstruction: "Choisissez une tradition ou un tournant pour en lire le contexte.", branchMapLabel: "Carte interactive des principales traditions et sÃ©parations chrÃ©tiennes", branchReadRecord: "Ouvrir la notice chronologique associÃ©e", branchSource: "Lire la source Å“cumÃ©nique",
-  apostlesKicker: "Registre apostolique", apostlesTitle: "Les premiers tÃ©moins", apostlesBody: "Les Douze forment le collÃ¨ge apostolique. Matthias remplace Judas Iscariote ; Paul et BarnabÃ© portent la mission au loin ; Marie Madeleine est honorÃ©e comme tÃ©moin envoyÃ©e annoncer la RÃ©surrection.", vaticanCatecheses: "Lire les catÃ©chÃ¨ses du Vatican sur les apÃ´tres", scriptureLabel: "TÃ©moignage scripturaire", shareProfile: "Copier le lien du profil", moreDetails: "DÃ©tails du profil",
-  saintsKicker: "Archives des tÃ©moins", saintsTitle: "La saintetÃ© au fil des siÃ¨cles", saintsBody: "Un parcours reprÃ©sentatif parmi martyrs, Ã©vÃªques, moines, savants, missionnaires, rÃ©formateurs et serviteurs des pauvres â€” ni classement ni calendrier complet.", saintProfiles: "profils", datesNote: "Les dates dÃ©crivent la vie terrestre ; Â« v. Â» signale une approximation.", connectedRecord: "Ouvrir la notice chronologique associÃ©e",
-  sourcesKicker: "MÃ©thode et sources", sourcesTitle: "Une carte interprÃ©tative soigneusement documentÃ©e", sourcesBody: "Des rÃ©fÃ©rences primaires accompagnent les Ã©vÃ©nements. Ces collections fondent la chronologie, le dossier conciliaire, la succession pontificale et le cadre scripturaire.", editorialNote: "Cette reconstruction suit la chronologie dessinÃ©e par Joe Bland en 2008 tout en vÃ©rifiant les dates dans les rÃ©fÃ©rences indiquÃ©es. Câ€™est un outil pÃ©dagogique choisi, non une histoire ecclÃ©siastique exhaustive.", footerBody: "Une exposition numÃ©rique multilingue retraÃ§ant deux mille ans dâ€™histoire catholique Ã  travers personnes, conciles, documents, institutions, divisions et renouveaux.", sourceCode: "Code source", backToTop: "Retour en haut", originalCreditLine: "Chronologie originale Â· Joe Bland Â· 2008", languageChanged: "Langue dÃ©finie sur le franÃ§ais.",
-  accessibility: "RÃ©glages de lecture", accessibilityOpen: "Ouvrir les rÃ©glages de lecture", textSize: "Taille du texte", textNormal: "Par dÃ©faut", textLarge: "Grande", textLargest: "TrÃ¨s grande", highContrast: "Contraste Ã©levÃ©", reduceMotion: "RÃ©duire les animations", resetPreferences: "RÃ©initialiser",
-  tourTitle: "Comment lire cet observatoire", tourIntro: "Une brÃ¨ve orientation sur la chronologie, ses commandes, ses liens et ses sources.", tourStep: "Ã‰tape", tourBack: "Retour", tourNext: "Suivant", tourFinish: "Commencer lâ€™exploration", tourClose: "Fermer la visite guidÃ©e", tourOneTitle: "Lire le cadran des vingt siÃ¨cles", tourOneBody: "Le chronomÃ¨tre dâ€™ouverture place chaque Ã©vÃ©nement sÃ©lectionnÃ© sur vingt siÃ¨cles et les rassemble en six Ã©poques Ã©ditoriales.", tourTwoTitle: "DÃ©finir la fenÃªtre historique", tourTwoBody: "Utilisez les deux curseurs pour passer de lâ€™ensemble du dossier Ã  une plage prÃ©cise, puis combinez-la avec la recherche et les filtres.", tourThreeTitle: "Ouvrir une notice reliÃ©e", tourThreeBody: "Chaque panneau ajoute le contexte de lâ€™Ã©poque, les moments voisins, les notices associÃ©es, les personnes, une adresse partageable et la rÃ©fÃ©rence principale.", tourFourTitle: "Suivre communion et fracture", tourFourBody: "La carte des traditions prÃ©sente les sÃ©parations comme des processus et relie leurs jalons conventionnels Ã  la chronologie.", tourFiveTitle: "Adapter lâ€™exposition", tourFiveBody: "Choisissez la langue, agrandissez le texte, augmentez le contraste, rÃ©duisez les animations et partagez des liens directs.",
-};
-
-const pt: Record<CopyKey, string> = {
-  pageTitle: "Dois mil anos da Igreja CatÃ³lica", metaDescription: "Uma cronologia multilÃ­ngue e baseada em fontes dos apÃ³stolos, santos, papas, concÃ­lios e momentos decisivos da histÃ³ria da Igreja CatÃ³lica.",
-  siteName: "Historia Ecclesiae", homeLink: "InÃ­cio de Historia Ecclesiae", skip: "Ir para o conteÃºdo principal", primaryNavigation: "NavegaÃ§Ã£o principal", mobileNavigation: "NavegaÃ§Ã£o mÃ³vel", footerNavigation: "NavegaÃ§Ã£o do rodapÃ©",
-  navChronology: "Cronologia", navTimeline: "Linha do tempo", navBranches: "TradiÃ§Ãµes", navApostles: "ApÃ³stolos", navSaints: "Santos", navSources: "Fontes", menu: "Menu", language: "Idioma", languageSelect: "Escolher idioma",
-  heroKicker: "Cronologia digital Â· 30â€“2026 d.C.", heroTitleLead: "Dois mil anos da", heroTitleAccent: "Igreja CatÃ³lica.", heroDeck: "Uma leitura baseada em fontes do testemunho apostÃ³lico, dos santos, dos concÃ­lios, da sucessÃ£o papal, da reforma, da divisÃ£o e da renovaÃ§Ã£o ao longo de vinte sÃ©culos.", exploreTimeline: "Explorar a cronologia", meetApostles: "Conhecer os apÃ³stolos", startTour: "Iniciar visita guiada",
-  plateLabel: "Registro cronolÃ³gico", dialLabel: "CronÃ´metro de vinte sÃ©culos", plateSpan: "30 â€” 2026 d.C.", plateEvents: "eventos selecionados", plateEras: "Ã©pocas histÃ³ricas", plateApostles: "perfis apostÃ³licos", plateSaints: "perfis de santos",
-  creditLabel: "Cronologia original", creditBody: "Desenhada Ã  mÃ£o por Joe Bland em 2008. ReconstruÃ­da aqui como uma exposiÃ§Ã£o digital multilÃ­ngue ligada Ã s fontes.",
-  aboutKicker: "Sobre a cronologia", aboutTitle: "A histÃ³ria nÃ£o Ã© uma Ãºnica linha ininterrupta.", aboutLead: "Esta exposiÃ§Ã£o trata a histÃ³ria da Igreja como um registro conectado de testemunho, doutrina, instituiÃ§Ãµes, pessoas, rupturas e renovaÃ§Ã£o.", aboutBody: "As datas e categorias orientam, sem pretensÃ£o de completude. Datas aproximadas sÃ£o indicadas e separaÃ§Ãµes complexas sÃ£o descritas como processos histÃ³ricos.",
-  chronologyKicker: "Cronologia", chronologyTitle: "Seis Ã©pocas de continuidade e mudanÃ§a", chronologyBody: "Os limites sÃ£o editoriais. As tradiÃ§Ãµes se sobrepÃµem, formas antigas persistem e os desenvolvimentos avanÃ§am de modo desigual entre regiÃµes.", browseEra: "Explorar esta Ã©poca",
-  timelineKicker: "Arquivo de eventos", timelineTitle: "Examinar o registro histÃ³rico", timelineBody: "Pesquise pessoas e eventos, defina um intervalo de sÃ©culos, filtre por Ã©poca ou categoria e abra cada registro para ver contexto, conexÃµes e fontes.", searchLabel: "Pesquisar na cronologia", searchPlaceholder: "Pessoa, evento, concÃ­lio, documentoâ€¦", eraLabel: "Ã‰poca", categoryLabel: "Categoria", sortLabel: "Ordenar", allEras: "Todas as Ã©pocas", allCategories: "Todas as categorias", oldestFirst: "Mais antigos primeiro", newestFirst: "Mais recentes primeiro", titleAZ: "TÃ­tulo Aâ€“Z", records: "registros", of: "de", timelineLayout: "Cronologia", indexLayout: "Ãndice", layoutLabel: "DisposiÃ§Ã£o do arquivo", readRecord: "Abrir registro", emptyTitle: "Nenhum registro corresponde aos filtros.", clearFilters: "Limpar filtros",
-  centuryRange: "Intervalo de sÃ©culos", centuryFrom: "Do sÃ©culo", centuryTo: "AtÃ© o sÃ©culo", centuryReset: "Os vinte e um sÃ©culos", centuryVisible: "PerÃ­odo visÃ­vel", centuryShort: "S",
-  dialogClose: "Fechar registro", peopleLabel: "Pessoas neste momento", primaryReference: "Abrir a referÃªncia principal", historicalContext: "Contexto histÃ³rico", longView: "A perspectiva ampla", chronologyNeighbors: "Antes e depois", relatedRecords: "Registros relacionados", previousRecord: "Momento anterior", nextRecord: "Momento seguinte", copyLink: "Copiar link do registro", linkCopied: "Link copiado", linkCopyFailed: "Copie este endereÃ§o no navegador",
-  branchesKicker: "ComunhÃ£o e fratura", branchesTitle: "As tradiÃ§Ãµes se desenvolvem, se dividem e permanecem ligadas", branchesBody: "Este mapa interpretativo assinala marcos convencionais. Ele nÃ£o reduz sÃ©culos de histÃ³ria teolÃ³gica, polÃ­tica, cultural e pastoral a uma Ãºnica ruptura.", branchesInstruction: "Selecione uma tradiÃ§Ã£o ou momento decisivo para ver o contexto.", branchMapLabel: "Mapa interativo das principais tradiÃ§Ãµes e separaÃ§Ãµes cristÃ£s", branchReadRecord: "Abrir o registro relacionado", branchSource: "Ler a fonte ecumÃªnica",
-  apostlesKicker: "Registro apostÃ³lico", apostlesTitle: "As primeiras testemunhas", apostlesBody: "Os Doze formam o colÃ©gio apostÃ³lico. Matias substitui Judas Iscariotes; Paulo e BarnabÃ© levam a missÃ£o adiante; Maria Madalena Ã© honrada como testemunha enviada a anunciar a RessurreiÃ§Ã£o.", vaticanCatecheses: "Ler as catequeses do Vaticano sobre os apÃ³stolos", scriptureLabel: "Testemunho bÃ­blico", shareProfile: "Copiar link do perfil", moreDetails: "Detalhes do perfil",
-  saintsKicker: "Arquivo de testemunhas", saintsTitle: "Santidade atravÃ©s dos sÃ©culos", saintsBody: "Um percurso representativo por mÃ¡rtires, bispos, monÃ¡sticos, estudiosos, missionÃ¡rios, reformadores e servidores dos pobres â€” nÃ£o uma classificaÃ§Ã£o nem um calendÃ¡rio completo.", saintProfiles: "perfis", datesNote: "As datas descrevem a vida terrena; â€œc.â€ indica aproximaÃ§Ã£o.", connectedRecord: "Abrir o registro cronolÃ³gico relacionado",
-  sourcesKicker: "MÃ©todo e fontes", sourcesTitle: "Um mapa interpretativo cuidadosamente documentado", sourcesBody: "ReferÃªncias primÃ¡rias acompanham eventos individuais. Essas coleÃ§Ãµes fundamentam a cronologia, o registro conciliar, a sucessÃ£o papal e o quadro bÃ­blico.", editorialNote: "Esta reconstruÃ§Ã£o acompanha a cronologia desenhada por Joe Bland em 2008 e verifica as datas nas referÃªncias indicadas. Ã‰ um recurso educativo selecionado, nÃ£o uma histÃ³ria eclesiÃ¡stica exaustiva.", footerBody: "Uma exposiÃ§Ã£o digital multilÃ­ngue que percorre dois mil anos de histÃ³ria catÃ³lica por meio de pessoas, concÃ­lios, documentos, instituiÃ§Ãµes, divisÃµes e renovaÃ§Ã£o.", sourceCode: "CÃ³digo-fonte", backToTop: "Voltar ao topo", originalCreditLine: "Cronologia original Â· Joe Bland Â· 2008", languageChanged: "Idioma alterado para portuguÃªs.",
-  accessibility: "ConfiguraÃ§Ãµes de leitura", accessibilityOpen: "Abrir configuraÃ§Ãµes de leitura", textSize: "Tamanho do texto", textNormal: "PadrÃ£o", textLarge: "Grande", textLargest: "Maior", highContrast: "Alto contraste", reduceMotion: "Reduzir movimento", resetPreferences: "Redefinir configuraÃ§Ãµes",
-  tourTitle: "Como ler este observatÃ³rio", tourIntro: "Uma breve orientaÃ§Ã£o sobre a cronologia, os controles, as conexÃµes e as notas de fontes.", tourStep: "Etapa", tourBack: "Voltar", tourNext: "PrÃ³xima", tourFinish: "ComeÃ§ar a explorar", tourClose: "Fechar visita guiada", tourOneTitle: "Ler o mostrador de vinte sÃ©culos", tourOneBody: "O cronÃ´metro de abertura posiciona cada evento selecionado ao longo de vinte sÃ©culos e os reÃºne em seis Ã©pocas editoriais.", tourTwoTitle: "Definir a janela histÃ³rica", tourTwoBody: "Use os dois controles de sÃ©culo para aproximar o registro inteiro de um intervalo preciso e combine-o com pesquisa e filtros.", tourThreeTitle: "Abrir um registro conectado", tourThreeBody: "Cada painel acrescenta o contexto da Ã©poca, momentos vizinhos, registros relacionados, pessoas, um endereÃ§o compartilhÃ¡vel e a referÃªncia principal.", tourFourTitle: "Seguir comunhÃ£o e fratura", tourFourBody: "O mapa das tradiÃ§Ãµes apresenta separaÃ§Ãµes como processos histÃ³ricos e liga seus marcos convencionais Ã  cronologia.", tourFiveTitle: "Adaptar a exposiÃ§Ã£o", tourFiveBody: "Escolha o idioma, aumente o texto ou o contraste, reduza o movimento e compartilhe links diretos para eventos, apÃ³stolos e santos.",
-};
-
-export const languageOptions: ReadonlyArray<{ code: Language; label: string; shortLabel: string }> = [
-  { code: "en", label: "English", shortLabel: "EN" },
-  { code: "es", label: "EspaÃ±ol", shortLabel: "ES" },
-  { code: "fr", label: "FranÃ§ais", shortLabel: "FR" },
-  { code: "pt", label: "PortuguÃªs", shortLabel: "PT" },
-];
-
-export const supportedLanguages = languageOptions.map(({ code }) => code);
-
-const dictionaries: Record<Language, Record<CopyKey, string>> = { en, es, fr, pt };
-
-export function isLanguage(value: string | null): value is Language {
-  return supportedLanguages.includes(value as Language);
-}
-
-export function translate(language: Language, key: CopyKey): string {
-  return dictionaries[language][key];
-}
+YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éí×OyÙ:-jZ.¶›­–)Ş³V–×÷'BG—R²ÆæwVvRÒg&öÒ"â÷G—W2#° ¦6öç7BVâÒ°¢vUF—FÆS¢%GvòF†÷W6æB–V'2öbF†R6F†öÆ–26‡W&6‚"À¢ÖWFFW67&—F–öã¢$×VÇF–Æ–æwVÂÂ6÷W&6RÖÆVB6‡&öæöÆöw’öbF†R÷7FÆW2Â6–çG2Â÷W2Â6÷Væ6–Ç2ÂæBGW&æ–ærö–çG2–â6F†öÆ–26‡W&6‚†—7F÷'’â"À¢6—FTæÖS¢$†—7F÷&–V66ÆW6–R"À¢†öÖTÆ–æ³¢$†—7F÷&–V66ÆW6–R†öÖR"À¢6¶—¢%6¶—FòÖ–â6öçFVçB"À¢&–Ö'”æf–vF–öã¢%&–Ö'’æf–vF–öâ"À¢Öö&–ÆTæf–vF–öã¢$Öö&–ÆRæf–vF–öâ"À¢fö÷FW$æf–vF–öã¢$fö÷FW"æf–vF–öâ"À¢æd6‡&öæöÆöw“¢$6‡&öæöÆöw’"À¢æeF–ÖVÆ–æS¢%F–ÖVÆ–æR"À¢æd'&æ6†W3¢%G&F—F–öç2"À¢æd÷7FÆW3¢$÷7FÆW2"À¢æe6–çG3¢%6–çG2"À¢æe6÷W&6W3¢%6÷W&6W2"À¢ÖVçS¢$ÖVçR"À¢ÆæwVvS¢$ÆæwVvR"À¢ÆæwVvU6VÆV7C¢$6†ö÷6RÆæwVvR"À¢†W&ô¶–6¶W#¢$F–v—FÂ6‡&öæöÆöw’+rB3(	3##b"À¢†W&õF—FÆTÆVC¢%GvòF†÷W6æB–V'2öbF†R"À¢†W&õF—FÆT66VçC¢$6F†öÆ–26‡W&6‚â"À¢†W&ôFV6³¢$6÷W&6RÖÆVB&VF–æröb÷7FöÆ–2v—FæW72Â6–çG2Â6÷Væ6–Ç2ÂÂ7V66W76–öâÂ&Vf÷&ÒÂF—f—6–öâÂæB&VæWvÂ7&÷72GvVçG’6VçGW&–W2â"À¢W‡Æ÷&UF–ÖVÆ–æS¢$W‡Æ÷&RF†RF–ÖVÆ–æR"À¢ÖVWD÷7FÆW3¢$ÖVWBF†R÷7FÆW2"À¢7F'EF÷W#¢%F¶RF†RwV–FVBF÷W""À¢ÆFTÆ&VÃ¢$6‡&öæöÆöw’&Vv—7FW""À¢F–ÄÆ&VÃ¢%GvVçG’Ö6VçGW'’6‡&öæöÖWFW""À¢ÆFU7ã¢$B3(	B##b"À¢ÆFTWfVçG3¢&7W&FVBWfVçG2"À¢ÆFTW&3¢&†—7F÷&–6ÂW&2"À¢ÆFT÷7FÆW3¢&÷7FöÆ–2&öf–ÆW2"À¢ÆFU6–çG3¢'6–çB&öf–ÆW2"À¢7&VF—DÆ&VÃ¢$÷&–v–æÂ6‡&öæöÆöw’"À¢7&VF—D&öG“¢$†æBÖG&vâ'’¦öR&ÆæB–â#‚â&V'V–ÇB†W&R2×VÇF–Æ–æwVÂÂ6÷W&6RÖÆ–æ¶VBF–v—FÂW††–&—F–öââ"À¢&÷WD¶–6¶W#¢$&÷WBF†R6‡&öæöÆöw’"À¢&÷WEF—FÆS¢$†—7F÷'’—2æ÷B6–ævÆRVæ'&ö¶VâÆ–æRâ"À¢&÷WDÆVC¢%F†—2W††–&—F–öâG&VG26‡W&6‚†—7F÷'’26öææV7FVB&V6÷&Böbv—FæW72ÂFö7G&–æRÂ–ç7F—GWF–öç2ÂV÷ÆRÂ'WGW&W2ÂæB&VæWvÂâ"À¢&÷WD&öG“¢%F†RFFW2æB6FVv÷&–W2&÷f–FR÷&–VçFF–öâ&F†W"F†â6Æ–Òöb6ö×ÆWFVæW72â&÷†–ÖFRFFW2&RÖ&¶VBÂæB6ö×ÆW‚6W&F–öç2&RFW67&–&VB2†—7F÷&–6Â&ö6W76W2â"À¢6‡&öæöÆöw”¶–6¶W#¢$6‡&öæöÆöw’"À¢6‡&öæöÆöw•F—FÆS¢%6—‚W&2öb6öçF–çV—G’æB6†ævR"À¢6‡&öæöÆöw”&öG“¢%F†R&÷VæF&–W2&RVF—F÷&–ÂâG&F—F–öç2÷fW&ÆÂöÆFW"f÷&×2W'6—7BÂæBFWfVÆ÷ÖVçG2Ö÷fRVæWfVæÇ’7&÷72&Vv–öç2â"À¢'&÷w6TW&¢$'&÷w6RF†—2W&"À¢F–ÖVÆ–æT¶–6¶W#¢$WfVçB&6†—fR"À¢F–ÖVÆ–æUF—FÆS¢$–ç7V7BF†R†—7F÷&–6Â&V6÷&B"À¢F–ÖVÆ–æT&öG“¢%6V&6‚V÷ÆRæBWfVçG2Â6WB6VçGW'’&ævRÂæ'&÷rF†R&V6÷&B'’W&÷"6FVv÷'’ÂæB÷Vâç’VçG'’f÷"6öææV7FVB6öçFW‡BæB6÷W&6W2â"À¢6V&6„Æ&VÃ¢%6V&6‚F†R6‡&öæöÆöw’"À¢6V&6…Æ6V†öÆFW#¢%W'6öâÂWfVçBÂ6÷Væ6–ÂÂFö7VÖVçN(
+b"À¢W&Æ&VÃ¢$W&"À¢6FVv÷'”Æ&VÃ¢$6FVv÷'’"À¢6÷'DÆ&VÃ¢%6÷'B"À¢ÆÄW&3¢$ÆÂW&2"À¢ÆÄ6FVv÷&–W3¢$ÆÂ6FVv÷&–W2"À¢öÆFW7Df—'7C¢$öÆFW7Bf—'7B"À¢æWvW7Df—'7C¢$æWvW7Bf—'7B"À¢F—FÆT£¢%F—FÆR(	5¢"À¢&V6÷&G3¢'&V6÷&G2"À¢öc¢&öb"À¢F–ÖVÆ–æTÆ–÷WC¢%F–ÖVÆ–æR"À¢–æFW„Æ–÷WC¢$–æFW‚"À¢Æ–÷WDÆ&VÃ¢$&6†—fRÆ–÷WB"À¢&VE&V6÷&C¢$÷Vâ&V6÷&B"À¢V×G•F—FÆS¢$æò&V6÷&G2ÖF6‚F†W6Rf–ÇFW'2â"À¢6ÆV$f–ÇFW'3¢/=çkh‘éì¶»§q«^u„Á½È)½”	±…¹•´€ÈÀÀà”Ù•É¥™¥„…Ì‘…Ñ…Ì¹…ÌÉ•™•Ë©¹¥…Ì¥¹‘¥…‘…Ì¸ƒ$Õ´É•ÕÉÍ¼•‘Õ…Ñ¥Ù¼Í•±•¥½¹…‘¼°»¼Õµ„¡¥ÍÓÍÉ¥„•±•Í§…ÍÑ¥„•á…ÕÍÑ¥Ù„¸ˆ°™½½Ñ•É	½‘äè€‰Uµ„•áÁ½Í§Ÿ¼‘¥¥Ñ…°µÕ±Ñ¥³µ¹Õ”ÅÕ”Á•É½ÉÉ”‘½¥Ìµ¥°…¹½Ì‘”¡¥ÍÓÍÉ¥„…ÓÍ±¥„Á½Èµ•¥¼‘”Á•ÍÍ½…Ì°½¹µ±¥½Ì°‘½Õµ•¹Ñ½Ì°¥¹ÍÑ¥ÑÕ§ŸÕ•Ì°‘¥Ù¥ÏÕ•Ì”É•¹½Ù‡Ÿ¼¸ˆ°Í½ÕÉ•½‘”è€‰Í‘¥¼µ™½¹Ñ”ˆ°‰…­Q½Q½Àè€‰Y½±Ñ…È…¼Ñ½Á¼ˆ°½É¥¥¹…±É•‘¥Ñ1¥¹”è€‰É½¹½±½¥„½É¥¥¹…°ƒ
+Ü)½”	±…¹ƒ
+Ü€ÈÀÀàˆ°±…¹Õ…•¡…¹•è€‰%‘¥½µ„…±Ñ•É…‘¼Á…É„Á½ÉÑÕ×©Ì¸ˆ°(€…•ÍÍ¥‰¥±¥Ñäè€‰½¹™¥ÕÉ‡ŸÕ•Ì‘”±•¥ÑÕÉ„ˆ°…•ÍÍ¥‰¥±¥Ñå=Á•¸è€‰‰É¥È½¹™¥ÕÉ‡ŸÕ•Ì‘”±•¥ÑÕÉ„ˆ°Ñ•áÑM¥é”è€‰Q…µ…¹¡¼‘¼Ñ•áÑ¼ˆ°Ñ•áÑ9½Éµ…°è€‰A…‘Ë¼ˆ°Ñ•áÑ1…É”è€‰É…¹‘”ˆ°Ñ•áÑ1…É•ÍĞè€‰5…¥½Èˆ°¡¥¡½¹ÑÉ…ÍĞè€‰±Ñ¼½¹ÑÉ…ÍÑ”ˆ°¡¥¡½¹ÑÉ…ÍÑ•ÍÉ¥ÁÑ¥½¸è€‰I•™½Ë„¼½¹ÑÉ…ÍÑ”‘”½É•Ì”½¹Ñ½É¹½Ìˆ°É•‘Õ•5½Ñ¥½¸è€‰I•‘Õé¥Èµ½Ù¥µ•¹Ñ¼ˆ°É•‘Õ•5½Ñ¥½¹•ÍÉ¥ÁÑ¥½¸è€‰1¥µ¥Ñ„…¹¥µ‡ŸÕ•Ì”É½±…•´ÍÕ…Ù”ˆ°Í•ÑÑ¥¹=¸è€‰Ñ¥Ù…‘¼ˆ°Í•ÑÑ¥¹=™˜è€‰•Í…Ñ¥Ù…‘¼ˆ°É•Í•ÑAÉ•™•É•¹•Ìè€‰I•‘•™¥¹¥È½¹™¥ÕÉ‡ŸÕ•Ìˆ°(€Ñ½ÕÉQ¥Ñ±”è€‰½µ¼±•È•ÍÑ”½‰Í•ÉÙ…ÓÍÉ¥¼ˆ°Ñ½ÕÉ%¹ÑÉ¼è€‰Uµ„‰É•Ù”½É¥•¹Ñ‡Ÿ¼Í½‰É”„É½¹½±½¥„°½Ì½¹ÑÉ½±•Ì°…Ì½¹•ãÕ•Ì”…Ì¹½Ñ…Ì‘”™½¹Ñ•Ì¸ˆ°Ñ½ÕÉMÑ•Àè€‰Ñ…Á„ˆ°Ñ½ÕÉ	…¬è€‰Y½±Ñ…Èˆ°Ñ½ÕÉ9•áĞè€‰AËÍá¥µ„ˆ°Ñ½ÕÉ¥¹¥Í è€‰½µ—…È„•áÁ±½É…Èˆ°Ñ½ÕÉ±½Í”è€‰•¡…ÈÙ¥Í¥Ñ„Õ¥…‘„ˆ°Ñ½ÕÉ=¹•Q¥Ñ±”è€‰1•È¼µ½ÍÑÉ…‘½È‘”Ù¥¹Ñ”Ï¥Õ±½Ìˆ°Ñ½ÕÉ=¹•	½‘äè€‰<É½»Ñµ•ÑÉ¼‘”…‰•ÉÑÕÉ„Á½Í¥¥½¹„…‘„•Ù•¹Ñ¼Í•±•¥½¹…‘¼…¼±½¹¼‘”Ù¥¹Ñ”Ï¥Õ±½Ì”½ÌÉ—é¹”•´Í•¥Ìƒ¥Á½…Ì•‘¥Ñ½É¥…¥Ì¸ˆ°Ñ½ÕÉQİ½Q¥Ñ±”è€‰•™¥¹¥È„©…¹•±„¡¥ÍÓÍÉ¥„ˆ°Ñ½ÕÉQİ½	½‘äè€‰UÍ”½Ì‘½¥Ì½¹ÑÉ½±•Ì‘”Ï¥Õ±¼Á…É„…ÁÉ½á¥µ…È¼É•¥ÍÑÉ¼¥¹Ñ•¥É¼‘”Õ´¥¹Ñ•ÉÙ…±¼ÁÉ•¥Í¼”½µ‰¥¹”µ¼½´Á•ÍÅÕ¥Í„”™¥±ÑÉ½Ì¸ˆ°Ñ½ÕÉQ¡É••Q¥Ñ±”è€‰‰É¥ÈÕ´É•¥ÍÑÉ¼½¹•Ñ…‘¼ˆ°Ñ½ÕÉQ¡É••	½‘äè€‰…‘„Á…¥¹•°…É•Í•¹Ñ„¼½¹Ñ•áÑ¼‘„ƒ¥Á½„°µ½µ•¹Ñ½ÌÙ¥é¥¹¡½Ì°É•¥ÍÑÉ½ÌÉ•±…¥½¹…‘½Ì°Á•ÍÍ½…Ì°Õ´•¹‘•É—¼½µÁ…ÉÑ¥±£…Ù•°”„É•™•Ë©¹¥„ÁÉ¥¹¥Á…°¸ˆ°Ñ½ÕÉ½ÕÉQ¥Ñ±”è€‰M•Õ¥È½µÕ¹£¼”™É…ÑÕÉ„ˆ°Ñ½ÕÉ½ÕÉ	½‘äè€‰<µ…Á„‘…ÌÑÉ…‘§ŸÕ•Ì…ÁÉ•Í•¹Ñ„Í•Á…É‡ŸÕ•Ì½µ¼ÁÉ½•ÍÍ½Ì¡¥ÍÓÍÉ¥½Ì”±¥„Í•ÕÌµ…É½Ì½¹Ù•¹¥½¹…¥Ìƒ€É½¹½±½¥„¸ˆ°Ñ½ÕÉ¥Ù•Q¥Ñ±”è€‰‘…ÁÑ…È„•áÁ½Í§Ÿ¼ˆ°Ñ½ÕÉ¥Ù•	½‘äè€‰Í½±¡„¼¥‘¥½µ„°…Õµ•¹Ñ”¼Ñ•áÑ¼½Ô¼½¹ÑÉ…ÍÑ”°É•‘Õé„¼µ½Ù¥µ•¹Ñ¼”½µÁ…ÉÑ¥±¡”±¥¹­Ì‘¥É•Ñ½ÌÁ…É„•Ù•¹Ñ½Ì°…ÃÍÍÑ½±½Ì”Í…¹Ñ½Ì¸ˆ°)ôì()•áÁ½ÉĞ½¹ÍĞ±…¹Õ…•=ÁÑ¥½¹ÌèI•…‘½¹±åÉÉ…äñì½‘”è1…¹Õ…”ì±…‰•°èÍÑÉ¥¹œìÍ¡½ÉÑ1…‰•°èÍÑÉ¥¹œôø€ôl(€ì½‘”è€‰•¸ˆ°±…‰•°è€‰¹±¥Í ˆ°Í¡½ÉÑ1…‰•°è€‰8ˆô°(€ì½‘”è€‰•Ìˆ°±…‰•°è€‰ÍÁ‡Å½°ˆ°Í¡½ÉÑ1…‰•°è€‰Lˆô°(€ì½‘”è€‰™Èˆ°±…‰•°è€‰É…»…¥Ìˆ°Í¡½ÉÑ1…‰•°è€‰Hˆô°(€ì½‘”è€‰ÁĞˆ°±…‰•°è€‰A½ÉÑÕ×©Ìˆ°Í¡½ÉÑ1…‰•°è€‰APˆô°)tì()•áÁ½ÉĞ½¹ÍĞÍÕÁÁ½ÉÑ•‘1…¹Õ…•Ì€ô±…¹Õ…•=ÁÑ¥½¹Ì¹µ…À ¡ì½‘”ô¤€ôø½‘”¤ì()½¹ÍĞ‘¥Ñ¥½¹…É¥•ÌèI•½Éñ1…¹Õ…”°I•½Éñ½Áå-•ä°ÍÑÉ¥¹œøø€ôì•¸°•Ì°™È°ÁĞôì()•áÁ½ÉĞ™Õ¹Ñ¥½¸¥Í1…¹Õ…”¡Ù…±Õ”èÍÑÉ¥¹œğ¹Õ±°¤èÙ…±Õ”¥Ì1…¹Õ…”ì(€É•ÑÕÉ¸ÍÕÁÁ½ÉÑ•‘1…¹Õ…•Ì¹¥¹±Õ‘•Ì¡Ù…±Õ”…Ì1…¹Õ…”¤ì)ô()•áÁ½ÉĞ™Õ¹Ñ¥½¸ÑÉ…¹Í±…Ñ”¡±…¹Õ…”è1…¹Õ…”°­•äè½Áå-•ä¤èÍÑÉ¥¹œì(€É•ÑÕÉ¸‘¥Ñ¥½¹…É¥•Ím±…¹Õ…•um­•åtì)ô(
