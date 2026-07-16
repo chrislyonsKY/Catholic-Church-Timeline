@@ -2652,6 +2652,7 @@ button {
 
 .living-atlas {
   position: relative;
+  --atlas-build: 20260716;
   background: var(--night);
   color: var(--chalk);
 }

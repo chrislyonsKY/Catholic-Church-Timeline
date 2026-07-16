@@ -52,7 +52,7 @@ export function LivingAtlasSection() {
   }
 
   return (
-    <section className="living-atlas" id="atlas" aria-labelledby="living-atlas-title">
+    <section className="living-atlas" id="atlas" data-atlas-build="20260716" aria-labelledby="living-atlas-title">
       <div className="living-atlas__masthead">
         <div>
           <span className="section-kicker">{a("sectionKicker")}</span>

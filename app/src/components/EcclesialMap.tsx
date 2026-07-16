@@ -197,7 +197,7 @@ export function EcclesialMap({ selectedYear, selectedEventId, onFocusEvent, onOp
   }, [mapState, reduceMotion, selectedEventId]);
 
   return (
-    <section className="ecclesial-map" aria-labelledby="ecclesial-map-title">
+    <section className="ecclesial-map" data-map-build="20260716" aria-labelledby="ecclesial-map-title">
       <header className="atlas-panel-heading">
         <span className="atlas-eyebrow">02 · {a("mapKicker")}</span>
         <h3 id="ecclesial-map-title">{a("mapTitle")}</h3>

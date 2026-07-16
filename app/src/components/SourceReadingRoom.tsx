@@ -68,7 +68,7 @@ export function SourceReadingRoom({
   }
 
   return (
-    <section className="reading-room" id="reading-room" aria-labelledby="reading-room-title">
+    <section className="reading-room" id="reading-room" data-reading-room-build="20260716" aria-labelledby="reading-room-title">
       <header className="atlas-panel-heading">
         <span className="atlas-eyebrow">04 · {a("readingKicker")}</span>
         <h3 id="reading-room-title">{a("readingTitle")}</h3>
