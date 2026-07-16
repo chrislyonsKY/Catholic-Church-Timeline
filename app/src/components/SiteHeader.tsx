@@ -1,17 +1,19 @@
 import { useRef, useState } from "react";
 import { useLanguage } from "../hooks/useLanguage";
-import { translate } from "../i18n";
+import { languageOptions, translate } from "../i18n";
 import type { Language } from "../types";
+import { ReadingSettings } from "./ReadingSettings";
 
 const navigation = [
   ["#chronology", "navChronology"],
   ["#timeline", "navTimeline"],
+  ["#traditions", "navBranches"],
   ["#apostles", "navApostles"],
   ["#saints", "navSaints"],
   ["#sources", "navSources"],
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ onStartTour }: { onStartTour: () => void }) {
   const { language, setLanguage, t } = useLanguage();
   const [announcement, setAnnouncement] = useState("");
   const mobileMenuRef = useRef<HTMLDetailsElement>(null);
@@ -36,19 +38,15 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="language-control" role="group" aria-label={t("language")}>
-          {(["en", "es"] as const).map((item) => (
-            <button
-              type="button"
-              key={item}
-              lang={item}
-              aria-pressed={language === item}
-              onClick={() => chooseLanguage(item)}
-            >
-              {item === "en" ? t("english") : t("spanish")}
-            </button>
-          ))}
-        </div>
+        <label className="language-control" data-code={language.toUpperCase()}>
+          <span className="sr-only">{t("languageSelect")}</span>
+          <select value={language} onChange={(event) => chooseLanguage(event.target.value as Language)} aria-label={t("languageSelect")}>
+            {languageOptions.map((item) => <option value={item.code} lang={item.code} key={item.code}>{item.label}</option>)}
+          </select>
+        </label>
+
+        <button className="tour-trigger" type="button" onClick={onStartTour}>{t("startTour")}</button>
+        <ReadingSettings />
 
         <details className="mobile-menu" ref={mobileMenuRef}>
           <summary>{t("menu")}</summary>
@@ -62,6 +60,10 @@ export function SiteHeader() {
                 {t(key)}
               </a>
             ))}
+            <button type="button" onClick={() => {
+              mobileMenuRef.current?.removeAttribute("open");
+              onStartTour();
+            }}>{t("startTour")}</button>
           </nav>
         </details>
 

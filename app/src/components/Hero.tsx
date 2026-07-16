@@ -2,7 +2,7 @@ import { eras, events } from "../data";
 import { useLanguage } from "../hooks/useLanguage";
 import { TemporalDial } from "./TemporalDial";
 
-export function Hero() {
+export function Hero({ onStartTour }: { onStartTour: () => void }) {
   const { t } = useLanguage();
 
   return (
@@ -23,6 +23,7 @@ export function Hero() {
           <div className="hero-actions">
             <a className="button button--primary" href="#timeline">{t("exploreTimeline")}</a>
             <a className="button button--secondary" href="#apostles">{t("meetApostles")}</a>
+            <button className="button button--secondary" type="button" onClick={onStartTour}>{t("startTour")}</button>
           </div>
         </div>
 

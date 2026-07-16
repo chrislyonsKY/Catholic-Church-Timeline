@@ -2,15 +2,21 @@ import { useMemo, useState } from "react";
 import { saintPeriods, saints } from "../data";
 import { useLanguage } from "../hooks/useLanguage";
 import type { SaintPeriodId } from "../types";
-import { formatCount, localize } from "../utils";
+import { buildPageUrl, copyText, formatCount, localize } from "../utils";
 
 export function SaintsSection() {
   const { language, t } = useLanguage();
   const [period, setPeriod] = useState<"all" | SaintPeriodId>("all");
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const visibleSaints = useMemo(
     () => saints.filter((saint) => period === "all" || saint.period === period),
     [period],
   );
+
+  async function shareProfile(id: string) {
+    const copied = await copyText(buildPageUrl({ event: null }, `#saint-${id}`));
+    setCopiedId(copied ? id : null);
+  }
 
   return (
     <section id="saints" className="saints-section section-shell" aria-labelledby="saints-title">
@@ -48,7 +54,7 @@ export function SaintsSection() {
 
       <div className="saint-grid">
         {visibleSaints.map((saint, index) => (
-          <article key={saint.id}>
+          <article id={`saint-${saint.id}`} key={saint.id}>
             <header>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <time>{localize(saint.dates, language)}</time>
@@ -56,6 +62,13 @@ export function SaintsSection() {
             <h3>{localize(saint.name, language)}</h3>
             <p>{localize(saint.note, language)}</p>
             <small>{localize(saint.place, language)}</small>
+            <details>
+              <summary>{t("moreDetails")}</summary>
+              <div>
+                {saint.relatedEventId && <a href={buildPageUrl({ event: saint.relatedEventId }, "#timeline")}>{t("connectedRecord")} <span aria-hidden="true">↗</span></a>}
+                <button type="button" onClick={() => shareProfile(saint.id)}>{copiedId === saint.id ? t("linkCopied") : t("shareProfile")}</button>
+              </div>
+            </details>
           </article>
         ))}
       </div>

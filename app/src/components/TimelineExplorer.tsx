@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { supportedLanguages } from "../i18n";
 import { categories, eras, events } from "../data";
 import { useLanguage } from "../hooks/useLanguage";
 import type { CategoryId, EraId, TimelineEvent } from "../types";
-import { formatCount, localize, normalizeSearch } from "../utils";
+import { formatCount, getCentury, localize, normalizeSearch } from "../utils";
+import { CenturyScrubber } from "./CenturyScrubber";
 import { EventDialog } from "./EventDialog";
 
 type SortOrder = "chronological" | "recent" | "title";
@@ -19,26 +21,43 @@ export function TimelineExplorer({ era, onEraChange }: TimelineExplorerProps) {
   const [category, setCategory] = useState<"all" | CategoryId>("all");
   const [sort, setSort] = useState<SortOrder>("chronological");
   const [layout, setLayout] = useState<Layout>("timeline");
-  const [selected, setSelected] = useState<TimelineEvent | null>(null);
+  const [centuryStart, setCenturyStart] = useState(1);
+  const [centuryEnd, setCenturyEnd] = useState(21);
+  const [selected, setSelected] = useState<TimelineEvent | null>(() => {
+    const eventId = new URLSearchParams(window.location.search).get("event");
+    return events.find((event) => event.id === eventId) ?? null;
+  });
+
+  useEffect(() => {
+    function syncSelectedFromUrl() {
+      const eventId = new URLSearchParams(window.location.search).get("event");
+      setSelected(events.find((event) => event.id === eventId) ?? null);
+    }
+    window.addEventListener("popstate", syncSelectedFromUrl);
+    return () => window.removeEventListener("popstate", syncSelectedFromUrl);
+  }, []);
+
+  useEffect(() => {
+    if (era === "all") return;
+    const eraEvents = events.filter((event) => event.era === era);
+    setCenturyStart(Math.min(...eraEvents.map((event) => getCentury(event.year))));
+    setCenturyEnd(Math.max(...eraEvents.map((event) => getCentury(event.year))));
+  }, [era]);
 
   const visibleEvents = useMemo(() => {
     const normalizedQuery = normalizeSearch(query.trim());
     const filtered = events.filter((event) => {
-      const searchable = normalizeSearch([
-        event.title.en,
-        event.title.es,
-        event.summary.en,
-        event.summary.es,
-        event.detail.en,
-        event.detail.es,
-        ...event.people.en,
-        ...event.people.es,
-      ].join(" "));
+      const searchable = normalizeSearch(supportedLanguages.flatMap((item) => [
+        event.title[item], event.summary[item], event.detail[item], ...event.people[item],
+      ]).join(" "));
+      const century = getCentury(event.year);
 
       return (
         (!normalizedQuery || searchable.includes(normalizedQuery))
         && (era === "all" || event.era === era)
         && (category === "all" || event.category === category)
+        && century >= centuryStart
+        && century <= centuryEnd
       );
     });
 
@@ -47,13 +66,29 @@ export function TimelineExplorer({ era, onEraChange }: TimelineExplorerProps) {
       if (sort === "title") return localize(a.title, language).localeCompare(localize(b.title, language), language);
       return a.year - b.year;
     });
-  }, [category, era, language, query, sort]);
+  }, [category, centuryEnd, centuryStart, era, language, query, sort]);
 
   function clearFilters() {
     setQuery("");
     setCategory("all");
     onEraChange("all");
     setSort("chronological");
+    setCenturyStart(1);
+    setCenturyEnd(21);
+  }
+
+  function openEvent(event: TimelineEvent) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("event", event.id);
+    window.history.pushState(window.history.state, "", url);
+    setSelected(event);
+  }
+
+  function closeEvent() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("event");
+    window.history.pushState(window.history.state, "", url);
+    setSelected(null);
   }
 
   return (
@@ -81,6 +116,11 @@ export function TimelineExplorer({ era, onEraChange }: TimelineExplorerProps) {
           </button>
         ))}
       </div>
+
+      <CenturyScrubber start={centuryStart} end={centuryEnd} onChange={(start, end) => {
+        setCenturyStart(start);
+        setCenturyEnd(end);
+      }} />
 
       <div className="archive-controls" role="search" aria-label={t("timelineKicker")}>
         <label className="archive-search">
@@ -130,7 +170,7 @@ export function TimelineExplorer({ era, onEraChange }: TimelineExplorerProps) {
             const eventCategory = categories.find((item) => item.id === event.category);
             return (
               <li key={event.id} data-category={event.category}>
-                <button type="button" onClick={() => setSelected(event)} aria-label={`${t("readRecord")}: ${localize(event.title, language)}`}>
+                <button type="button" onClick={() => openEvent(event)} aria-label={`${t("readRecord")}: ${localize(event.title, language)}`}>
                   <span className="event-record__year">{localize(event.yearLabel, language)}</span>
                   <span className="event-record__body">
                     <span className="event-record__category">{eventCategory ? localize(eventCategory.label, language) : event.category}</span>
@@ -150,7 +190,7 @@ export function TimelineExplorer({ era, onEraChange }: TimelineExplorerProps) {
         </div>
       )}
 
-      <EventDialog event={selected} onClose={() => setSelected(null)} />
+      <EventDialog event={selected} onClose={closeEvent} onSelect={openEvent} />
     </section>
   );
 }

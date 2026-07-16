@@ -5,8 +5,12 @@ import test from "node:test";
 const content = JSON.parse(
   await readFile(new URL("../app/src/data/content.json", import.meta.url), "utf8"),
 );
+const additionalContent = JSON.parse(
+  await readFile(new URL("../app/src/data/content-extra.json", import.meta.url), "utf8"),
+);
 
 const languages = ["en", "es"];
+const additionalLanguages = ["fr", "pt"];
 const categories = new Set([
   "apostles",
   "saints",
@@ -38,7 +42,7 @@ test("the exhibition contains the complete curated record", () => {
   assert.equal(content.saints.length, 26);
 });
 
-test("timeline event IDs and translations satisfy the data contract", () => {
+test("timeline event IDs and base translations satisfy the data contract", () => {
   const ids = new Set();
 
   for (const event of content.events) {
@@ -64,7 +68,7 @@ test("timeline event IDs and translations satisfy the data contract", () => {
   }
 });
 
-test("saint profiles have unique IDs and complete bilingual fields", () => {
+test("saint profiles have unique IDs and complete base translations", () => {
   const ids = new Set();
 
   for (const saint of content.saints) {
@@ -74,6 +78,32 @@ test("saint profiles have unique IDs and complete bilingual fields", () => {
 
     for (const field of ["name", "dates", "place", "note"]) {
       assertLocalizedText(saint[field], `${saint.id}.${field}`);
+    }
+  }
+});
+
+test("French and Portuguese editions cover every event and saint", () => {
+  const eventIds = new Set(content.events.map(({ id }) => id));
+  const saintIds = new Set(content.saints.map(({ id }) => id));
+
+  for (const language of additionalLanguages) {
+    const edition = additionalContent[language];
+    assert.ok(edition, `${language} edition must exist`);
+    assert.deepEqual(new Set(Object.keys(edition.events)), eventIds, `${language} must translate every event exactly once`);
+    assert.deepEqual(new Set(Object.keys(edition.saints)), saintIds, `${language} must translate every saint exactly once`);
+
+    for (const [id, event] of Object.entries(edition.events)) {
+      for (const field of ["title", "summary", "detail"]) {
+        assert.equal(typeof event[field], "string", `${language}.${id}.${field} must be text`);
+        assert.ok(event[field].trim(), `${language}.${id}.${field} cannot be empty`);
+      }
+    }
+
+    for (const [id, saint] of Object.entries(edition.saints)) {
+      for (const field of ["name", "dates", "place", "note"]) {
+        assert.equal(typeof saint[field], "string", `${language}.${id}.${field} must be text`);
+        assert.ok(saint[field].trim(), `${language}.${id}.${field} cannot be empty`);
+      }
     }
   }
 });

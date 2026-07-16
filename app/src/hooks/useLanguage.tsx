@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
-import { translate } from "../i18n";
+import { isLanguage, translate } from "../i18n";
 import type { CopyKey } from "../i18n";
 import type { Language } from "../types";
 
@@ -14,16 +14,17 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 function getInitialLanguage(): Language {
   const requested = new URLSearchParams(window.location.search).get("lang");
-  if (requested === "en" || requested === "es") return requested;
+  if (isLanguage(requested)) return requested;
 
   try {
     const saved = window.localStorage.getItem("timeline-language");
-    if (saved === "en" || saved === "es") return saved;
+    if (isLanguage(saved)) return saved;
   } catch {
     // Storage can be unavailable in privacy-restricted contexts.
   }
 
-  return navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+  const browserLanguage = navigator.language.toLowerCase().split("-")[0];
+  return isLanguage(browserLanguage) ? browserLanguage : "en";
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -31,15 +32,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = language === "es"
-      ? "Dos mil años de la Iglesia católica"
-      : "Two Thousand Years of the Catholic Church";
+    document.title = translate(language, "pageTitle");
 
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description) {
-      description.content = language === "es"
-        ? "Una cronología bilingüe y basada en fuentes de los apóstoles, los santos, los papas, los concilios y los momentos decisivos de la historia de la Iglesia católica."
-        : "A bilingual, source-led chronology of the apostles, saints, popes, councils, and turning points in Catholic Church history.";
+      description.content = translate(language, "metaDescription");
     }
 
     try {
@@ -49,8 +46,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
 
     const url = new URL(window.location.href);
-    if (language === "es") url.searchParams.set("lang", "es");
-    else url.searchParams.delete("lang");
+    if (language === "en") url.searchParams.delete("lang");
+    else url.searchParams.set("lang", language);
     try {
       window.history.replaceState(window.history.state, "", url);
     } catch {

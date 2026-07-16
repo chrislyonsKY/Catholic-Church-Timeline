@@ -2,11 +2,11 @@
 
 [![Verify GitHub Pages bundle](https://github.com/chrislyonsKY/Catholic-Church-Timeline/actions/workflows/pages.yml/badge.svg)](https://github.com/chrislyonsKY/Catholic-Church-Timeline/actions/workflows/pages.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-a7482e.svg)](LICENSE)
-[![English and Spanish](https://img.shields.io/badge/languages-English%20%7C%20Espa%C3%B1ol-2f6866.svg)](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=es)
+[![Four complete languages](https://img.shields.io/badge/languages-EN%20%7C%20ES%20%7C%20FR%20%7C%20PT-2f6866.svg)](https://chrislyonsKY.github.io/Catholic-Church-Timeline/)
 
-**Two Thousand Years of the Catholic Church** is a bilingual digital exhibition of apostolic witness, saints, councils, papal succession, reform, division, and renewal from AD 30 to the present.
+**Two Thousand Years of the Catholic Church** is a multilingual digital exhibition of apostolic witness, saints, councils, papal succession, reform, division, and renewal from AD 30 to the present.
 
-**[Explore the live timeline](https://chrislyonsKY.github.io/Catholic-Church-Timeline/)** · **[Abrir en español](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=es)**
+**[Explore in English](https://chrislyonsKY.github.io/Catholic-Church-Timeline/)** · **[Español](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=es)** · **[Français](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=fr)** · **[Português](https://chrislyonsKY.github.io/Catholic-Church-Timeline/?lang=pt)**
 
 ## The exhibition
 
@@ -15,14 +15,17 @@ The interface carries the editorial rigor of the Cartographic Archive into a dis
 - 52 curated historical records across six eras
 - A data-driven chronometer plotting all 52 events across twenty centuries
 - 15 apostolic profiles and 26 representative saint profiles
-- Search across English and Spanish names, descriptions, people, councils, and documents
-- Era, category, period, sort, and layout controls
-- Source-linked event dialogs with keyboard and backdrop dismissal
-- A complete Spanish interface selected with the **English / Español** control
-- Responsive, print-aware layouts and reduced-motion support
+- Complete English, Spanish, French, and Portuguese interface and content editions
+- Search across all four languages, including names, descriptions, people, councils, and documents
+- A two-handle century navigator combined with era, category, period, sort, and layout controls
+- Deep-linked event dossiers with era context, chronology neighbors, related records, people, sources, and copyable URLs
+- An interactive communion-and-fracture atlas linking major Christian traditions back to the chronology
+- Shareable apostle and saint profiles with scriptural or connected historical records
+- A five-step guided tour and persistent language detection
+- User-controlled text sizing, high contrast, reduced motion, responsive layouts, and print support
 - Semantic headings, native controls, skip navigation, visible focus, and live announcements
 
-The selected language is stored locally and reflected in the shareable URL. Spanish can be opened directly with `?lang=es`.
+The selected language is stored locally and reflected in the shareable URL. Use `?lang=es`, `?lang=fr`, or `?lang=pt` to open a specific edition. Every historical event also has a stable `?event=…` address.
 
 ## Architecture
 
@@ -31,13 +34,13 @@ This edition replaces the earlier single-file prototype with a maintainable, typ
 | Layer | Implementation |
 | --- | --- |
 | UI | React 19 components with semantic HTML |
-| Language | Typed English/Spanish dictionaries and localized content records |
+| Language | Typed English, Spanish, French, and Portuguese dictionaries and local content packs |
 | Styling | Tailwind CSS 4 plus a documented editorial component layer |
 | Tooling | TypeScript 5 and Vite 7 |
 | Validation | Node test runner data-contract tests plus strict TypeScript build |
 | Hosting | Versioned Vite bundle served by GitHub Pages and verified by GitHub Actions |
 
-Historical content lives separately from presentation code in `app/src/data/content.json`. Adding a record does not require editing a component or duplicating markup.
+Historical content lives separately from presentation code in `app/src/data/content.json`; French and Portuguese editions live in `app/src/data/content-extra.json`. Adding a record does not require editing a component or duplicating markup.
 
 ## Run locally
 
@@ -58,7 +61,7 @@ Vite prints the local address when the development server starts.
 npm run check
 ```
 
-The command validates record counts, unique IDs, categories, eras, source URLs, and both language editions before running a strict TypeScript production build. Preview that build with:
+The command validates record counts, unique IDs, categories, eras, source URLs, and all four language editions before running a strict TypeScript production build. Preview that build with:
 
 ```bash
 npm run preview
@@ -87,7 +90,7 @@ app/
     ├── data/         Typed chronology, apostle, saint, and source records
     ├── hooks/        Language state and URL persistence
     ├── App.tsx       Page composition
-    ├── i18n.ts       English and Spanish interface copy
+    ├── i18n.ts       Four complete interface dictionaries
     ├── styles.css    Tailwind entry point and editorial design system
     └── types.ts      Shared domain types
 assets/               Generated, browser-ready production assets
@@ -104,7 +107,7 @@ Individual records link to primary references where available. Core reference co
 
 ## Attribution
 
-The original hand-drawn chronology was created by **Joe Bland in 2008**. This project is a structured, bilingual digital interpretation with expanded historical context, navigation, and references. The original source photograph is not included in the site or repository.
+The original hand-drawn chronology was created by **Joe Bland in 2008**. This project is a structured, multilingual digital interpretation with expanded historical context, navigation, and references. The original source photograph is not included in the site or repository.
 
 ## License
 

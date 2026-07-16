@@ -1,4 +1,4 @@
-export type Language = "en" | "es";
+export type Language = "en" | "es" | "fr" | "pt";
 
 export type LocalizedText = Record<Language, string>;
 
@@ -46,6 +46,8 @@ export interface Apostle {
   mark: string;
   name: LocalizedText;
   note: LocalizedText;
+  reference: string;
+  relatedEventId?: string;
 }
 
 export interface Saint {
@@ -55,6 +57,7 @@ export interface Saint {
   place: LocalizedText;
   note: LocalizedText;
   period: SaintPeriodId;
+  relatedEventId?: string;
 }
 
 export interface Era {

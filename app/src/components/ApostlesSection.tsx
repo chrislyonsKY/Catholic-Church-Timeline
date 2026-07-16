@@ -1,9 +1,16 @@
+import { useState } from "react";
 import { apostles } from "../data";
 import { useLanguage } from "../hooks/useLanguage";
-import { localize } from "../utils";
+import { buildPageUrl, copyText, localize } from "../utils";
 
 export function ApostlesSection() {
   const { language, t } = useLanguage();
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  async function shareProfile(id: string) {
+    const copied = await copyText(buildPageUrl({ event: null }, `#apostle-${id}`));
+    setCopiedId(copied ? id : null);
+  }
 
   return (
     <section id="apostles" className="apostles-section section-shell" aria-labelledby="apostles-title">
@@ -17,11 +24,19 @@ export function ApostlesSection() {
 
       <ol className="apostle-register">
         {apostles.map((apostle, index) => (
-          <li key={apostle.id}>
+          <li id={`apostle-${apostle.id}`} key={apostle.id}>
             <span className="apostle-register__number">{String(index + 1).padStart(2, "0")}</span>
             <span className="apostle-register__mark" aria-hidden="true">{apostle.mark}</span>
             <h3>{localize(apostle.name, language)}</h3>
             <p>{localize(apostle.note, language)}</p>
+            <details>
+              <summary>{t("moreDetails")}</summary>
+              <dl>
+                <div><dt>{t("scriptureLabel")}</dt><dd>{apostle.reference}</dd></div>
+              </dl>
+              {apostle.relatedEventId && <a href={buildPageUrl({ event: apostle.relatedEventId }, "#timeline")}>{t("connectedRecord")} <span aria-hidden="true">↗</span></a>}
+              <button type="button" onClick={() => shareProfile(apostle.id)}>{copiedId === apostle.id ? t("linkCopied") : t("shareProfile")}</button>
+            </details>
           </li>
         ))}
       </ol>
