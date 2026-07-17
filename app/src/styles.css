@@ -5215,6 +5215,12 @@ html[data-motion="reduced"] *::after {
   color: var(--chalk);
 }
 
+.liturgical-days button.is-selected:hover:not(:disabled),
+.liturgical-days button.is-selected:focus-visible {
+  background: var(--night);
+  color: var(--chalk);
+}
+
 .liturgical-days button.is-selected::after {
   border-color: rgb(255 250 240 / 58%);
 }

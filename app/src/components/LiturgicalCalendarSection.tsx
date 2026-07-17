@@ -189,10 +189,17 @@ export function LiturgicalCalendarSection() {
     const nextDate = clampOfficialDate(date);
     const parsed = utcDateFromIso(nextDate);
     const nextYear = parsed.getUTCFullYear() as OfficialCalendarYear;
+    const nextMonth = parsed.getUTCMonth();
     setYear(nextYear);
-    setMonth(parsed.getUTCMonth());
+    setMonth(nextMonth);
     setSelectedDate(nextDate);
-    if (focus) pendingFocus.current = nextDate;
+    if (focus) {
+      if (nextDate === selectedDate && nextYear === year && nextMonth === month) {
+        window.requestAnimationFrame(() => dayButtonRefs.current.get(nextDate)?.focus());
+      } else {
+        pendingFocus.current = nextDate;
+      }
+    }
   }
 
   function changeMonth(nextYear: number, nextMonth: number, focus = false) {
