@@ -20,6 +20,9 @@ The interface carries the editorial rigor of the Cartographic Archive into a dis
 - A two-handle century navigator combined with era, category, period, sort, and layout controls
 - Deep-linked event dossiers with era context, chronology neighbors, related records, people, sources, and copyable URLs
 - An interactive communion-and-fracture atlas linking major Christian traditions back to the chronology
+- A separate, keyboard-navigable **Liturgical Year** for the modern Roman Rite, using the General Roman Calendar and the Proper Calendar for the United States
+- Complete 2026–2028 month calendars with observance, rank, season, patterned liturgical color, Sunday and weekday cycles, Psalter week, USCCB Lectionary number, and official readings links
+- A jurisdiction control for the Sunday or Thursday observance of the Ascension in the appropriate U.S. ecclesiastical provinces
 - A synchronized “Church in Any Year” control that reorganizes the event horizon, places, evidence graph, and digitized sources
 - An ArcGIS historical atlas with documented site/city/region precision and a complete HTML place index
 - A D3 knowledge constellation with focused and galaxy views across events, people, editorial eras, and disclosed source pairings
@@ -40,6 +43,7 @@ This edition replaces the earlier single-file prototype with a maintainable, typ
 | UI | React 19 components with semantic HTML |
 | Language | Typed English, Spanish, French, and Portuguese dictionaries and local content packs |
 | Styling | Tailwind CSS 4 plus a documented editorial component layer |
+| Liturgical calendar | Pinned Romcal U.S. calendar bundle, compiled into language-specific static datasets and checked against official USCCB editions |
 | Historical atlas | ArcGIS Maps SDK 5.1 modules loaded on demand from Esri’s CDN |
 | Evidence graph | Deterministic D3 force layout with inspectable relationship types |
 | Manuscript viewer | OpenSeadragon with Vatican Apostolic Library IIIF image services |
@@ -47,7 +51,7 @@ This edition replaces the earlier single-file prototype with a maintainable, typ
 | Validation | Node test runner data-contract tests plus strict TypeScript build |
 | Hosting | Versioned Vite bundle served by GitHub Pages and verified by GitHub Actions |
 
-Historical content lives separately from presentation code in `app/src/data/content.json`; French and Portuguese editions live in `app/src/data/content-extra.json`. Atlas locations, IIIF objects, and evidence rules live in `app/src/data/livingAtlas.ts` and `app/src/data/knowledgeGraph.ts`. Adding a record does not require duplicating presentation markup. The evidence and interaction contract is documented in [`docs/LIVING_ATLAS_SPEC.md`](docs/LIVING_ATLAS_SPEC.md).
+Historical content lives separately from presentation code in `app/src/data/content.json`; French and Portuguese editions live in `app/src/data/content-extra.json`. The generated liturgical datasets live in `app/src/data/liturgicalCalendars/`, and the official USCCB Lectionary index lives in `app/src/data/lectionaryReferences.json`. Atlas locations, IIIF objects, and evidence rules live in `app/src/data/livingAtlas.ts` and `app/src/data/knowledgeGraph.ts`. Adding a record does not require duplicating presentation markup. The evidence and interaction contract is documented in [`docs/LIVING_ATLAS_SPEC.md`](docs/LIVING_ATLAS_SPEC.md).
 
 ## Run locally
 
@@ -68,7 +72,7 @@ Vite prints the local address when the development server starts.
 npm run check
 ```
 
-The command validates record counts, unique IDs, categories, eras, source URLs, all four language editions, atlas coverage, and IIIF service contracts before running a strict TypeScript production build. Preview that build with:
+The command validates record counts, unique IDs, categories, eras, source URLs, all four language editions, every 2026–2028 liturgical date, movable principal celebrations, both U.S. Ascension observances, atlas coverage, and IIIF service contracts before running a strict TypeScript production build. Preview that build with:
 
 ```bash
 npm run preview
@@ -111,6 +115,8 @@ tests/                Content contract tests
 This is a curated learning aid, not an exhaustive ecclesiastical history. Approximate dates are marked with “c.”, editorial period boundaries are identified as such, and complex developments are described as processes rather than isolated moments.
 
 Individual records link to primary references where available. Core reference collections include the [Holy See’s list of Supreme Pontiffs](https://www.vatican.va/content/vatican/en/holy-father.html), [historical councils archive](https://www.vatican.va/archive/hist_councils/index.htm), [Catechism of the Catholic Church](https://www.vatican.va/archive/ENG0015/_INDEX.HTM), and the [USCCB Bible](https://bible.usccb.org/bible).
+
+The Liturgical Year is explicitly scoped to the modern, post-1969 Roman Rite. Celebration data is generated from the pinned `romcal@3.0.0-dev.125` U.S. proper bundle. Lectionary numbers are extracted from the official [USCCB Liturgical Calendar for the Dioceses of the United States of America](https://www.usccb.org/resources/liturgical-calendar-dioceses-united-states-america). The site links to the USCCB for reading texts and does not reproduce them. Maintainers can rebuild the checked-in data with `npm run build:liturgical-calendars` and `npm run build:lectionary-reference` (the latter requires Poppler’s `pdftotext`).
 
 ## Attribution
 

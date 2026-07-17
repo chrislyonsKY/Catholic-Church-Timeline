@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { AccessibilityProvider } from "./hooks/useAccessibility";
 import { ApostlesSection } from "./components/ApostlesSection";
 import { ChronologySection } from "./components/ChronologySection";
@@ -13,6 +13,8 @@ import { TraditionMap } from "./components/TraditionMap";
 import { LanguageProvider, useLanguage } from "./hooks/useLanguage";
 import type { EraId } from "./types";
 import { LivingAtlasSection } from "./components/LivingAtlasSection";
+
+const LiturgicalCalendarSection = lazy(() => import("./components/LiturgicalCalendarSection"));
 
 function TimelineSite() {
   const { t } = useLanguage();
@@ -34,6 +36,9 @@ function TimelineSite() {
       <main id="main-content">
         <Hero onStartTour={() => setTourOpen(true)} />
         <ChronologySection onBrowseEra={browseEra} />
+        <Suspense fallback={<section id="liturgical-year" className="liturgical-year-section liturgical-year-section--loading section-shell" aria-busy="true" />}>
+          <LiturgicalCalendarSection />
+        </Suspense>
         <LivingAtlasSection />
         <TimelineExplorer era={era} onEraChange={setEra} />
         <TraditionMap />

@@ -6,6 +6,7 @@ import { ReadingSettings } from "./ReadingSettings";
 
 const navigation = [
   ["#chronology", "navChronology"],
+  ["#liturgical-year", "navLiturgicalYear"],
   ["#atlas", "navAtlas"],
   ["#timeline", "navTimeline"],
   ["#traditions", "navBranches"],
